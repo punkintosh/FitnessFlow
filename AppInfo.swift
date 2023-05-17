@@ -29,27 +29,27 @@ extension UIColor {
     }
 }
 
-class AppInfo{
+class AppInfo {
     // Strings
     static let appName = "FitnessFlow"
     static let appDescription = "Go with the flow and build your fitness."
     // Colors
     static let colorPrimary = UIColor(hex: 0xFF5722)
-    static let colorSecondary_Black = UIColor(hex: 0x101010)
-    static let colorSecondary_Gray = UIColor(hex: 0x757575)
-    static let colorSecondary_White = UIColor(hex: 0xFFFFFF)
-    static let colorTertiary_Black = UIColor(hex: 0x000000)
-    static let colorTertiary_LightGray = UIColor(hex: 0x979797)
-    static let colorTertiary_White = UIColor(hex: 0xFAFAFA)
-    static let colorFont_White = UIColor(hex: 0xFFFFFF)
-    static let colorFont_Black = UIColor(hex: 0x101010)
-    static let colorFont_LightGray = UIColor(hex: 0x757575)
-    static let colorFont_DarkGray = UIColor(hex: 0x333333)
-    static let colorFont_Orange = UIColor(hex: 0xFF5722)
+    static let colorSecondaryBlack = UIColor(hex: 0x101010)
+    static let colorSecondaryGray = UIColor(hex: 0x757575)
+    static let colorSecondaryWhite = UIColor(hex: 0xFFFFFF)
+    static let colorTertiaryBlack = UIColor(hex: 0x000000)
+    static let colorTertiaryLightGray = UIColor(hex: 0x979797)
+    static let colorTertiaryWhite = UIColor(hex: 0xFAFAFA)
+    static let colorFontWhite = UIColor(hex: 0xFFFFFF)
+    static let colorFontBlack = UIColor(hex: 0x101010)
+    static let colorFontLightGray = UIColor(hex: 0x757575)
+    static let colorFontDarkGray = UIColor(hex: 0x333333)
+    static let colorFontOrange = UIColor(hex: 0xFF5722)
     // Fonts
-    static let fontSizeHeader = UIFont.boldSystemFont(ofSize: 24)
-    static let fontSizeSubHeader = UIFont.systemFont(ofSize: 16)
+    static let fontSizeHeader: UIFont = .boldSystemFont(ofSize: 24)
+    static let fontSizeSubHeader: UIFont = .systemFont(ofSize: 16)
     // Buttons
-    static let buttonFontSize = UIFont.boldSystemFont(ofSize: 16)
-    static let buttonCornerRadius = CGFloat(8)
+    static let buttonFontSize: UIFont = .boldSystemFont(ofSize: 16)
+    static let buttonCornerRadius: CGFloat = 8
 }
