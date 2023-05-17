@@ -13,6 +13,7 @@
 		6049BF902A14C00400C369AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6049BF8E2A14C00400C369AA /* Main.storyboard */; };
 		6049BF922A14C00700C369AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6049BF912A14C00700C369AA /* Assets.xcassets */; };
 		6049BF952A14C00700C369AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6049BF932A14C00700C369AA /* LaunchScreen.storyboard */; };
+		6049BF9D2A14C05C00C369AA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6049BF9C2A14C05C00C369AA /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		6049BF912A14C00700C369AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6049BF942A14C00700C369AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6049BF962A14C00700C369AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6049BF9C2A14C05C00C369AA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		6049BF9E2A14CDDC00C369AA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +43,8 @@
 		6049BF7C2A14C00400C369AA = {
 			isa = PBXGroup;
 			children = (
+				6049BF9E2A14CDDC00C369AA /* README.md */,
+				6049BF9C2A14C05C00C369AA /* .gitignore */,
 				6049BF872A14C00400C369AA /* FitnessFlow */,
 				6049BF862A14C00400C369AA /* Products */,
 			);
@@ -125,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6049BF9D2A14C05C00C369AA /* .gitignore in Resources */,
 				6049BF952A14C00700C369AA /* LaunchScreen.storyboard in Resources */,
 				6049BF922A14C00700C369AA /* Assets.xcassets in Resources */,
 				6049BF902A14C00400C369AA /* Main.storyboard in Resources */,
