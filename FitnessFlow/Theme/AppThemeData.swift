@@ -1,5 +1,5 @@
 //
-//  AppInfo.swift
+//  AppThemeData.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-17.
@@ -29,7 +29,7 @@ extension UIColor {
     }
 }
 
-class AppInfo {
+class AppThemeData {
     // Strings
     static let appName = "FitnessFlow"
     static let appDescription = "Go with the flow and build your fitness."
