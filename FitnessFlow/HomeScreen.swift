@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class HomeScreen: UIViewController {
 
@@ -30,15 +31,16 @@ class HomeScreen: UIViewController {
         view.addSubview(helloLabel)
         view.addSubview(sloganLabel)
 
-        NSLayoutConstraint.activate([
-            helloLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            helloLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            sloganLabel.topAnchor.constraint(equalTo: helloLabel.bottomAnchor, constant: 8),
-            sloganLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-    }
+        helloLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
 
+        sloganLabel.snp.makeConstraints { make in
+            make.top.equalTo(helloLabel.snp.bottom).offset(8)
+            make.centerX.equalToSuperview()
+        }
+    }
 }
 
 

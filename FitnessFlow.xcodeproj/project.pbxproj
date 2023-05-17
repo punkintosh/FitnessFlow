@@ -13,6 +13,7 @@
 		6049BF922A14C00700C369AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6049BF912A14C00700C369AA /* Assets.xcassets */; };
 		6049BF952A14C00700C369AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6049BF932A14C00700C369AA /* LaunchScreen.storyboard */; };
 		6049BF9D2A14C05C00C369AA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6049BF9C2A14C05C00C369AA /* .gitignore */; };
+		6049BFA12A14D28600C369AA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6049BFA02A14D28600C369AA /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6049BFA12A14D28600C369AA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,9 @@
 			dependencies = (
 			);
 			name = FitnessFlow;
+			packageProductDependencies = (
+				6049BFA02A14D28600C369AA /* SnapKit */,
+			);
 			productName = FitnessFlow;
 			productReference = 6049BF852A14C00400C369AA /* FitnessFlow.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 6049BF7C2A14C00400C369AA;
+			packageReferences = (
+				6049BF9F2A14D28600C369AA /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 6049BF862A14C00400C369AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -350,6 +358,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6049BF9F2A14D28600C369AA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6049BFA02A14D28600C369AA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6049BF9F2A14D28600C369AA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6049BF7D2A14C00400C369AA /* Project object */;
 }
