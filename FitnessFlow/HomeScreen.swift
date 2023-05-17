@@ -12,22 +12,32 @@ class HomeScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        view.backgroundColor = AppInfo.colorSecondary_White
 
+        
         let helloLabel = UILabel()
-        helloLabel.text = "FitnessFlow"
+        helloLabel.text = AppInfo.appName
         helloLabel.textAlignment = .center
-        helloLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1.0)
-        helloLabel.font = UIFont.boldSystemFont(ofSize: 24)
+        helloLabel.textColor = AppInfo.colorFont_Black
+        helloLabel.font = AppInfo.fontSizeHeader
         helloLabel.translatesAutoresizingMaskIntoConstraints = false
 
         let sloganLabel = UILabel()
-        sloganLabel.text = "Go with the flow and build your fitness."
+        sloganLabel.text = AppInfo.appDescription
         sloganLabel.textAlignment = .center
-        sloganLabel.textColor = UIColor.gray
-        sloganLabel.font = UIFont.systemFont(ofSize: 16)
+        sloganLabel.textColor = AppInfo.colorFont_LightGray
+        sloganLabel.font = AppInfo.fontSizeSubHeader
         sloganLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let continueButton = UIButton()
+        continueButton.setTitle("Continue", for: .normal)
+        continueButton.setTitleColor(.white, for: .normal)
+        continueButton.backgroundColor = AppInfo.colorPrimary
+        continueButton.titleLabel?.font = AppInfo.buttonFontSize
+        continueButton.layer.cornerRadius = AppInfo.buttonCornerRadius
+        continueButton.translatesAutoresizingMaskIntoConstraints = false
 
+        view.addSubview(continueButton)
         view.addSubview(helloLabel)
         view.addSubview(sloganLabel)
 
@@ -39,6 +49,13 @@ class HomeScreen: UIViewController {
         sloganLabel.snp.makeConstraints { make in
             make.top.equalTo(helloLabel.snp.bottom).offset(8)
             make.centerX.equalToSuperview()
+        }
+        
+        continueButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(sloganLabel.snp.bottom).offset(16)
+            make.width.equalTo(200)
+            make.height.equalTo(40)
         }
     }
 }
