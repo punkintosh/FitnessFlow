@@ -15,19 +15,19 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        title = "Log In"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.backgroundColor = AppThemeData.colorSecondaryWhite
-        
-
-        let navBarTitleFont = AppThemeData.fontSizeLargeTitle ?? UIFont.systemFont(ofSize: 16, weight: .semibold)
-        let navBarTitleColor = AppThemeData.colorTextBlack
-        
-        let attributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: navBarTitleColor,
-            .font: navBarTitleFont
-        ]
-        navigationController?.navigationBar.largeTitleTextAttributes = attributes
+//        title = "Log In"
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.backgroundColor = AppThemeData.colorSecondaryWhite
+//
+//
+//        let navBarTitleFont = AppThemeData.fontSizeLargeTitle ?? UIFont.systemFont(ofSize: 16, weight: .semibold)
+//        let navBarTitleColor = AppThemeData.colorTextBlack
+//
+//        let attributes: [NSAttributedString.Key: Any] = [
+//            .foregroundColor: navBarTitleColor,
+//            .font: navBarTitleFont
+//        ]
+//        navigationController?.navigationBar.largeTitleTextAttributes = attributes
     }
     
     private func setupUI() {

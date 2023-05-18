@@ -41,7 +41,7 @@ class CAuthHeader: UIView {
     private func setupConstraints() {
         let stackView = UIStackView(arrangedSubviews: [labelTitle, labelCaption])
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = 5
         
         addSubview(stackView)
         addSubview(imageView)

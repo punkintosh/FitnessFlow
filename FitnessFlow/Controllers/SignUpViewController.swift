@@ -15,8 +15,8 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        title = "Sign Up"
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        title = "Sign Up"
+//        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.backgroundColor = AppThemeData.colorSecondaryWhite
         navigationController?.navigationBar.tintColor = AppThemeData.colorTextDarkGray
     }

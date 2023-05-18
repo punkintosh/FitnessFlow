@@ -10,6 +10,8 @@ import SnapKit
 
 class LogInView: UIView {
 
+    let authHeader = CAuthHeader()
+    
     let emailLabel = CLabelTextField(text: "Email")
     let passwordLabel = CLabelTextField(text: "Password")
     
@@ -37,6 +39,7 @@ class LogInView: UIView {
     }
     
     private func setupUI() {
+        addSubview(authHeader)
         addSubview(emailLabel)
         addSubview(emailTextField)
         addSubview(passwordLabel)
@@ -44,9 +47,16 @@ class LogInView: UIView {
         addSubview(logInButton)
         addSubview(switchLoginButton)
         
+        authHeader.configure(title: "Sign Up", caption: "Create your account", imageName: "logo_l.png")
+        
+        authHeader.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(88)
+        }
         
         emailLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+//            make.top.equalToSuperview().offset(20)
+            make.top.equalTo(authHeader.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
