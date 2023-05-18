@@ -49,13 +49,11 @@ class LogInViewController: UIViewController {
         let email = logInView.emailTextField.text ?? ""
         let password = logInView.passwordTextField.text ?? ""
         
-//        let formValidator = FormValidator()
-//        if formValidator.validateLogIn(viewController: self, email: email, password: password) {
-//            print("Email: ", email)
-//            print("Password: ", password)
-//        }
-        print("Email: ", email)
-        print("Password: ", password)
+        let formValidator = FormValidator()
+        if formValidator.validateLogIn(viewController: self, email: email, password: password) {
+            print("Email: ", email)
+            print("Password: ", password)
+        }
     }
     
     @objc private func switchToSignUp() {

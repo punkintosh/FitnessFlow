@@ -8,8 +8,40 @@
 import UIKit
 
 class FormValidator {
+    
+    func validateEmail(email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+    
+    func validateLogIn(viewController: UIViewController, email: String, password: String) -> Bool {
+        
+        if email.isEmpty && password.isEmpty {
+            showErrorAlert(viewController: viewController, error: "All Fields Required", message: "Please fill in all the required fields.")
+            return false
+        }
+        
+        if email.isEmpty {
+            showErrorAlert(viewController: viewController, error: "Email Required", message: "Please fill in your email.")
+            return false
+        }
+        
+        if !validateEmail(email: email) {
+            showErrorAlert(viewController: viewController, error: "Invalid Email", message: "Please enter a valid email address.")
+            return false
+        }
+        
+        if password.isEmpty {
+            showErrorAlert(viewController: viewController, error: "Password Required", message: "Please fill in your password")
+            return false
+        }
+        
+        return true
+    }
+    
     func validateSignUp(viewController: UIViewController, firstName: String, lastName: String, email: String, password: String, confirmPassword: String) -> Bool {
-        // Validate and process the sign-up data
+        
         if firstName.isEmpty && lastName.isEmpty && email.isEmpty && password.isEmpty && confirmPassword.isEmpty {
             showErrorAlert(viewController: viewController, error: "All Fields Required", message: "Please fill in all the required fields.")
             return false
@@ -30,8 +62,18 @@ class FormValidator {
             return false
         }
         
+        if !validateEmail(email: email) {
+            showErrorAlert(viewController: viewController, error: "Invalid Email", message: "Please enter a valid email address.")
+            return false
+        }
+        
         if password.isEmpty {
-            showErrorAlert(viewController: viewController, error: "Password Required", message: "Please fill in your password")
+            showErrorAlert(viewController: viewController, error: "Password Required", message: "Please fill in your password.")
+            return false
+        }
+        
+        if password.count < 8 {
+            showErrorAlert(viewController: viewController, error: "Invalid Password", message: "Password should be at least \(8) characters long.")
             return false
         }
         
