@@ -9,10 +9,17 @@ import UIKit
 import SnapKit
 
 class AuthHeader: UIView {
-    private let label: UILabel = {
+    private let labelTitle: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 32)
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = AppThemeData.fontSizeTitle1
+        return label
+    }()
+    
+    private let labelCaption: UILabel = {
+        let label = UILabel()
+        label.textColor = AppThemeData.colorTextPrimary
+        label.font = AppThemeData.fontSizeTextButton
         return label
     }()
     
@@ -33,12 +40,20 @@ class AuthHeader: UIView {
     }
     
     private func setupSubviews() {
-        addSubview(label)
+        addSubview(labelTitle)
+        addSubview(labelCaption)
         addSubview(imageView)
     }
     
     private func setupConstraints() {
-        label.snp.makeConstraints { make in
+        let stackView = UIStackView(arrangedSubviews: [labelTitle, labelCaption])
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        
+        addSubview(stackView)
+        addSubview(imageView)
+        
+        stackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(8)
         }
@@ -46,14 +61,15 @@ class AuthHeader: UIView {
         imageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(16)
-            make.width.equalTo(80)
-            make.height.equalTo(80)
+            make.width.equalTo(120)
+            make.height.equalTo(120)
         }
     }
 
     
-    func configure(labelText: String, imageName: String) {
-        label.text = labelText
+    func configure(title: String, caption: String, imageName: String) {
+        labelTitle.text = title
+        labelCaption.text = caption
         imageView.image = UIImage(named: imageName)
     }
 }

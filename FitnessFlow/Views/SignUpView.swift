@@ -55,12 +55,12 @@ class SignUpView: UIView {
         addSubview(switchLoginButton)
         
         
-        authHeader.configure(labelText: "Sign Up", imageName: "logo_l.png")
+        authHeader.configure(title: "Sign Up", caption: "Create your account", imageName: "logo_l.png")
         
         authHeader.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
             make.leading.trailing.equalToSuperview().inset(8)
-            make.height.equalTo(40)
+            make.height.equalTo(70)
         }
         
         firstNameLabel.snp.makeConstraints { make in
@@ -126,22 +126,22 @@ class SignUpView: UIView {
         signUpButton.snp.makeConstraints { make in
             make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
-            make.width.equalTo(200)
+            make.width.equalTo(250)
             make.height.equalTo(50)
         }
         
         switchLoginButton.snp.makeConstraints { make in
             make.top.equalTo(signUpButton.snp.bottom).offset(2)
             make.centerX.equalToSuperview()
-            make.width.equalTo(200)
+            make.width.equalTo(250)
             make.height.equalTo(50)
         }
     }
     
     private static func createLabel(text: String) -> UILabel {
         let label = UILabel()
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 16)
+        label.textColor = AppThemeData.colorTextDarkGray
+        label.font = AppThemeData.fontSizeSubhead
         label.text = text
         return label
     }
@@ -149,6 +149,7 @@ class SignUpView: UIView {
     private static func createTextField(placeholder: String) -> UITextField {
         let textField = UITextField()
         textField.placeholder = placeholder
+        textField.font = AppThemeData.fontSizeBody
         textField.borderStyle = .roundedRect
         return textField
     }

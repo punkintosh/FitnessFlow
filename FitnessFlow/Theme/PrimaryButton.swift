@@ -12,9 +12,9 @@ class PrimaryButton: UIButton {
         super.init(frame: .zero)
         
         self.setTitle(title, for: .normal)
-        self.setTitleColor(AppThemeData.colorFontWhite, for: .normal)
+        self.setTitleColor(AppThemeData.colorTextWhite, for: .normal)
         self.backgroundColor = AppThemeData.colorPrimary
-        self.titleLabel?.font = AppThemeData.buttonFontSize
+        self.titleLabel?.font = AppThemeData.fontSizeButton
         self.layer.cornerRadius = AppThemeData.buttonCornerRadius
     }
     

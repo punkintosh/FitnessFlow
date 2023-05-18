@@ -12,16 +12,16 @@ class HomeView: UIView {
     let helloLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = AppThemeData.colorFontBlack
-        label.font = AppThemeData.fontSizeHeader
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = AppThemeData.fontSizeTitle1
         return label
     }()
     
     let sloganLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = AppThemeData.colorFontLightGray
-        label.font = AppThemeData.fontSizeSubHeader
+        label.textColor = AppThemeData.colorTextLightGray
+        label.font = AppThemeData.fontSizeTitle2
         label.numberOfLines = 0
         return label
     }()
@@ -29,9 +29,9 @@ class HomeView: UIView {
     let continueButton: UIButton = {
         let button = UIButton()
         button.setTitle("Continue", for: .normal)
-        button.setTitleColor(AppThemeData.colorFontWhite, for: .normal)
+        button.setTitleColor(AppThemeData.colorTextWhite, for: .normal)
         button.backgroundColor = AppThemeData.colorPrimary
-        button.titleLabel?.font = AppThemeData.buttonFontSize
+        button.titleLabel?.font = AppThemeData.fontSizeButton
         button.layer.cornerRadius = AppThemeData.buttonCornerRadius
         return button
     }()

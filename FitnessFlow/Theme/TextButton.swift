@@ -12,9 +12,9 @@ class TextButton: UILabel {
         super.init(frame: .zero)
         
         self.text = text
-        self.textColor = .black
+        self.textColor = AppThemeData.colorTextDarkGray
         self.textAlignment = .center
-        self.font = UIFont.systemFont(ofSize: 16)
+        self.font = AppThemeData.fontSizeTextButton
         self.isUserInteractionEnabled = true
     }
     

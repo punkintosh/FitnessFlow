@@ -41,15 +41,26 @@ class AppThemeData {
     static let colorTertiaryBlack = UIColor(hex: 0x000000)
     static let colorTertiaryLightGray = UIColor(hex: 0x979797)
     static let colorTertiaryWhite = UIColor(hex: 0xFAFAFA)
-    static let colorFontWhite = UIColor(hex: 0xFFFFFF)
-    static let colorFontBlack = UIColor(hex: 0x101010)
-    static let colorFontLightGray = UIColor(hex: 0x757575)
-    static let colorFontDarkGray = UIColor(hex: 0x333333)
-    static let colorFontOrange = UIColor(hex: 0xFF5722)
-    // Fonts
-    static let fontSizeHeader: UIFont = .boldSystemFont(ofSize: 24)
-    static let fontSizeSubHeader: UIFont = .systemFont(ofSize: 16)
+    /// Text Colors
+    static let colorTextPrimary = UIColor(hex: 0xFF5722)
+    static let colorTextWhite = UIColor(hex: 0xFFFFFF)
+    static let colorTextBlack = UIColor(hex: 0x101010)
+    static let colorTextDarkGray = UIColor(hex: 0x333333)
+    static let colorTextLightGray = UIColor(hex: 0x757575)
+    // Typography
+    static let fontSizeLargeTitle = UIFont(name: "Raleway-Black", size: 33)
+    static let fontSizeTitle1 = UIFont(name: "Raleway-Bold", size: 27)
+    static let fontSizeTitle2 = UIFont(name: "Raleway-Bold", size: 21)
+    static let fontSizeTitle3 = UIFont(name: "Raleway-SemiBold", size: 19)
+    static let fontSizeHeadline = UIFont(name: "Raleway-Light", size: 16)
+    static let fontSizeBody = UIFont(name: "Raleway-Regular", size: 16)
+    static let fontSizeButton = UIFont(name: "Raleway-Bold", size: 16)
+    static let fontSizeTextButton = UIFont(name: "Raleway-SemiBold", size: 16)
+    static let fontSizeCallout = UIFont(name: "Raleway-Regular", size: 15)
+    static let fontSizeSubhead = UIFont(name: "Raleway-Regular", size: 14)
+    static let fontSizeFootnote = UIFont(name: "Raleway-Regular", size: 12)
+    static let fontSizeCaption1 = UIFont(name: "Raleway-SemiBold", size: 12)
+    static let fontSizeCaption2 = UIFont(name: "Raleway-Regular", size: 11)
     // Buttons
-    static let buttonFontSize: UIFont = .boldSystemFont(ofSize: 16)
     static let buttonCornerRadius: CGFloat = 8
 }
