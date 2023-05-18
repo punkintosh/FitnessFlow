@@ -1,5 +1,5 @@
 //
-//  PrimaryButton.swift
+//  CRoundedButton.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PrimaryButton: UIButton {
+class CRoundedButton: UIButton {
     init(title: String) {
         super.init(frame: .zero)
         

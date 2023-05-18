@@ -9,6 +9,9 @@ import UIKit
 import SnapKit
 
 class HomeView: UIView {
+    
+    //    let authHeader = CAuthHeader()
+    
     let helloLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -47,9 +50,17 @@ class HomeView: UIView {
     }
     
     private func setupUI() {
+        //        addSubview(authHeader)
         addSubview(helloLabel)
         addSubview(sloganLabel)
         addSubview(continueButton)
+        
+        //        authHeader.configure(title: "Sign Up", caption: "Create your account", imageName: "logo_l.png")
+        //
+        //        authHeader.snp.makeConstraints { make in
+        //            make.top.leading.trailing.equalToSuperview()
+        //            make.height.equalTo(88)
+        //        }
         
         helloLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()

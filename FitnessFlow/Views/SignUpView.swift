@@ -1,29 +1,29 @@
+//
+//  SignUpView.swift
+//  FitnessFlow
+//
+//  Created by Punkintosh on 2023-05-17.
+//
+
 import UIKit
 import SnapKit
 
 class SignUpView: UIView {
     
-    let authHeader = AuthHeader()
-
-    let firstNameLabel: UILabel = createLabel(text: "First Name")
-    let lastNameLabel: UILabel = createLabel(text: "Last Name")
-    let emailLabel: UILabel = createLabel(text: "Email")
-    let passwordLabel: UILabel = createLabel(text: "Password")
-    let confirmPasswordLabel: UILabel = createLabel(text: "Confirm Password")
+    let firstNameLabel = CLabelTextField(text: "First Name")
+    let lastNameLabel = CLabelTextField(text: "Last Name")
+    let emailLabel = CLabelTextField(text: "Email")
+    let passwordLabel = CLabelTextField(text: "Password")
+    let confirmPasswordLabel = CLabelTextField(text: "Confirm Password")
     
-    let firstNameTextField: UITextField = createTextField(placeholder: "First Name")
-    let lastNameTextField: UITextField = createTextField(placeholder: "Last Name")
-    let emailTextField: UITextField = createTextField(placeholder: "Email")
-    let passwordTextField: UITextField = createTextField(placeholder: "Password")
-    let confirmPasswordTextField: UITextField = createTextField(placeholder: "Confirm Password")
+    let firstNameTextField = CTextField(placeholder: "First Name")
+    let lastNameTextField = CTextField(placeholder: "Last Name")
+    let emailTextField = CTextField(placeholder: "Email")
+    let passwordTextField = CTextField(placeholder: "Password")
+    let confirmPasswordTextField = CTextField(placeholder: "Confirm Password")
     
-    let signUpButton: PrimaryButton = {
-        let button = PrimaryButton(title: "Sign Up")
-        return button
-    }()
-    
-    let switchLoginButton: TextButton = {
-        let button = TextButton(text: "Switch to Login")
+    let signUpButton: CRoundedButton = {
+        let button = CRoundedButton(title: "Sign Up")
         return button
     }()
 
@@ -38,9 +38,6 @@ class SignUpView: UIView {
     }
     
     private func setupUI() {
-        backgroundColor = AppThemeData.colorSecondaryWhite
-        
-        addSubview(authHeader)
         addSubview(firstNameLabel)
         addSubview(firstNameTextField)
         addSubview(lastNameLabel)
@@ -52,19 +49,9 @@ class SignUpView: UIView {
         addSubview(confirmPasswordLabel)
         addSubview(confirmPasswordTextField)
         addSubview(signUpButton)
-        addSubview(switchLoginButton)
-        
-        
-        authHeader.configure(title: "Sign Up", caption: "Create your account", imageName: "logo_l.png")
-        
-        authHeader.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.trailing.equalToSuperview().inset(8)
-            make.height.equalTo(70)
-        }
         
         firstNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(authHeader.snp.bottom).offset(20)
+            make.top.equalToSuperview().offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
         }
@@ -126,31 +113,10 @@ class SignUpView: UIView {
         signUpButton.snp.makeConstraints { make in
             make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
-            make.width.equalTo(250)
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
             make.height.equalTo(50)
         }
         
-        switchLoginButton.snp.makeConstraints { make in
-            make.top.equalTo(signUpButton.snp.bottom).offset(2)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(250)
-            make.height.equalTo(50)
-        }
-    }
-    
-    private static func createLabel(text: String) -> UILabel {
-        let label = UILabel()
-        label.textColor = AppThemeData.colorTextDarkGray
-        label.font = AppThemeData.fontSizeSubhead
-        label.text = text
-        return label
-    }
-    
-    private static func createTextField(placeholder: String) -> UITextField {
-        let textField = UITextField()
-        textField.placeholder = placeholder
-        textField.font = AppThemeData.fontSizeBody
-        textField.borderStyle = .roundedRect
-        return textField
     }
 }

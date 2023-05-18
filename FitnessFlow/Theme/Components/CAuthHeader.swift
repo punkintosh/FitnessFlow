@@ -1,14 +1,7 @@
-//
-//  AuthHeader.swift
-//  FitnessFlow
-//
-//  Created by Punkintosh on 2023-05-17.
-//
-
 import UIKit
 import SnapKit
 
-class AuthHeader: UIView {
+class CAuthHeader: UIView {
     private let labelTitle: UILabel = {
         let label = UILabel()
         label.textColor = AppThemeData.colorTextBlack
@@ -55,7 +48,7 @@ class AuthHeader: UIView {
         
         stackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(8)
+            make.leading.equalToSuperview().offset(16)
         }
         
         imageView.snp.makeConstraints { make in
@@ -65,11 +58,14 @@ class AuthHeader: UIView {
             make.height.equalTo(120)
         }
     }
-
     
     func configure(title: String, caption: String, imageName: String) {
         labelTitle.text = title
         labelCaption.text = caption
         imageView.image = UIImage(named: imageName)
+    }
+    
+    func setAppBarTitle(_ title: String) {
+        labelTitle.text = title
     }
 }

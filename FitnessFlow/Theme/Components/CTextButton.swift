@@ -1,5 +1,5 @@
 //
-//  TextButton.swift
+//  CTextButton.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextButton: UILabel {
+class CTextButton: UILabel {
     init(text: String) {
         super.init(frame: .zero)
         

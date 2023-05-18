@@ -34,13 +34,17 @@
 		60B193E72A15D74B0045FCAF /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B193D52A15D74B0045FCAF /* Raleway-Medium.ttf */; };
 		60B193E82A15D74B0045FCAF /* Raleway-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B193D62A15D74B0045FCAF /* Raleway-LightItalic.ttf */; };
 		60B193E92A15D74B0045FCAF /* Raleway-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B193D72A15D74B0045FCAF /* Raleway-BlackItalic.ttf */; };
+		60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EB2A15F0120045FCAF /* LogInView.swift */; };
+		60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193ED2A15F0250045FCAF /* LogInViewController.swift */; };
+		60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EF2A15F0EA0045FCAF /* CTextField.swift */; };
+		60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193F22A15F7330045FCAF /* CLabelTextField.swift */; };
 		60B8E5D22A14FA0D00547439 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D12A14FA0D00547439 /* HomeView.swift */; };
 		60B8E5D52A15070900547439 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D42A15070900547439 /* HomeModel.swift */; };
 		60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D62A1510A000547439 /* SignUpView.swift */; };
 		60B8E5D92A1510DB00547439 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D82A1510DB00547439 /* SignUpViewController.swift */; };
-		60B8E5DB2A1528A300547439 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DA2A1528A300547439 /* TextButton.swift */; };
-		60B8E5DD2A15293400547439 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DC2A15293400547439 /* PrimaryButton.swift */; };
-		60B8E5DF2A1535E200547439 /* AuthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DE2A1535E200547439 /* AuthHeader.swift */; };
+		60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DA2A1528A300547439 /* CTextButton.swift */; };
+		60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DC2A15293400547439 /* CRoundedButton.swift */; };
+		60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DE2A1535E200547439 /* CAuthHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,13 +77,17 @@
 		60B193D52A15D74B0045FCAF /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		60B193D62A15D74B0045FCAF /* Raleway-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-LightItalic.ttf"; sourceTree = "<group>"; };
 		60B193D72A15D74B0045FCAF /* Raleway-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-BlackItalic.ttf"; sourceTree = "<group>"; };
+		60B193EB2A15F0120045FCAF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		60B193ED2A15F0250045FCAF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		60B193EF2A15F0EA0045FCAF /* CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextField.swift; sourceTree = "<group>"; };
+		60B193F22A15F7330045FCAF /* CLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabelTextField.swift; sourceTree = "<group>"; };
 		60B8E5D12A14FA0D00547439 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		60B8E5D42A15070900547439 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		60B8E5D62A1510A000547439 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		60B8E5D82A1510DB00547439 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		60B8E5DA2A1528A300547439 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
-		60B8E5DC2A15293400547439 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		60B8E5DE2A1535E200547439 /* AuthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeader.swift; sourceTree = "<group>"; };
+		60B8E5DA2A1528A300547439 /* CTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextButton.swift; sourceTree = "<group>"; };
+		60B8E5DC2A15293400547439 /* CRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRoundedButton.swift; sourceTree = "<group>"; };
+		60B8E5DE2A1535E200547439 /* CAuthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAuthHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,11 +172,24 @@
 			path = Italic;
 			sourceTree = "<group>";
 		};
+		60B193F12A15F2AC0045FCAF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				60B8E5DA2A1528A300547439 /* CTextButton.swift */,
+				60B8E5DC2A15293400547439 /* CRoundedButton.swift */,
+				60B193F22A15F7330045FCAF /* CLabelTextField.swift */,
+				60B193EF2A15F0EA0045FCAF /* CTextField.swift */,
+				60B8E5DE2A1535E200547439 /* CAuthHeader.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		60B3CF112A14F1F200BA6FCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				6049BF8C2A14C00400C369AA /* HomeViewController.swift */,
 				60B8E5D82A1510DB00547439 /* SignUpViewController.swift */,
+				60B193ED2A15F0250045FCAF /* LogInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,11 +220,9 @@
 		60B3CF162A14F28100BA6FCF /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				60B193F12A15F2AC0045FCAF /* Components */,
 				60B193B32A15D4BD0045FCAF /* Fonts */,
 				6049BFA22A14D34600C369AA /* AppThemeData.swift */,
-				60B8E5DA2A1528A300547439 /* TextButton.swift */,
-				60B8E5DC2A15293400547439 /* PrimaryButton.swift */,
-				60B8E5DE2A1535E200547439 /* AuthHeader.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -213,6 +232,7 @@
 			children = (
 				60B8E5D12A14FA0D00547439 /* HomeView.swift */,
 				60B8E5D62A1510A000547439 /* SignUpView.swift */,
+				60B193EB2A15F0120045FCAF /* LogInView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -319,18 +339,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */,
 				604EE7402A154BD800D2598D /* FormValidator.swift in Sources */,
 				6049BF8D2A14C00400C369AA /* HomeViewController.swift in Sources */,
-				60B8E5DB2A1528A300547439 /* TextButton.swift in Sources */,
+				60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */,
 				6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */,
 				60B8E5D92A1510DB00547439 /* SignUpViewController.swift in Sources */,
-				60B8E5DD2A15293400547439 /* PrimaryButton.swift in Sources */,
+				60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */,
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
 				60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */,
-				60B8E5DF2A1535E200547439 /* AuthHeader.swift in Sources */,
+				60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */,
 				60B8E5D22A14FA0D00547439 /* HomeView.swift in Sources */,
+				60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */,
+				60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */,
 				60B8E5D52A15070900547439 /* HomeModel.swift in Sources */,
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
+				60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

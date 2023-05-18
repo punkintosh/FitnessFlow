@@ -15,10 +15,14 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
+        title = "Sign Up"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.backgroundColor = AppThemeData.colorSecondaryWhite
+        navigationController?.navigationBar.tintColor = AppThemeData.colorTextDarkGray
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = AppThemeData.colorSecondaryWhite
         view.addSubview(signUpView)
         
         signUpView.snp.makeConstraints { make in
@@ -26,11 +30,8 @@ class SignUpViewController: UIViewController {
         }
     }
 
-    
     private func setupBindings() {
         signUpView.signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(switchToLogin))
-        signUpView.switchLoginButton.addGestureRecognizer(tapGesture)
     }
     
     @objc private func signUpButtonTapped() {
@@ -50,8 +51,4 @@ class SignUpViewController: UIViewController {
         }
     }
 
-    
-    @objc func switchToLogin() {
-        print("Switch to Login")
-    }
 }
