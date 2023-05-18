@@ -40,39 +40,39 @@ class FormValidator {
         return true
     }
     
-    func validateSignUp(viewController: UIViewController, firstName: String, lastName: String, email: String, password: String, confirmPassword: String) -> Bool {
+    func validateSignUp(viewController: UIViewController, userModel: UserModel, confirmPassword:String) -> Bool {
         
-        if firstName.isEmpty && lastName.isEmpty && email.isEmpty && password.isEmpty && confirmPassword.isEmpty {
+        if userModel.firstName.isEmpty && userModel.lastName.isEmpty && userModel.email.isEmpty && userModel.password.isEmpty && confirmPassword.isEmpty {
             showErrorAlert(viewController: viewController, error: "All Fields Required", message: "Please fill in all the required fields.")
             return false
         }
         
-        if firstName.isEmpty {
+        if userModel.firstName.isEmpty {
             showErrorAlert(viewController: viewController, error: "First Name Required", message: "Please fill in your first name.")
             return false
         }
         
-        if lastName.isEmpty {
+        if userModel.lastName.isEmpty {
             showErrorAlert(viewController: viewController, error: "Last Name Required", message: "Please fill in your last name.")
             return false
         }
         
-        if email.isEmpty {
+        if userModel.email.isEmpty {
             showErrorAlert(viewController: viewController, error: "Email Required", message: "Please fill in your email.")
             return false
         }
         
-        if !validateEmail(email: email) {
+        if !validateEmail(email: userModel.email) {
             showErrorAlert(viewController: viewController, error: "Invalid Email", message: "Please enter a valid email address.")
             return false
         }
         
-        if password.isEmpty {
+        if userModel.password.isEmpty {
             showErrorAlert(viewController: viewController, error: "Password Required", message: "Please fill in your password.")
             return false
         }
         
-        if password.count < 8 {
+        if userModel.password.count < 8 {
             showErrorAlert(viewController: viewController, error: "Invalid Password", message: "Password should be at least \(8) characters long.")
             return false
         }
@@ -82,7 +82,7 @@ class FormValidator {
             return false
         }
         
-        if password != confirmPassword {
+        if userModel.password != confirmPassword {
             showErrorAlert(viewController: viewController, error: "Passwords Do Not Match", message: "Password and Confirm Password do not match.")
             return false
         }

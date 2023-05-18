@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import MBProgressHUD
 
 class SignUpViewController: UIViewController {
     private let signUpView = SignUpView()
@@ -41,13 +42,29 @@ class SignUpViewController: UIViewController {
         let password = signUpView.passwordTextField.text ?? ""
         let confirmPassword = signUpView.confirmPasswordTextField.text ?? ""
         
+        let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password)
+        let authModel = AuthModel(email: email, password: password)
+        
         let formValidator = FormValidator()
-        if formValidator.validateSignUp(viewController: self, firstName: firstName, lastName: lastName, email: email, password: password, confirmPassword: confirmPassword) {
-            print("First Name: ", firstName)
-            print("Last Name: ", lastName)
-            print("Email: ", email)
-            print("Password: ", password)
+        if formValidator.validateSignUp(viewController: self, userModel: userModel, confirmPassword: confirmPassword) {
+            print("---------- User Details ----------")
+            print("First Name: ", userModel.firstName)
+            print("Last Name: ", userModel.lastName)
+            print("Email: ", userModel.email)
+            print("Password: ", userModel.password)
             print("Confirm Password: ", confirmPassword)
+            print("Signing Up....")
+            
+            AuthService.signUp(authModel: authModel) { result in
+                switch result {
+                case .success(let user):
+                    // User signed up successfully
+                    print("User signed up:", user)
+                case .failure(let error):
+                    // Handle sign up error
+                    print("Sign up error:", error)
+                }
+            }
         }
     }
 

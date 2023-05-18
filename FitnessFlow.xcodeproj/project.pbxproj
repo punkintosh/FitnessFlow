@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		602B19DC2A16510300F377C0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 602B19DB2A16510300F377C0 /* FirebaseAnalytics */; };
+		602B19DE2A16510300F377C0 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 602B19DD2A16510300F377C0 /* FirebaseAuth */; };
+		602B19E02A16510300F377C0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 602B19DF2A16510300F377C0 /* FirebaseDatabase */; };
+		602B19E22A16510300F377C0 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 602B19E12A16510300F377C0 /* FirebaseFirestore */; };
+		602B19E42A16510300F377C0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 602B19E32A16510300F377C0 /* FirebaseStorage */; };
+		602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B19E52A165C8900F377C0 /* AuthModel.swift */; };
+		602B19E82A165CA900F377C0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B19E72A165CA900F377C0 /* UserModel.swift */; };
 		6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF882A14C00400C369AA /* AppDelegate.swift */; };
 		6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF8A2A14C00400C369AA /* SceneDelegate.swift */; };
 		6049BF8D2A14C00400C369AA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF8C2A14C00400C369AA /* HomeViewController.swift */; };
@@ -16,6 +23,8 @@
 		6049BFA12A14D28600C369AA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6049BFA02A14D28600C369AA /* SnapKit */; };
 		6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BFA22A14D34600C369AA /* AppThemeData.swift */; };
 		604EE7402A154BD800D2598D /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE73F2A154BD800D2598D /* FormValidator.swift */; };
+		607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607F0EDB2A1661CE0047DAB2 /* AuthService.swift */; };
+		607F0EDF2A1666D70047DAB2 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 607F0EDE2A1666D70047DAB2 /* MBProgressHUD */; };
 		60B193D82A15D74B0045FCAF /* Raleway-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */; };
 		60B193D92A15D74B0045FCAF /* Raleway-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B193C72A15D74A0045FCAF /* Raleway-Thin.ttf */; };
 		60B193DA2A15D74B0045FCAF /* Raleway-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B193C82A15D74A0045FCAF /* Raleway-Black.ttf */; };
@@ -48,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		602B19E52A165C8900F377C0 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		602B19E72A165CA900F377C0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6049BF852A14C00400C369AA /* FitnessFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6049BF882A14C00400C369AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6049BF8A2A14C00400C369AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +70,7 @@
 		6049BF9E2A14CDDC00C369AA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6049BFA22A14D34600C369AA /* AppThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeData.swift; sourceTree = "<group>"; };
 		604EE73F2A154BD800D2598D /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
+		607F0EDB2A1661CE0047DAB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
 		60B193C72A15D74A0045FCAF /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
 		60B193C82A15D74A0045FCAF /* Raleway-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Black.ttf"; sourceTree = "<group>"; };
@@ -95,7 +107,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602B19DC2A16510300F377C0 /* FirebaseAnalytics in Frameworks */,
+				602B19DE2A16510300F377C0 /* FirebaseAuth in Frameworks */,
+				602B19E02A16510300F377C0 /* FirebaseDatabase in Frameworks */,
+				607F0EDF2A1666D70047DAB2 /* MBProgressHUD in Frameworks */,
+				602B19E22A16510300F377C0 /* FirebaseFirestore in Frameworks */,
 				6049BFA12A14D28600C369AA /* SnapKit in Frameworks */,
+				602B19E42A16510300F377C0 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				60B8E5D42A15070900547439 /* HomeModel.swift */,
+				602B19E52A165C8900F377C0 /* AuthModel.swift */,
+				602B19E72A165CA900F377C0 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -213,6 +233,7 @@
 		60B3CF152A14F27400BA6FCF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				607F0EDB2A1661CE0047DAB2 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -262,6 +283,12 @@
 			name = FitnessFlow;
 			packageProductDependencies = (
 				6049BFA02A14D28600C369AA /* SnapKit */,
+				602B19DB2A16510300F377C0 /* FirebaseAnalytics */,
+				602B19DD2A16510300F377C0 /* FirebaseAuth */,
+				602B19DF2A16510300F377C0 /* FirebaseDatabase */,
+				602B19E12A16510300F377C0 /* FirebaseFirestore */,
+				602B19E32A16510300F377C0 /* FirebaseStorage */,
+				607F0EDE2A1666D70047DAB2 /* MBProgressHUD */,
 			);
 			productName = FitnessFlow;
 			productReference = 6049BF852A14C00400C369AA /* FitnessFlow.app */;
@@ -293,6 +320,8 @@
 			mainGroup = 6049BF7C2A14C00400C369AA;
 			packageReferences = (
 				6049BF9F2A14D28600C369AA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				602B19DA2A16510300F377C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				607F0EDD2A1666D70047DAB2 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 			);
 			productRefGroup = 6049BF862A14C00400C369AA /* Products */;
 			projectDirPath = "";
@@ -345,15 +374,18 @@
 				60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */,
 				6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */,
 				60B8E5D92A1510DB00547439 /* SignUpViewController.swift in Sources */,
+				607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */,
 				60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */,
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
 				60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */,
 				60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */,
+				602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */,
 				60B8E5D22A14FA0D00547439 /* HomeView.swift in Sources */,
 				60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */,
 				60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */,
 				60B8E5D52A15070900547439 /* HomeModel.swift in Sources */,
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
+				602B19E82A165CA900F377C0 /* UserModel.swift in Sources */,
 				60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +596,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		602B19DA2A16510300F377C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		6049BF9F2A14D28600C369AA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -572,13 +612,51 @@
 				kind = branch;
 			};
 		};
+		607F0EDD2A1666D70047DAB2 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jdg/MBProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		602B19DB2A16510300F377C0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 602B19DA2A16510300F377C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		602B19DD2A16510300F377C0 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 602B19DA2A16510300F377C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		602B19DF2A16510300F377C0 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 602B19DA2A16510300F377C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		602B19E12A16510300F377C0 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 602B19DA2A16510300F377C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		602B19E32A16510300F377C0 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 602B19DA2A16510300F377C0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		6049BFA02A14D28600C369AA /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6049BF9F2A14D28600C369AA /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		607F0EDE2A1666D70047DAB2 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 607F0EDD2A1666D70047DAB2 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			productName = MBProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -17,6 +17,8 @@ Pods/
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
+.GoogleService-Info.plist
+FitnessFlow/GoogleService-Info.plist
 
 ### macOS ###
 # General
