@@ -11,9 +11,9 @@ import SnapKit
 class ProfileView: UIView {
     // Tab Header
     let tabHeader = CTabHeader()
-    // Section Header
-    let userLabel = CLabel.createLabelTitle3()
-    // Section Body
+    // Section 1 Header
+    let section1TitleLabel = CLabel.createLabelTitle3()
+    // Section 1 Body
     let nameTitleLabel = CLabel.createLabelTextButtonSize()
     let nameDataLabel = CLabel.createLabelBody()
     let emailTitleLabel = CLabel.createLabelTextButtonSize()
@@ -25,10 +25,10 @@ class ProfileView: UIView {
         return button
     }()
     
-    // Section Header Layer
-    let headerStackView = UIStackView()
-    // Section Body Layer
-    let contentStackView = UIStackView()
+    // Section 1 Header Layer
+    let section1HeaderStackView = UIStackView()
+    // Section 1 Body Layer
+    let section1BodyStackView = UIStackView()
     
     init() {
         super.init(frame: .zero)
@@ -40,7 +40,8 @@ class ProfileView: UIView {
     }
     
     func configure(with userModel: UserModel?) {
-        userLabel.text = "Account Details"
+        // Section 1
+        section1TitleLabel.text = "Account Details"
         nameTitleLabel.text = "Name"
         emailTitleLabel.text = "Email"
         
@@ -59,29 +60,30 @@ class ProfileView: UIView {
         tabHeader.configure(title: "Profile", caption: "Manage your health data")
         addSubview(tabHeader)
         
-        // Section Header Layer
-        headerStackView.spacing = 16
-        headerStackView.addArrangedSubview(userLabel)
-        headerStackView.addArrangedSubview(editButtonAccount)
-        addSubview(headerStackView)
+        // Section 1 Header Layer
+        section1HeaderStackView.spacing = 16
+        section1HeaderStackView.addArrangedSubview(section1TitleLabel)
+        section1HeaderStackView.addArrangedSubview(editButtonAccount)
+        addSubview(section1HeaderStackView)
         
-        // Section Body Layer
-        contentStackView.axis = .horizontal
-        contentStackView.spacing = 16
-        addSubview(contentStackView)
+        // Section 1 Body Layer
+        section1BodyStackView.axis = .horizontal
+        section1BodyStackView.spacing = 16
+        addSubview(section1BodyStackView)
         
-        // Section Body Layer Left
-        let titleStackView = createStackView(axis: .vertical, spacing: 8)
-        titleStackView.addArrangedSubview(nameTitleLabel)
-        titleStackView.addArrangedSubview(emailTitleLabel)
+        // Section 1 Body Layer Left
+        let section1BodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
+        section1BodyTitleStackView.addArrangedSubview(nameTitleLabel)
+        section1BodyTitleStackView.addArrangedSubview(emailTitleLabel)
         
-        // Section Body Layer Right
-        let dataStackView = createStackView(axis: .vertical, spacing: 8)
-        dataStackView.addArrangedSubview(nameDataLabel)
-        dataStackView.addArrangedSubview(emailDataLabel)
+        // Section 1 Body Layer Right
+        let section1BodyDataStackView = createStackView(axis: .vertical, spacing: 8)
+        section1BodyDataStackView.addArrangedSubview(nameDataLabel)
+        section1BodyDataStackView.addArrangedSubview(emailDataLabel)
         
-        contentStackView.addArrangedSubview(titleStackView)
-        contentStackView.addArrangedSubview(dataStackView)
+        // Section 1 Body Layer
+        section1BodyStackView.addArrangedSubview(section1BodyTitleStackView)
+        section1BodyStackView.addArrangedSubview(section1BodyDataStackView)
         
         createConstraints()
     }
@@ -102,16 +104,16 @@ class ProfileView: UIView {
             make.height.equalTo(88)
         }
         
-        // Section Header Layer
-        headerStackView.snp.makeConstraints { make in
+        // Section 1 Header Layer
+        section1HeaderStackView.snp.makeConstraints { make in
             make.top.equalTo(tabHeader.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
         
-        // Section Body Layer
-        contentStackView.snp.makeConstraints { make in
-            make.top.equalTo(headerStackView.snp.bottom).offset(20)
+        // Section 1 Body Layer
+        section1BodyStackView.snp.makeConstraints { make in
+            make.top.equalTo(section1HeaderStackView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
