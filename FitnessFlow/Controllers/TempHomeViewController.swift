@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  TempHomeViewController.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-17.
@@ -8,12 +8,12 @@
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController {
+class TempHomeViewController: UIViewController {
     private let authModel = AuthModel(email: AuthService.currentUser?.email ?? "", password: "")
-    private let homeView: HomeView
+    private let homeView: TempHomeView
     
     init() {
-        self.homeView = HomeView(authModel: authModel)
+        self.homeView = TempHomeView(authModel: authModel)
         super.init(nibName: nil, bundle: nil)
     }
     

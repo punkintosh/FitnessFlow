@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if AuthService.currentUser == nil {
           appRoot = LogInViewController()
         } else {
-            appRoot = HomeViewController()
+            appRoot = MainTabBarController()
         }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene

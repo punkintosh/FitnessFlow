@@ -47,6 +47,9 @@ class AppThemeData {
     static let colorTextBlack = UIColor(hex: 0x101010)
     static let colorTextDarkGray = UIColor(hex: 0x333333)
     static let colorTextLightGray = UIColor(hex: 0x757575)
+    /// Icon Colors
+    static let colorIconSelected = UIColor(hex: 0xFF5722)
+    static let colorIconUnselected = UIColor(hex: 0x333333)
     // Typography
     static let fontSizeLargeTitle = UIFont(name: "Raleway-Bold", size: 34)
     static let fontSizeTitle1 = UIFont(name: "Raleway-Bold", size: 27)

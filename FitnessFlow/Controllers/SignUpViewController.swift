@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController {
                 
                 if success {
                     print("User signed up and data stored in Firestore")
-                    let homeViewController = HomeViewController()
+                    let homeViewController = MainTabBarController()
                     self?.navigationController?.setViewControllers([homeViewController], animated: true)
                 } else {
                     print("Sign up failed or failed to store user data in Firestore")

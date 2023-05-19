@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  TempHomeView.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-17.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class HomeView: UIView {
+class TempHomeView: UIView {
     
     let helloLabel: UILabel = {
         let label = UILabel()
