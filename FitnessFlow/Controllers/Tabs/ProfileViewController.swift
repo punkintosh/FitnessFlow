@@ -11,8 +11,9 @@ import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
     private let profileView: ProfileView
-    private var userModel: UserModel?
     private let currentUserID = AuthService.currentUser?.uid
+    // Section 1
+    private var userModel: UserModel?
     private var userDocumentListener: ListenerRegistration?
     
     init() {
@@ -28,16 +29,19 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
+        // Section 1
         fetchUserData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Section 1
         startListeningForUserDataChanges()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // Section 1
         stopListeningForUserDataChanges()
     }
     
@@ -50,14 +54,17 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupBindings() {
+        // Section 1
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(editAccountDetails))
         profileView.editButtonAccount.addGestureRecognizer(tapGesture)
     }
     
+    // Section 1
     @objc private func editAccountDetails() {
         print("editAccountDetails...")
     }
     
+    // Section 1
     private func fetchUserData() {
         profileView.configure(with: nil) // Display "Loading..." text initially
         FirestoreService.shared.fetchUserDocument(userID: currentUserID!) { result in
@@ -75,7 +82,7 @@ class ProfileViewController: UIViewController {
         }
     }
 
-    
+    // Section 1
     private func startListeningForUserDataChanges() {
         userDocumentListener = FirestoreService.shared.addUserDocumentListener(userID: currentUserID!) { [weak self] result in
             switch result {
@@ -91,6 +98,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    // Section 1
     private func stopListeningForUserDataChanges() {
         userDocumentListener?.remove()
         userDocumentListener = nil
