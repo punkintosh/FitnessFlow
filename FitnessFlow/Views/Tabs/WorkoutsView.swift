@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class WorkoutsView: UIView {
+    
+    let tabHeader = CTabHeader()
 
     let title: UILabel = {
         let label = UILabel()
@@ -29,15 +31,18 @@ class WorkoutsView: UIView {
     }
 
     private func setupUI() {
-        addSubview(title)
-
-        title.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+        addSubview(tabHeader)
+        
+        tabHeader.configure(title: "Workouts", caption: "Discover new routines")
+        
+        tabHeader.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(88)
         }
     }
 
     private func configure() {
-        title.text = "WorkoutsView"
+        title.text = "Workouts"
     }
 }

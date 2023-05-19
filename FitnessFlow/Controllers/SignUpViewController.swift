@@ -16,12 +16,12 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        navigationController?.navigationBar.backgroundColor = AppThemeData.colorSecondaryWhite
+        navigationController?.navigationBar.backgroundColor = AppThemeData.colorBackgroundLight
         navigationController?.navigationBar.tintColor = AppThemeData.colorTextDarkGray
     }
     
     private func setupUI() {
-        view.backgroundColor = AppThemeData.colorSecondaryWhite
+        view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(signUpView)
         
         signUpView.snp.makeConstraints { make in

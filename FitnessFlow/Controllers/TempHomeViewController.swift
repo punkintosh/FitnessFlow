@@ -28,7 +28,7 @@ class TempHomeViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = AppThemeData.colorSecondaryWhite
+        view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(homeView)
         homeView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

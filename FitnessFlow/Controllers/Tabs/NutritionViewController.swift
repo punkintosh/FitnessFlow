@@ -26,7 +26,7 @@ class NutritionViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = AppThemeData.colorSecondaryWhite
+        view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(nutritionView)
         nutritionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

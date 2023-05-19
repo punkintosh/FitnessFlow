@@ -26,7 +26,7 @@ class WorkoutsViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = AppThemeData.colorSecondaryWhite
+        view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(workoutsView)
         workoutsView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

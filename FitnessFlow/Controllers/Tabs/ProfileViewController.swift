@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = AppThemeData.colorSecondaryWhite
+        view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(profileView)
         profileView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

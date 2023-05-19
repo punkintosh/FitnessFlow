@@ -9,14 +9,8 @@ import UIKit
 import SnapKit
 
 class ProfileView: UIView {
-
-    let title: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = AppThemeData.colorTextBlack
-        label.font = AppThemeData.fontSizeTitle1
-        return label
-    }()
+    
+    let tabHeader = CTabHeader()
 
     let email: UILabel = {
         let label = UILabel()
@@ -37,22 +31,25 @@ class ProfileView: UIView {
     }
 
     private func setupUI() {
-        addSubview(title)
+        addSubview(tabHeader)
         addSubview(email)
 
-        title.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+        tabHeader.configure(title: "Profile", caption: "Manage your heath data")
+        
+        tabHeader.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(88)
         }
         
         email.snp.makeConstraints { make in
-            make.top.equalTo(title.snp.bottom).offset(8)
+            make.top.equalToSuperview()
             make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
     }
 
     private func configure(with authModel: AuthModel) {
-        title.text = "ProfileView"
         email.text = authModel.email
     }
 }

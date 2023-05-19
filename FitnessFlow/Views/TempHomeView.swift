@@ -33,7 +33,7 @@ class TempHomeView: UIView {
         button.setTitleColor(AppThemeData.colorTextWhite, for: .normal)
         button.backgroundColor = AppThemeData.colorPrimary
         button.titleLabel?.font = AppThemeData.fontSizeButton
-        button.layer.cornerRadius = AppThemeData.buttonCornerRadius
+        button.layer.cornerRadius = AppThemeData.cornerRadiusButton
         return button
     }()
     

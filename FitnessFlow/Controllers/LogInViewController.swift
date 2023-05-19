@@ -19,7 +19,7 @@ class LogInViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = AppThemeData.colorSecondaryWhite
+        view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(logInView)
         
         logInView.snp.makeConstraints { make in

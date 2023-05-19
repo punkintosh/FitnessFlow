@@ -10,6 +10,8 @@ import SnapKit
 
 class HomeView: UIView {
     
+    let tabHeader = CTabHeader()
+    
     let title: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -29,11 +31,14 @@ class HomeView: UIView {
     }
     
     private func setupUI() {
-        addSubview(title)
+        addSubview(tabHeader)
         
-        title.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+        tabHeader.configure(title: "Home", caption: "Track your progress")
+        
+        tabHeader.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(16)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(88)
         }
     }
     
