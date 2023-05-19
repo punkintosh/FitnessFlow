@@ -40,16 +40,19 @@ class ProfileView: UIView {
     }
     
     func configure(with userModel: UserModel?) {
-        guard let userModel = userModel else {
-            // Handle the case when userModel is nil or not available
-            return
-        }
         userLabel.text = "Account Details"
         nameTitleLabel.text = "Name"
-        nameDataLabel.text = "\(userModel.firstName) \(userModel.lastName)"
         emailTitleLabel.text = "Email"
-        emailDataLabel.text = userModel.email
+        
+        if let userModel = userModel {
+            nameDataLabel.text = "\(userModel.firstName) \(userModel.lastName)"
+            emailDataLabel.text = userModel.email
+        } else {
+            nameDataLabel.text = "Loading..."
+            emailDataLabel.text = "Loading..."
+        }
     }
+
     
     private func setupUI() {
         // Tab Header

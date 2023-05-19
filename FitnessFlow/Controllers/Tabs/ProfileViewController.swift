@@ -59,6 +59,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func fetchUserData() {
+        profileView.configure(with: nil) // Display "Loading..." text initially
         FirestoreService.shared.fetchUserDocument(userID: currentUserID!) { result in
             switch result {
             case .success(let userData):
@@ -69,9 +70,11 @@ class ProfileViewController: UIViewController {
                 self.profileView.configure(with: self.userModel)
             case .failure(let error):
                 print("Failed to fetch user data: \(error)")
+                // Handle the error and update the UI accordingly
             }
         }
     }
+
     
     private func startListeningForUserDataChanges() {
         userDocumentListener = FirestoreService.shared.addUserDocumentListener(userID: currentUserID!) { [weak self] result in
