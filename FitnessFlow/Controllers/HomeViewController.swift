@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
-    private let homeModel = HomeModel(appName: AppThemeData.appName, appDescription: AppThemeData.appDescription)
+    private let userModel = UserModel(firstName: "Fn", lastName: "Ln", email: AuthService.currentUser?.email ?? "we", password: "wewe")
     private let homeView: HomeView
     
     init() {
-        self.homeView = HomeView(homeModel: homeModel)
+        self.homeView = HomeView(userModel: userModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,18 +36,38 @@ class HomeViewController: UIViewController {
     }
     
     private func setupBindings() {
-        homeView.continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        homeView.signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
     }
     
-    @objc private func continueButtonTapped() {
-        print("App name: ", homeModel.appName)
-        print("App description: ", homeModel.appDescription)
-        
-        let alertController = UIAlertController(title: "Alert", message: "Continue button tapped!", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true, completion: nil)
+    @objc private func signOutButtonTapped() {
+        AuthService.signOut {result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    // Get the current scene
+                    guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                          let delegate = scene.delegate as? SceneDelegate else {
+                        return
+                    }
+                    
+                    // Create a new UIWindow and set the rootViewController to LoginViewController
+                    let window = UIWindow(windowScene: scene)
+                    let loginViewController = LogInViewController()
+                    window.rootViewController = UINavigationController(rootViewController: loginViewController)
+                    
+                    // Set the window and make it visible
+                    delegate.window = window
+                    window.alpha = 0.0
+                    window.makeKeyAndVisible()
+                    
+                    UIView.animate(withDuration: 0.3) {
+                                        window.alpha = 1.0
+                                    }
+                }
+            case .failure(let error):
+                print("Error signing out: \(error.localizedDescription)")
+            }
+        }
     }
+
 }

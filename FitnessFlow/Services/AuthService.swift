@@ -14,7 +14,14 @@ struct AuthService {
             if let user = authResult?.user {
                 completion(.success(user))
             } else if let error = error {
-                completion(.failure(error))
+                if error.localizedDescription == "The email address is already in use by another account." {
+                    let emailError = NSError(domain: "FitnsessFlow.AuthService", code: 0, userInfo: [
+                        NSLocalizedDescriptionKey: "The email address is already in use by another account."
+                    ])
+                    completion(.failure(emailError))
+                } else {
+                    completion(.failure(error))
+                }
             } else {
                 // Handle unexpected case or provide a default error
                 let defaultError = NSError(domain: "FitnsessFlow.AuthService", code: 0, userInfo: [
@@ -25,12 +32,19 @@ struct AuthService {
         }
     }
     
-    static func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+    static func signIn(authModel: AuthModel, completion: @escaping (Result<User, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: authModel.email, password: authModel.password) { (authResult, error) in
             if let user = authResult?.user {
                 completion(.success(user))
             } else if let error = error {
-                completion(.failure(error))
+                if error.localizedDescription == "The password is invalid or the user does not have a password." {
+                    let emailError = NSError(domain: "FitnsessFlow.AuthService", code: 0, userInfo: [
+                        NSLocalizedDescriptionKey: "The password is invalid or the user does not have a password."
+                    ])
+                    completion(.failure(emailError))
+                } else {
+                    completion(.failure(error))
+                }
             } else {
                 // Handle unexpected case or provide a default error
                 let defaultError = NSError(domain: "FitnsessFlow.AuthService", code: 0, userInfo: [

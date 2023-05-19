@@ -47,7 +47,7 @@ class LogInView: UIView {
         addSubview(logInButton)
         addSubview(switchLoginButton)
         
-        authHeader.configure(title: "Sign Up", caption: "Create your account", imageName: "logo_l.png")
+        authHeader.configure(title: "Log In", caption: "Manage your activities", imageName: "logo_l.png")
         
         authHeader.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()

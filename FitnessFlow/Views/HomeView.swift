@@ -10,8 +10,6 @@ import SnapKit
 
 class HomeView: UIView {
     
-    //    let authHeader = CAuthHeader()
-    
     let helloLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -29,9 +27,9 @@ class HomeView: UIView {
         return label
     }()
     
-    let continueButton: UIButton = {
+    let signOutButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Sign Out", for: .normal)
         button.setTitleColor(AppThemeData.colorTextWhite, for: .normal)
         button.backgroundColor = AppThemeData.colorPrimary
         button.titleLabel?.font = AppThemeData.fontSizeButton
@@ -39,10 +37,10 @@ class HomeView: UIView {
         return button
     }()
     
-    init(homeModel: HomeModel) {
+    init(userModel: UserModel) {
         super.init(frame: .zero)
         setupUI()
-        configure(with: homeModel)
+        configure(with: userModel)
     }
     
     required init?(coder: NSCoder) {
@@ -50,17 +48,9 @@ class HomeView: UIView {
     }
     
     private func setupUI() {
-        //        addSubview(authHeader)
         addSubview(helloLabel)
         addSubview(sloganLabel)
-        addSubview(continueButton)
-        
-        //        authHeader.configure(title: "Sign Up", caption: "Create your account", imageName: "logo_l.png")
-        //
-        //        authHeader.snp.makeConstraints { make in
-        //            make.top.leading.trailing.equalToSuperview()
-        //            make.height.equalTo(88)
-        //        }
+        addSubview(signOutButton)
         
         helloLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -72,7 +62,7 @@ class HomeView: UIView {
             make.centerX.equalToSuperview()
         }
         
-        continueButton.snp.makeConstraints { make in
+        signOutButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(sloganLabel.snp.bottom).offset(16)
             make.width.equalTo(200)
@@ -80,9 +70,9 @@ class HomeView: UIView {
         }
     }
     
-    private func configure(with homeModel: HomeModel) {
-        helloLabel.text = homeModel.appName
-        sloganLabel.text = homeModel.appDescription
+    private func configure(with userModel: UserModel) {
+        helloLabel.text = "Welcome"
+        sloganLabel.text = userModel.email
     }
 }
 
