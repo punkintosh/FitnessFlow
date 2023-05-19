@@ -7,11 +7,13 @@
 
 import UIKit
 import SnapKit
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
     private let profileView: ProfileView
     private var userModel: UserModel?
     private let currentUserID = AuthService.currentUser?.uid
+    private var userDocumentListener: ListenerRegistration?
     
     init() {
         self.profileView = ProfileView()
@@ -27,6 +29,16 @@ class ProfileViewController: UIViewController {
         setupUI()
         setupBindings()
         fetchUserData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startListeningForUserDataChanges()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopListeningForUserDataChanges()
     }
     
     private func setupUI() {
@@ -60,5 +72,24 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+    private func startListeningForUserDataChanges() {
+        userDocumentListener = FirestoreService.shared.addUserDocumentListener(userID: currentUserID!) { [weak self] result in
+            switch result {
+            case .success(let userData):
+                self?.userModel = UserModel(firstName: userData["firstName"] as? String ?? "",
+                                            lastName: userData["lastName"] as? String ?? "",
+                                            email: userData["email"] as? String ?? "",
+                                            password: "")
+                self?.profileView.configure(with: self?.userModel)
+            case .failure(let error):
+                print("Failed to fetch user data: \(error)")
+            }
+        }
+    }
+    
+    private func stopListeningForUserDataChanges() {
+        userDocumentListener?.remove()
+        userDocumentListener = nil
+    }
 }
-
