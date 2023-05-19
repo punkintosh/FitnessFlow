@@ -18,7 +18,7 @@ class CTabHeader: UIView {
     
     private let labelCaption: UILabel = {
         let label = UILabel()
-        label.textColor = AppThemeData.colorTextPrimary
+        label.textColor = AppThemeData.colorTextLightGray
         label.font = AppThemeData.fontSizeTextButton
         return label
     }()

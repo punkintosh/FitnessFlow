@@ -10,22 +10,25 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
     private let profileView: ProfileView
-    private let authModel = AuthModel(email: AuthService.currentUser?.email ?? "", password: "")
-
+    private var userModel: UserModel?
+    private let currentUserID = AuthService.currentUser?.uid
+    
     init() {
-        self.profileView = ProfileView(authModel: authModel)
+        self.profileView = ProfileView()
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupBindings()
+        fetchUserData()
     }
-
+    
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(profileView)
@@ -33,6 +36,29 @@ class ProfileViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-
+    
+    private func setupBindings() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(editAccountDetails))
+        profileView.editButtonAccount.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func editAccountDetails() {
+        print("editAccountDetails...")
+    }
+    
+    private func fetchUserData() {
+        FirestoreService.shared.fetchUserDocument(userID: currentUserID!) { result in
+            switch result {
+            case .success(let userData):
+                self.userModel = UserModel(firstName: userData["firstName"] as? String ?? "",
+                                           lastName: userData["lastName"] as? String ?? "",
+                                           email: userData["email"] as? String ?? "",
+                                           password: "")
+                self.profileView.configure(with: self.userModel)
+            case .failure(let error):
+                print("Failed to fetch user data: \(error)")
+            }
+        }
+    }
 }
 

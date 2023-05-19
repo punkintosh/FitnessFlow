@@ -24,7 +24,7 @@ class LogInView: UIView {
     }()
     
     let switchLoginButton: CTextButton = {
-        let button = CTextButton(text: "New User? Sign Up")
+        let button = CTextButton(text: "New User? Sign Up", color: AppThemeData.colorTextDarkGray)
         return button
     }()
     

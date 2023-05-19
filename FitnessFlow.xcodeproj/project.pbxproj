@@ -33,6 +33,7 @@
 		605C145A2A17437E00DCCC8D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14592A17437E00DCCC8D /* ProfileView.swift */; };
 		605C145C2A17645900DCCC8D /* UserHealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C145B2A17645900DCCC8D /* UserHealthModel.swift */; };
 		605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C145D2A17689D00DCCC8D /* CTabHeader.swift */; };
+		605C14602A17864600DCCC8D /* CLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C145F2A17864600DCCC8D /* CLabel.swift */; };
 		607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607F0EDB2A1661CE0047DAB2 /* AuthService.swift */; };
 		607F0EDF2A1666D70047DAB2 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 607F0EDE2A1666D70047DAB2 /* MBProgressHUD */; };
 		60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 60A466392A167D62003609B3 /* FirebaseAnalytics */; };
@@ -99,6 +100,7 @@
 		605C14592A17437E00DCCC8D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		605C145B2A17645900DCCC8D /* UserHealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHealthModel.swift; sourceTree = "<group>"; };
 		605C145D2A17689D00DCCC8D /* CTabHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTabHeader.swift; sourceTree = "<group>"; };
+		605C145F2A17864600DCCC8D /* CLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabel.swift; sourceTree = "<group>"; };
 		607F0EDB2A1661CE0047DAB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		60A4663F2A167DE9003609B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				60B8E5DA2A1528A300547439 /* CTextButton.swift */,
 				60B8E5DC2A15293400547439 /* CRoundedButton.swift */,
+				605C145F2A17864600DCCC8D /* CLabel.swift */,
 				60B193F22A15F7330045FCAF /* CLabelTextField.swift */,
 				60B193EF2A15F0EA0045FCAF /* CTextField.swift */,
 				60B8E5DE2A1535E200547439 /* CAuthHeader.swift */,
@@ -454,6 +457,7 @@
 				605C14502A17427300DCCC8D /* MainTabBarController.swift in Sources */,
 				60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */,
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
+				605C14602A17864600DCCC8D /* CLabel.swift in Sources */,
 				605C144E2A17425E00DCCC8D /* ProfileViewController.swift in Sources */,
 				602B19E82A165CA900F377C0 /* UserModel.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,

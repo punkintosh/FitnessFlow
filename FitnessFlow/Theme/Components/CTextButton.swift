@@ -8,11 +8,11 @@
 import UIKit
 
 class CTextButton: UILabel {
-    init(text: String) {
+    init(text: String, color: UIColor) {
         super.init(frame: .zero)
         
         self.text = text
-        self.textColor = AppThemeData.colorTextDarkGray
+        self.textColor = color
         self.textAlignment = .center
         self.font = AppThemeData.fontSizeTextButton
         self.isUserInteractionEnabled = true
