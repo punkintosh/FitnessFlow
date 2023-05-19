@@ -57,11 +57,19 @@ class ProfileViewController: UIViewController {
         // Section 1
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(editAccountDetails))
         profileView.editButtonAccount.addGestureRecognizer(tapGesture)
+        // Section 2
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(editHealthDetails))
+        profileView.editButtonHealth.addGestureRecognizer(tapGesture2)
     }
     
     // Section 1
     @objc private func editAccountDetails() {
         print("editAccountDetails...")
+    }
+    
+    // Section 2
+    @objc private func editHealthDetails() {
+        print("editHealthDetails...")
     }
     
     // Section 1

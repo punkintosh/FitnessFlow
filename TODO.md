@@ -3,9 +3,6 @@
 ## Now
 
 - **Profile View**
-- Create "Account Details" section
-- Create "Health Details" section
-- Fetch user data from Firestore
 - Save user health data to Firestore
 - Fetch user health data from Firestore
 - Complete Profile tab basics
