@@ -51,16 +51,17 @@ class LogInViewController: UIViewController {
             
             AuthService.signIn(authModel: authModel) { [weak self] result in
                 DispatchQueue.main.async {
-                    progressHUD.hide(animated: true)
                     
                     switch result {
                     case .success(let user):
                         // User signed in successfully
+                        progressHUD.hide(animated: true)
                         print("User signed in:", user)
                         self?.navigationController?.setViewControllers([HomeViewController()], animated: true)
                         
                     case .failure(let error):
                         // Handle sign in error
+                        progressHUD.hide(animated: true)
                         print("Sign in error:", error)
                         if error.localizedDescription == "The password is invalid or the user does not have a password." {
                             CAlert.showAlert(on: self!, title: "Error", message: "Login failed. The password is invalid or the user does not have a password.")

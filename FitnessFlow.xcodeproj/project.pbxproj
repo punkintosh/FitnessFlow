@@ -19,6 +19,7 @@
 		6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BFA22A14D34600C369AA /* AppThemeData.swift */; };
 		604EE7402A154BD800D2598D /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE73F2A154BD800D2598D /* FormValidator.swift */; };
 		605C143F2A17261A00DCCC8D /* CAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C143E2A17261A00DCCC8D /* CAlert.swift */; };
+		605C14412A172DE000DCCC8D /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14402A172DE000DCCC8D /* FirestoreService.swift */; };
 		607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607F0EDB2A1661CE0047DAB2 /* AuthService.swift */; };
 		607F0EDF2A1666D70047DAB2 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 607F0EDE2A1666D70047DAB2 /* MBProgressHUD */; };
 		60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 60A466392A167D62003609B3 /* FirebaseAnalytics */; };
@@ -48,7 +49,6 @@
 		60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EF2A15F0EA0045FCAF /* CTextField.swift */; };
 		60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193F22A15F7330045FCAF /* CLabelTextField.swift */; };
 		60B8E5D22A14FA0D00547439 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D12A14FA0D00547439 /* HomeView.swift */; };
-		60B8E5D52A15070900547439 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D42A15070900547439 /* HomeModel.swift */; };
 		60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D62A1510A000547439 /* SignUpView.swift */; };
 		60B8E5D92A1510DB00547439 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D82A1510DB00547439 /* SignUpViewController.swift */; };
 		60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DA2A1528A300547439 /* CTextButton.swift */; };
@@ -71,6 +71,7 @@
 		6049BFA22A14D34600C369AA /* AppThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeData.swift; sourceTree = "<group>"; };
 		604EE73F2A154BD800D2598D /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 		605C143E2A17261A00DCCC8D /* CAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAlert.swift; sourceTree = "<group>"; };
+		605C14402A172DE000DCCC8D /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		607F0EDB2A1661CE0047DAB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		60A4663F2A167DE9003609B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -96,7 +97,6 @@
 		60B193EF2A15F0EA0045FCAF /* CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextField.swift; sourceTree = "<group>"; };
 		60B193F22A15F7330045FCAF /* CLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabelTextField.swift; sourceTree = "<group>"; };
 		60B8E5D12A14FA0D00547439 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		60B8E5D42A15070900547439 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		60B8E5D62A1510A000547439 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		60B8E5D82A1510DB00547439 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		60B8E5DA2A1528A300547439 /* CTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextButton.swift; sourceTree = "<group>"; };
@@ -217,7 +217,6 @@
 		60B3CF122A14F24D00BA6FCF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				60B8E5D42A15070900547439 /* HomeModel.swift */,
 				602B19E52A165C8900F377C0 /* AuthModel.swift */,
 				602B19E72A165CA900F377C0 /* UserModel.swift */,
 			);
@@ -236,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				607F0EDB2A1661CE0047DAB2 /* AuthService.swift */,
+				605C14402A172DE000DCCC8D /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -370,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */,
+				605C14412A172DE000DCCC8D /* FirestoreService.swift in Sources */,
 				604EE7402A154BD800D2598D /* FormValidator.swift in Sources */,
 				605C143F2A17261A00DCCC8D /* CAlert.swift in Sources */,
 				6049BF8D2A14C00400C369AA /* HomeViewController.swift in Sources */,
@@ -385,7 +386,6 @@
 				60B8E5D22A14FA0D00547439 /* HomeView.swift in Sources */,
 				60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */,
 				60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */,
-				60B8E5D52A15070900547439 /* HomeModel.swift in Sources */,
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
 				602B19E82A165CA900F377C0 /* UserModel.swift in Sources */,
 				60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */,

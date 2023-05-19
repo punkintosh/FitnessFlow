@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
             case .success:
                 DispatchQueue.main.async {
                     self.navigationController?.setViewControllers([LogInViewController()], animated: true)
+                    print("User sign out!")
                 }
             case .failure(let error):
                 print("Error signing out: \(error.localizedDescription)")
