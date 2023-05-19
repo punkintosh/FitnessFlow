@@ -69,7 +69,8 @@ class ProfileViewController: UIViewController {
     
     // Section 2
     @objc private func editHealthDetails() {
-        print("editHealthDetails...")
+        let nextViewController = AddHealthDetailsViewController()
+        navigationController?.pushViewController(nextViewController, animated: false)
     }
     
     // Section 1

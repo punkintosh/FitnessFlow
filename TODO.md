@@ -6,6 +6,7 @@
 - Save user health data to Firestore
 - Fetch user health data from Firestore
 - Complete Profile tab basics
+- Add a log out button
 - **Home View**
 - Show the BMI by calculating
 
