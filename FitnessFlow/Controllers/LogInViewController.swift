@@ -16,19 +16,6 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-//        title = "Log In"
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationBar.backgroundColor = AppThemeData.colorSecondaryWhite
-//
-//
-//        let navBarTitleFont = AppThemeData.fontSizeLargeTitle ?? UIFont.systemFont(ofSize: 16, weight: .semibold)
-//        let navBarTitleColor = AppThemeData.colorTextBlack
-//
-//        let attributes: [NSAttributedString.Key: Any] = [
-//            .foregroundColor: navBarTitleColor,
-//            .font: navBarTitleFont
-//        ]
-//        navigationController?.navigationBar.largeTitleTextAttributes = attributes
     }
     
     private func setupUI() {
@@ -39,7 +26,7 @@ class LogInViewController: UIViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-
+    
     private func setupBindings() {
         logInView.logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(switchToSignUp))
@@ -70,34 +57,19 @@ class LogInViewController: UIViewController {
                     case .success(let user):
                         // User signed in successfully
                         print("User signed in:", user)
-                        self?.navigateToHome()
-//                        self?.showAlert(title: "Success", message: "Sign in successful!") { _ in
-//                            self?.navigateToHome()
-//                        }
+                        self?.navigationController?.setViewControllers([HomeViewController()], animated: true)
+                        
                     case .failure(let error):
                         // Handle sign in error
                         print("Sign in error:", error)
                         if error.localizedDescription == "The password is invalid or the user does not have a password." {
-                            self?.showAlert(title: "Error", message: "Login failed. The password is invalid or the user does not have a password.")
+                            CAlert.showAlert(on: self!, title: "Error", message: "Login failed. The password is invalid or the user does not have a password.")
                         }
-                        self?.showAlert(title: "Error", message: "Login failed. Please try again.")
+                        CAlert.showAlert(on: self!, title: "Error", message: "Login failed. Please try again.")
                     }
                 }
             }
         }
-    }
-    
-    //TODO: Add showAlerts to components later
-    private func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: completion)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    private func navigateToHome() {
-        let homeViewController = HomeViewController()
-        navigationController?.setViewControllers([homeViewController], animated: true)
     }
     
     @objc private func switchToSignUp() {

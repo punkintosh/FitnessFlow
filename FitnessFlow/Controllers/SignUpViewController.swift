@@ -16,8 +16,6 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-//        title = "Sign Up"
-//        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.backgroundColor = AppThemeData.colorSecondaryWhite
         navigationController?.navigationBar.tintColor = AppThemeData.colorTextDarkGray
     }
@@ -30,7 +28,7 @@ class SignUpViewController: UIViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
-
+    
     private func setupBindings() {
         signUpView.signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
@@ -66,33 +64,20 @@ class SignUpViewController: UIViewController {
                     case .success(let user):
                         // User signed up successfully
                         print("User signed up:", user)
-                        self?.showAlert(title: "Success", message: "Sign up successful!") { _ in
-                            self?.navigateToHome()
-                        }
+                        let homeViewController = HomeViewController()
+                        self?.navigationController?.setViewControllers([homeViewController], animated: true)
+                        
                     case .failure(let error):
                         // Handle sign up error
                         print("Sign up error:", error)
                         if error.localizedDescription == "The email address is already in use by another account." {
-                            self?.showAlert(title: "Error", message: "Sign up failed. The email address is already in use by another account.")
+                            CAlert.showAlert(on: self!, title: "Error", message: "Sign up failed. The email address is already in use by another account.")
                         }
-                        self?.showAlert(title: "Error", message: "Sign up failed. Please try again.")
+                        CAlert.showAlert(on: self!, title: "Error", message: "Sign up failed. Please try again.")
                     }
                 }
             }
         }
     }
     
-    //TODO: Add showAlerts to components later
-    private func showAlert(title: String, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: completion)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    private func navigateToHome() {
-        let homeViewController = HomeViewController()
-        navigationController?.setViewControllers([homeViewController], animated: true)
-    }
-
 }

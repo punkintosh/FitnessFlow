@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 class HomeViewController: UIViewController {
-    private let userModel = UserModel(firstName: "Fn", lastName: "Ln", email: AuthService.currentUser?.email ?? "we", password: "wewe")
+    private let authModel = AuthModel(email: AuthService.currentUser?.email ?? "", password: "")
     private let homeView: HomeView
     
     init() {
-        self.homeView = HomeView(userModel: userModel)
+        self.homeView = HomeView(authModel: authModel)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,30 +44,12 @@ class HomeViewController: UIViewController {
             switch result {
             case .success:
                 DispatchQueue.main.async {
-                    // Get the current scene
-                    guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                          let delegate = scene.delegate as? SceneDelegate else {
-                        return
-                    }
-                    
-                    // Create a new UIWindow and set the rootViewController to LoginViewController
-                    let window = UIWindow(windowScene: scene)
-                    let loginViewController = LogInViewController()
-                    window.rootViewController = UINavigationController(rootViewController: loginViewController)
-                    
-                    // Set the window and make it visible
-                    delegate.window = window
-                    window.alpha = 0.0
-                    window.makeKeyAndVisible()
-                    
-                    UIView.animate(withDuration: 0.3) {
-                                        window.alpha = 1.0
-                                    }
+                    self.navigationController?.setViewControllers([LogInViewController()], animated: true)
                 }
             case .failure(let error):
                 print("Error signing out: \(error.localizedDescription)")
             }
         }
     }
-
+    
 }

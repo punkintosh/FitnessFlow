@@ -37,10 +37,10 @@ class HomeView: UIView {
         return button
     }()
     
-    init(userModel: UserModel) {
+    init(authModel: AuthModel) {
         super.init(frame: .zero)
         setupUI()
-        configure(with: userModel)
+        configure(with: authModel)
     }
     
     required init?(coder: NSCoder) {
@@ -70,10 +70,8 @@ class HomeView: UIView {
         }
     }
     
-    private func configure(with userModel: UserModel) {
+    private func configure(with authModel: AuthModel) {
         helloLabel.text = "Welcome"
-        sloganLabel.text = userModel.email
+        sloganLabel.text = authModel.email
     }
 }
-
-

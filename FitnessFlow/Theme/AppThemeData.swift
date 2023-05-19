@@ -15,16 +15,16 @@ extension UIColor {
         let blue = CGFloat(hex & 0x0000FF) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-
+    
     var hexString: String {
         guard let components = cgColor.components, components.count >= 3 else {
             return ""
         }
-
+        
         let red = UInt(components[0] * 255.0)
         let green = UInt(components[1] * 255.0)
         let blue = UInt(components[2] * 255.0)
-
+        
         return String(format: "#%02lX%02lX%02lX", red, green, blue)
     }
 }

@@ -28,8 +28,8 @@ class SignUpView: UIView {
         let button = CRoundedButton(title: "Sign Up")
         return button
     }()
-
-
+    
+    
     init() {
         super.init(frame: .zero)
         setupUI()
@@ -61,7 +61,6 @@ class SignUpView: UIView {
         }
         
         firstNameLabel.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(20)
             make.top.equalTo(authHeader.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)

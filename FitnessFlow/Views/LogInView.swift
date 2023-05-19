@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class LogInView: UIView {
-
+    
     let authHeader = CAuthHeader()
     
     let emailLabel = CLabelTextField(text: "Email")
@@ -27,8 +27,8 @@ class LogInView: UIView {
         let button = CTextButton(text: "New User? Sign Up")
         return button
     }()
-
-
+    
+    
     init() {
         super.init(frame: .zero)
         setupUI()
@@ -55,7 +55,6 @@ class LogInView: UIView {
         }
         
         emailLabel.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(20)
             make.top.equalTo(authHeader.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(20)
