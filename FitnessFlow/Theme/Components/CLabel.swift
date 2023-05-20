@@ -36,7 +36,7 @@ class CLabel {
     public static func createLabelSubhead() -> UILabel {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = AppThemeData.colorTextLightGray
+        label.textColor = AppThemeData.colorTextDarkGray
         label.font = AppThemeData.fontSizeSubhead
         return label
     }

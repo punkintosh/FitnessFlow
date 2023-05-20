@@ -267,7 +267,7 @@ class ProfileView: UIView {
         
         // Health Header Layer
         healthHeaderStackView.snp.makeConstraints { make in
-            make.top.equalTo(accountBodyStackView.snp.bottom).offset(40)
+            make.top.equalTo(accountBodyStackView.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
@@ -288,7 +288,7 @@ class ProfileView: UIView {
         
         // Fitness Header Layer
         fitnessHeaderStackView.snp.makeConstraints { make in
-            make.top.equalTo(healthBodyStackView.snp.bottom).offset(40)
+            make.top.equalTo(healthBodyStackView.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
