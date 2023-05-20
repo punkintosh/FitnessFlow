@@ -1,4 +1,12 @@
+//
+//  HomeView.swift
+//  FitnessFlow
+//
+//  Created by Punkintosh on 2023-05-20.
+//
+
 import UIKit
+import SnapKit
 
 class HomeView: UIView {
     
@@ -15,7 +23,7 @@ class HomeView: UIView {
     
     let title: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.textColor = .black
         label.font = .systemFont(ofSize: 24, weight: .bold)
         return label
@@ -57,9 +65,8 @@ class HomeView: UIView {
         }
         
         contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-            make.width.equalToSuperview()
-            make.leading.trailing.equalToSuperview().offset(16)
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+            make.width.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
         }
         
         title.snp.makeConstraints { make in
