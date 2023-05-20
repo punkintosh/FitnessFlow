@@ -11,11 +11,11 @@ import SnapKit
 class ProfileView: UIView {
     // Tab Header
     let tabHeader = CTabHeader()
-    // Section 1 Header
-    let section1TitleLabel = CLabel.createLabelTitle3()
-    // Section 1 Subhead
-    let section1SubheadLabel = CLabel.createLabelSubhead()
-    // Section 1 Body
+    // Account Header
+    let accountTitleLabel = CLabel.createLabelTitle3()
+    // Account Subhead
+    let accountSubheadLabel = CLabel.createLabelSubhead()
+    // Account Body
     let nameTitleLabel = CLabel.createLabelTextButtonSize()
     let nameDataLabel = CLabel.createLabelBody()
     let emailTitleLabel = CLabel.createLabelTextButtonSize()
@@ -27,16 +27,16 @@ class ProfileView: UIView {
         return button
     }()
     
-    // Section 1 Header Layer
-    let section1HeaderStackView = UIStackView()
-    // Section 1 Body Layer
-    let section1BodyStackView = UIStackView()
+    // Account Header Layer
+    let accountHeaderStackView = UIStackView()
+    // Account Body Layer
+    let accountBodyStackView = UIStackView()
     
-    // Section 2 Header
-    let section2TitleLabel = CLabel.createLabelTitle3()
-    // Section 2 Subhead
-    let section2SubheadLabel = CLabel.createLabelSubhead()
-    // Section 2 Body
+    // Health Header
+    let healthTitleLabel = CLabel.createLabelTitle3()
+    // Health Subhead
+    let healthSubheadLabel = CLabel.createLabelSubhead()
+    // Health Body
     let heightTitleLabel = CLabel.createLabelTextButtonSize()
     let heightDataLabel = CLabel.createLabelBody()
     let weightTitleLabel = CLabel.createLabelTextButtonSize()
@@ -54,10 +54,10 @@ class ProfileView: UIView {
         return button
     }()
     
-    // Section 2 Header Layer
-    let section2HeaderStackView = UIStackView()
-    // Section 2 Body Layer
-    let section2BodyStackView = UIStackView()
+    // Health Header Layer
+    let healthHeaderStackView = UIStackView()
+    // Health Body Layer
+    let healthBodyStackView = UIStackView()
     
     init() {
         super.init(frame: .zero)
@@ -69,9 +69,9 @@ class ProfileView: UIView {
     }
     
     func configure(with userModel: UserModel?) {
-        // Section 1
-        section1TitleLabel.text = "Account Details"
-        section1SubheadLabel.text = "We need to identify who you are"
+        // Account
+        accountTitleLabel.text = "Account Details"
+        accountSubheadLabel.text = "We need to identify who you are"
         nameTitleLabel.text = "Name"
         emailTitleLabel.text = "Email"
         
@@ -83,9 +83,9 @@ class ProfileView: UIView {
             emailDataLabel.text = "Loading..."
         }
         
-        // Section 2
-        section2TitleLabel.text = "Health Details"
-        section2SubheadLabel.text = "Enter your health data to keep track on"
+        // Health
+        healthTitleLabel.text = "Health Details"
+        healthSubheadLabel.text = "Enter your health data to keep track on"
         heightTitleLabel.text = "Height"
         weightTitleLabel.text = "Weight"
         ageTitleLabel.text = "Age"
@@ -105,67 +105,67 @@ class ProfileView: UIView {
         tabHeader.configure(title: "Profile", caption: "Manage your health data")
         addSubview(tabHeader)
         
-        // Section 1 Header Layer
-        section1HeaderStackView.spacing = 16
-        section1HeaderStackView.addArrangedSubview(section1TitleLabel)
-        section1HeaderStackView.addArrangedSubview(editButtonAccount)
-        addSubview(section1HeaderStackView)
+        // Account Header Layer
+        accountHeaderStackView.spacing = 16
+        accountHeaderStackView.addArrangedSubview(accountTitleLabel)
+        accountHeaderStackView.addArrangedSubview(editButtonAccount)
+        addSubview(accountHeaderStackView)
         
-        // Section 1 Subhead Layer
-        addSubview(section1SubheadLabel)
+        // Account Subhead Layer
+        addSubview(accountSubheadLabel)
         
-        // Section 1 Body Layer
-        section1BodyStackView.axis = .horizontal
-        section1BodyStackView.spacing = 16
-        addSubview(section1BodyStackView)
+        // Account Body Layer
+        accountBodyStackView.axis = .horizontal
+        accountBodyStackView.spacing = 16
+        addSubview(accountBodyStackView)
         
-        // Section 1 Body Layer Left
-        let section1BodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
-        section1BodyTitleStackView.addArrangedSubview(nameTitleLabel)
-        section1BodyTitleStackView.addArrangedSubview(emailTitleLabel)
+        // Account Body Layer Left
+        let accountBodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
+        accountBodyTitleStackView.addArrangedSubview(nameTitleLabel)
+        accountBodyTitleStackView.addArrangedSubview(emailTitleLabel)
         
-        // Section 1 Body Layer Right
-        let section1BodyDataStackView = createStackView(axis: .vertical, spacing: 8)
-        section1BodyDataStackView.addArrangedSubview(nameDataLabel)
-        section1BodyDataStackView.addArrangedSubview(emailDataLabel)
+        // Account Body Layer Right
+        let accountBodyDataStackView = createStackView(axis: .vertical, spacing: 8)
+        accountBodyDataStackView.addArrangedSubview(nameDataLabel)
+        accountBodyDataStackView.addArrangedSubview(emailDataLabel)
         
-        // Section 1 Body Layer
-        section1BodyStackView.addArrangedSubview(section1BodyTitleStackView)
-        section1BodyStackView.addArrangedSubview(section1BodyDataStackView)
+        // Account Body Layer
+        accountBodyStackView.addArrangedSubview(accountBodyTitleStackView)
+        accountBodyStackView.addArrangedSubview(accountBodyDataStackView)
         
-        // Section 2 Header Layer
-        section2HeaderStackView.spacing = 16
-        section2HeaderStackView.addArrangedSubview(section2TitleLabel)
-        section2HeaderStackView.addArrangedSubview(editButtonHealth)
-        addSubview(section2HeaderStackView)
+        // Health Header Layer
+        healthHeaderStackView.spacing = 16
+        healthHeaderStackView.addArrangedSubview(healthTitleLabel)
+        healthHeaderStackView.addArrangedSubview(editButtonHealth)
+        addSubview(healthHeaderStackView)
         
-        // Section 2 Subhead Layer
-        addSubview(section2SubheadLabel)
+        // Health Subhead Layer
+        addSubview(healthSubheadLabel)
         
-        // Section 2 Body Layer
-        section2BodyStackView.axis = .horizontal
-        section2BodyStackView.spacing = 16
-        addSubview(section2BodyStackView)
+        // Health Body Layer
+        healthBodyStackView.axis = .horizontal
+        healthBodyStackView.spacing = 16
+        addSubview(healthBodyStackView)
         
-        // Section 2 Body Layer Left
-        let section2BodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
-        section2BodyTitleStackView.addArrangedSubview(heightTitleLabel)
-        section2BodyTitleStackView.addArrangedSubview(weightTitleLabel)
-        section2BodyTitleStackView.addArrangedSubview(ageTitleLabel)
-        section2BodyTitleStackView.addArrangedSubview(genderTitleLabel)
-        section2BodyTitleStackView.addArrangedSubview(healthConditionsTitleLabel)
+        // Health Body Layer Left
+        let healthBodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
+        healthBodyTitleStackView.addArrangedSubview(heightTitleLabel)
+        healthBodyTitleStackView.addArrangedSubview(weightTitleLabel)
+        healthBodyTitleStackView.addArrangedSubview(ageTitleLabel)
+        healthBodyTitleStackView.addArrangedSubview(genderTitleLabel)
+        healthBodyTitleStackView.addArrangedSubview(healthConditionsTitleLabel)
         
-        // Section 2 Body Layer Right
-        let section2BodyDataStackView = createStackView(axis: .vertical, spacing: 8)
-        section2BodyDataStackView.addArrangedSubview(heightDataLabel)
-        section2BodyDataStackView.addArrangedSubview(weightDataLabel)
-        section2BodyDataStackView.addArrangedSubview(ageDataLabel)
-        section2BodyDataStackView.addArrangedSubview(genderDataLabel)
-        section2BodyDataStackView.addArrangedSubview(healthConditionsDataLabel)
+        // Health Body Layer Right
+        let healthBodyDataStackView = createStackView(axis: .vertical, spacing: 8)
+        healthBodyDataStackView.addArrangedSubview(heightDataLabel)
+        healthBodyDataStackView.addArrangedSubview(weightDataLabel)
+        healthBodyDataStackView.addArrangedSubview(ageDataLabel)
+        healthBodyDataStackView.addArrangedSubview(genderDataLabel)
+        healthBodyDataStackView.addArrangedSubview(healthConditionsDataLabel)
         
-        // Section 2 Body Layer
-        section2BodyStackView.addArrangedSubview(section2BodyTitleStackView)
-        section2BodyStackView.addArrangedSubview(section2BodyDataStackView)
+        // Health Body Layer
+        healthBodyStackView.addArrangedSubview(healthBodyTitleStackView)
+        healthBodyStackView.addArrangedSubview(healthBodyDataStackView)
         
         createConstraints()
     }
@@ -186,44 +186,44 @@ class ProfileView: UIView {
             make.height.equalTo(88)
         }
         
-        // Section 1 Header Layer
-        section1HeaderStackView.snp.makeConstraints { make in
+        // Account Header Layer
+        accountHeaderStackView.snp.makeConstraints { make in
             make.top.equalTo(tabHeader.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
         
-        // Section 1 Subhead Layer
-        section1SubheadLabel.snp.makeConstraints { make in
-            make.top.equalTo(section1HeaderStackView.snp.bottom).offset(5)
+        // Account Subhead Layer
+        accountSubheadLabel.snp.makeConstraints { make in
+            make.top.equalTo(accountHeaderStackView.snp.bottom).offset(5)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
         
-        // Section 1 Body Layer
-        section1BodyStackView.snp.makeConstraints { make in
-            make.top.equalTo(section1SubheadLabel.snp.bottom).offset(20)
+        // Account Body Layer
+        accountBodyStackView.snp.makeConstraints { make in
+            make.top.equalTo(accountSubheadLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
         
-        // Section 2 Header Layer
-        section2HeaderStackView.snp.makeConstraints { make in
-            make.top.equalTo(section1BodyStackView.snp.bottom).offset(40)
+        // Health Header Layer
+        healthHeaderStackView.snp.makeConstraints { make in
+            make.top.equalTo(accountBodyStackView.snp.bottom).offset(40)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
         
-        // Section 2 Subhead Layer
-        section2SubheadLabel.snp.makeConstraints { make in
-            make.top.equalTo(section2HeaderStackView.snp.bottom).offset(5)
+        // Health Subhead Layer
+        healthSubheadLabel.snp.makeConstraints { make in
+            make.top.equalTo(healthHeaderStackView.snp.bottom).offset(5)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
         
-        // Section 2 Body Layer
-        section2BodyStackView.snp.makeConstraints { make in
-            make.top.equalTo(section2SubheadLabel.snp.bottom).offset(20)
+        // Health Body Layer
+        healthBodyStackView.snp.makeConstraints { make in
+            make.top.equalTo(healthSubheadLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
