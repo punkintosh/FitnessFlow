@@ -59,6 +59,27 @@ class ProfileView: UIView {
     // Health Body Layer
     let healthBodyStackView = UIStackView()
     
+    // Fitness Header
+    let fitnessTitleLabel = CLabel.createLabelTitle3()
+    // Fitness Subhead
+    let fitnessSubheadLabel = CLabel.createLabelSubhead()
+    // Fitness Body
+    let fitnessGoalTitleLabel = CLabel.createLabelTextButtonSize()
+    let fitnessGoalDataLabel = CLabel.createLabelBody()
+    let fitnessLevelTitleLabel = CLabel.createLabelTextButtonSize()
+    let fitnessLevelDataLabel = CLabel.createLabelBody()
+    
+    // Edit Fitness Details
+    let editButtonFitness: CTextButton = {
+        let button = CTextButton(text: "Edit", color: AppThemeData.colorTextPrimary)
+        return button
+    }()
+    
+    // Fitness Header Layer
+    let fitnessHeaderStackView = UIStackView()
+    // Fitness Body Layer
+    let fitnessBodyStackView = UIStackView()
+    
     init() {
         super.init(frame: .zero)
         setupUI()
@@ -97,6 +118,15 @@ class ProfileView: UIView {
         ageDataLabel.text = "Not Set"
         genderDataLabel.text = "Not Set"
         healthConditionsDataLabel.text = "Not Set"
+        
+        // Fitness
+        fitnessTitleLabel.text = "Fitness Details"
+        fitnessSubheadLabel.text = "Optimize your fitness model"
+        fitnessGoalTitleLabel.text = "Fitness Goal"
+        fitnessLevelTitleLabel.text = "Fitness Level"
+        
+        fitnessGoalDataLabel.text = "Not Set"
+        fitnessLevelDataLabel.text = "Not Set"
     }
     
     
@@ -167,6 +197,34 @@ class ProfileView: UIView {
         healthBodyStackView.addArrangedSubview(healthBodyTitleStackView)
         healthBodyStackView.addArrangedSubview(healthBodyDataStackView)
         
+        // Fitness Header Layer
+        fitnessHeaderStackView.spacing = 16
+        fitnessHeaderStackView.addArrangedSubview(fitnessTitleLabel)
+        fitnessHeaderStackView.addArrangedSubview(editButtonFitness)
+        addSubview(fitnessHeaderStackView)
+        
+        // Fitness Subhead Layer
+        addSubview(fitnessSubheadLabel)
+        
+        // Fitness Body Layer
+        fitnessBodyStackView.axis = .horizontal
+        fitnessBodyStackView.spacing = 16
+        addSubview(fitnessBodyStackView)
+        
+        // Fitness Body Layer Left
+        let fitnessBodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
+        fitnessBodyTitleStackView.addArrangedSubview(fitnessGoalTitleLabel)
+        fitnessBodyTitleStackView.addArrangedSubview(fitnessLevelTitleLabel)
+        
+        // Fitness Body Layer Right
+        let fitnessBodyDataStackView = createStackView(axis: .vertical, spacing: 8)
+        fitnessBodyDataStackView.addArrangedSubview(fitnessGoalDataLabel)
+        fitnessBodyDataStackView.addArrangedSubview(fitnessLevelDataLabel)
+        
+        // Fitness Body Layer
+        fitnessBodyStackView.addArrangedSubview(fitnessBodyTitleStackView)
+        fitnessBodyStackView.addArrangedSubview(fitnessBodyDataStackView)
+        
         createConstraints()
     }
     
@@ -224,6 +282,27 @@ class ProfileView: UIView {
         // Health Body Layer
         healthBodyStackView.snp.makeConstraints { make in
             make.top.equalTo(healthSubheadLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+        }
+        
+        // Fitness Header Layer
+        fitnessHeaderStackView.snp.makeConstraints { make in
+            make.top.equalTo(healthBodyStackView.snp.bottom).offset(40)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+        }
+        
+        // Fitness Subhead Layer
+        fitnessSubheadLabel.snp.makeConstraints { make in
+            make.top.equalTo(fitnessHeaderStackView.snp.bottom).offset(5)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+        }
+        
+        // Fitness Body Layer
+        fitnessBodyStackView.snp.makeConstraints { make in
+            make.top.equalTo(fitnessSubheadLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
