@@ -22,6 +22,8 @@
 - Create a launcher screen  
 - Create onboarding pages 
 - Update UI 
+- Fix Typography
 - Customize MBProgressHUD  
 - Fix the folder structure  
 - Optimize code
+- Fix code repetition

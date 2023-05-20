@@ -157,6 +157,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		603BD9E12A18AD540005E123 /* ProfileTab */ = {
+			isa = PBXGroup;
+			children = (
+				60789E352A17E335004AEAAE /* AddHealthDetailsView.swift */,
+			);
+			path = ProfileTab;
+			sourceTree = "<group>";
+		};
+		603BD9E22A18AD6D0005E123 /* ProfileTab */ = {
+			isa = PBXGroup;
+			children = (
+				60789E372A17E354004AEAAE /* AddHealthDetailsViewController.swift */,
+			);
+			path = ProfileTab;
+			sourceTree = "<group>";
+		};
 		6049BF7C2A14C00400C369AA = {
 			isa = PBXGroup;
 			children = (
@@ -272,11 +288,11 @@
 		60B3CF112A14F1F200BA6FCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				603BD9E22A18AD6D0005E123 /* ProfileTab */,
 				605C14432A17411200DCCC8D /* Tabs */,
 				6049BF8C2A14C00400C369AA /* TempHomeViewController.swift */,
 				60B8E5D82A1510DB00547439 /* SignUpViewController.swift */,
 				60B193ED2A15F0250045FCAF /* LogInViewController.swift */,
-				60789E372A17E354004AEAAE /* AddHealthDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -323,11 +339,11 @@
 		60B8E5D02A14F9EE00547439 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				603BD9E12A18AD540005E123 /* ProfileTab */,
 				605C14442A1741A000DCCC8D /* Tabs */,
 				60B8E5D12A14FA0D00547439 /* TempHomeView.swift */,
 				60B8E5D62A1510A000547439 /* SignUpView.swift */,
 				60B193EB2A15F0120045FCAF /* LogInView.swift */,
-				60789E352A17E335004AEAAE /* AddHealthDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

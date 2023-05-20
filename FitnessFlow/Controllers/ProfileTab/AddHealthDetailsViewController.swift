@@ -23,27 +23,44 @@ class AddHealthDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        customizeNavigationBar()
+        customizeNavigationBarBackButton()
     }
     
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(addHealthDetailsView)
         
-        let backButton = UIBarButtonItem()
-        backButton.title = "Back"
-        navigationItem.backBarButtonItem = backButton
-        navigationController?.navigationBar.tintColor = AppThemeData.colorTextDarkGray
-        
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: AppThemeData.fontSizeTextButton as Any
-        ]
-        backButton.setTitleTextAttributes(attributes, for: .normal)
+        // Title
+        title = "Add Health Details"
         
         addHealthDetailsView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
+    
+    private func customizeNavigationBar() {
+        let customFont = AppThemeData.fontSizeHeadline ?? UIFont.systemFont(ofSize: 20)
+        let attributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: customFont,
+            NSAttributedString.Key.foregroundColor: AppThemeData.colorTextDarkGray
+        ]
+        navigationController?.navigationBar.titleTextAttributes = attributes
+    }
+    
+    private func customizeNavigationBarBackButton() {
+        // Back Button
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        navigationItem.backBarButtonItem = backButton
+        navigationController?.navigationBar.tintColor = AppThemeData.colorTextDarkGray
+        let attributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.font: AppThemeData.fontSizeTextButton!,
+            NSAttributedString.Key.foregroundColor: AppThemeData.colorTextDarkGray
+        ]
+        backButton.setTitleTextAttributes(attributes, for: .normal)
+    }
 
-
+    
 }

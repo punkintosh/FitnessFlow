@@ -62,7 +62,7 @@ class AppThemeData {
     static let fontSizeTitle1 = UIFont(name: "Raleway-Bold", size: 27)
     static let fontSizeTitle2 = UIFont(name: "Raleway-Bold", size: 21)
     static let fontSizeTitle3 = UIFont(name: "Raleway-SemiBold", size: 19)
-    static let fontSizeHeadline = UIFont(name: "Raleway-Light", size: 16)
+    static let fontSizeHeadline = UIFont(name: "Raleway-SemiBold", size: 17)
     static let fontSizeBody = UIFont(name: "Raleway-Regular", size: 16)
     static let fontSizeCallout = UIFont(name: "Raleway-Regular", size: 15)
     static let fontSizeSubhead = UIFont(name: "Raleway-Regular", size: 14)
