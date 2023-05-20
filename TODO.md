@@ -14,10 +14,13 @@
 
 - User account edit
 - Change SignUp and LogIn views label from CLabel
+- Optimize TabView controllers
 
 ## Later
 
 - Create a launcher screen  
-- Create onboarding pages  
+- Create onboarding pages 
+- Update UI 
 - Customize MBProgressHUD  
 - Fix the folder structure  
+- Optimize code
