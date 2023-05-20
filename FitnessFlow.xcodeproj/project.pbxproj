@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B19E52A165C8900F377C0 /* AuthModel.swift */; };
-		602B19E82A165CA900F377C0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B19E72A165CA900F377C0 /* UserModel.swift */; };
+		602B19E82A165CA900F377C0 /* UserAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B19E72A165CA900F377C0 /* UserAccountModel.swift */; };
 		603BD9DE2A1864720005E123 /* ProfileAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BD9DD2A1864720005E123 /* ProfileAccountService.swift */; };
+		603BD9E02A188ED00005E123 /* UserFitnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BD9DF2A188ED00005E123 /* UserFitnessModel.swift */; };
 		6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF882A14C00400C369AA /* AppDelegate.swift */; };
 		6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF8A2A14C00400C369AA /* SceneDelegate.swift */; };
 		6049BF8D2A14C00400C369AA /* TempHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF8C2A14C00400C369AA /* TempHomeViewController.swift */; };
@@ -75,8 +76,9 @@
 
 /* Begin PBXFileReference section */
 		602B19E52A165C8900F377C0 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
-		602B19E72A165CA900F377C0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		602B19E72A165CA900F377C0 /* UserAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountModel.swift; sourceTree = "<group>"; };
 		603BD9DD2A1864720005E123 /* ProfileAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountService.swift; sourceTree = "<group>"; };
+		603BD9DF2A188ED00005E123 /* UserFitnessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFitnessModel.swift; sourceTree = "<group>"; };
 		6049BF852A14C00400C369AA /* FitnessFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6049BF882A14C00400C369AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6049BF8A2A14C00400C369AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,8 +285,9 @@
 			isa = PBXGroup;
 			children = (
 				602B19E52A165C8900F377C0 /* AuthModel.swift */,
-				602B19E72A165CA900F377C0 /* UserModel.swift */,
+				602B19E72A165CA900F377C0 /* UserAccountModel.swift */,
 				605C145B2A17645900DCCC8D /* UserHealthModel.swift */,
+				603BD9DF2A188ED00005E123 /* UserFitnessModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */,
 				602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */,
 				60B8E5D22A14FA0D00547439 /* TempHomeView.swift in Sources */,
+				603BD9E02A188ED00005E123 /* UserFitnessModel.swift in Sources */,
 				605C145C2A17645900DCCC8D /* UserHealthModel.swift in Sources */,
 				605C14482A17421F00DCCC8D /* WorkoutsViewController.swift in Sources */,
 				60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */,
@@ -469,7 +473,7 @@
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
 				605C14602A17864600DCCC8D /* CLabel.swift in Sources */,
 				605C144E2A17425E00DCCC8D /* ProfileViewController.swift in Sources */,
-				602B19E82A165CA900F377C0 /* UserModel.swift in Sources */,
+				602B19E82A165CA900F377C0 /* UserAccountModel.swift in Sources */,
 				603BD9DE2A1864720005E123 /* ProfileAccountService.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,
 				60789E362A17E335004AEAAE /* AddHealthDetailsView.swift in Sources */,

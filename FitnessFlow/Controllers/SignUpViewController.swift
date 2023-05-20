@@ -40,23 +40,23 @@ class SignUpViewController: UIViewController {
         let password = signUpView.passwordTextField.text ?? ""
         let confirmPassword = signUpView.confirmPasswordTextField.text ?? ""
         
-        let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password)
+        let userAccountModel = UserAccountModel(firstName: firstName, lastName: lastName, email: email, password: password)
         let authModel = AuthModel(email: email, password: password)
         
         let formValidator = FormValidator()
-        if formValidator.validateSignUp(viewController: self, userModel: userModel, confirmPassword: confirmPassword) {
+        if formValidator.validateSignUp(viewController: self, userAccountModel: userAccountModel, confirmPassword: confirmPassword) {
             print("---------- User Details ----------")
-            print("First Name: ", userModel.firstName)
-            print("Last Name: ", userModel.lastName)
-            print("Email: ", userModel.email)
-            print("Password: ", userModel.password)
+            print("First Name: ", userAccountModel.firstName)
+            print("Last Name: ", userAccountModel.lastName)
+            print("Email: ", userAccountModel.email)
+            print("Password: ", userAccountModel.password)
             print("Confirm Password: ", confirmPassword)
             print("Signing Up....")
             
             let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
             progressHUD.label.text = "Signing up..."
             
-            signUpUser(authModel: authModel, userModel: userModel) { [weak self] success in
+            signUpUser(authModel: authModel, userAccountModel: userAccountModel) { [weak self] success in
                 progressHUD.hide(animated: true)
                 
                 if success {
@@ -71,13 +71,13 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    private func signUpUser(authModel: AuthModel, userModel: UserModel, completion: @escaping (Bool) -> Void) {
+    private func signUpUser(authModel: AuthModel, userAccountModel: UserAccountModel, completion: @escaping (Bool) -> Void) {
         AuthService.signUp(authModel: authModel) { [weak self] result in
             switch result {
             case .success(let user):
                 // User signed up successfully
                 print("User signed up:", user)
-                self?.storeUserDataInFirestore(userID: user.uid, userModel: userModel, completion: completion)
+                self?.storeUserDataInFirestore(userID: user.uid, userAccountModel: userAccountModel, completion: completion)
                 
             case .failure(let error):
                 // Handle sign up error
@@ -87,12 +87,12 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    private func storeUserDataInFirestore(userID: String, userModel: UserModel, completion: @escaping (Bool) -> Void) {
+    private func storeUserDataInFirestore(userID: String, userAccountModel: UserAccountModel, completion: @escaping (Bool) -> Void) {
         let userData = [
-            "firstName": userModel.firstName,
-            "lastName": userModel.lastName,
-            "email": userModel.email,
-            "password": userModel.password
+            "firstName": userAccountModel.firstName,
+            "lastName": userAccountModel.lastName,
+            "email": userAccountModel.email,
+            "password": userAccountModel.password
         ]
         
         FirestoreService.shared.createUserDocument(userID: userID, data: userData) { result in

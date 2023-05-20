@@ -13,6 +13,7 @@
 ## Next
 
 - User account edit
+- Alignment update for ProfileView
 - Change SignUp and LogIn views label from CLabel
 - Optimize TabView controllers
 

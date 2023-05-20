@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  UserAccountModel.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-18.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserModel {
+struct UserAccountModel {
     let firstName: String
     let lastName: String
     let email: String

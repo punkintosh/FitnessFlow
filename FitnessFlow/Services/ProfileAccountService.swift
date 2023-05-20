@@ -13,38 +13,38 @@ class ProfileAccountService {
     private let firestoreService = FirestoreService.shared
     private let currentUserID = AuthService.currentUser?.uid
     
-    private var userModel: UserModel?
+    private var userAccountModel: UserAccountModel?
     private var userDocumentListener: ListenerRegistration?
     
-    func fetchUserData(completion: @escaping (Result<UserModel, Error>) -> Void) {
+    func fetchUserData(completion: @escaping (Result<UserAccountModel, Error>) -> Void) {
         firestoreService.fetchUserDocument(userID: currentUserID!) { result in
             switch result {
             case .success(let userData):
-                let userModel = UserModel(
+                let userAccountModel = UserAccountModel(
                     firstName: userData["firstName"] as? String ?? "",
                     lastName: userData["lastName"] as? String ?? "",
                     email: userData["email"] as? String ?? "",
                     password: ""
                 )
-                completion(.success(userModel))
+                completion(.success(userAccountModel))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
     
-    func startListeningForUserDataChanges(completion: @escaping (Result<UserModel, Error>) -> Void) {
+    func startListeningForUserDataChanges(completion: @escaping (Result<UserAccountModel, Error>) -> Void) {
         userDocumentListener = firestoreService.addUserDocumentListener(userID: currentUserID!) { [weak self] result in
             switch result {
             case .success(let userData):
-                let userModel = UserModel(
+                let userAccountModel = UserAccountModel(
                     firstName: userData["firstName"] as? String ?? "",
                     lastName: userData["lastName"] as? String ?? "",
                     email: userData["email"] as? String ?? "",
                     password: ""
                 )
-                self?.userModel = userModel
-                completion(.success(userModel))
+                self?.userAccountModel = userAccountModel
+                completion(.success(userAccountModel))
             case .failure(let error):
                 completion(.failure(error))
             }

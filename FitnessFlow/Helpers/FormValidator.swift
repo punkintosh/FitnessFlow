@@ -40,39 +40,39 @@ class FormValidator {
         return true
     }
     
-    func validateSignUp(viewController: UIViewController, userModel: UserModel, confirmPassword:String) -> Bool {
+    func validateSignUp(viewController: UIViewController, userAccountModel: UserAccountModel, confirmPassword:String) -> Bool {
         
-        if userModel.firstName.isEmpty && userModel.lastName.isEmpty && userModel.email.isEmpty && userModel.password.isEmpty && confirmPassword.isEmpty {
+        if userAccountModel.firstName.isEmpty && userAccountModel.lastName.isEmpty && userAccountModel.email.isEmpty && userAccountModel.password.isEmpty && confirmPassword.isEmpty {
             showErrorAlert(viewController: viewController, error: "All Fields Required", message: "Please fill in all the required fields.")
             return false
         }
         
-        if userModel.firstName.isEmpty {
+        if userAccountModel.firstName.isEmpty {
             showErrorAlert(viewController: viewController, error: "First Name Required", message: "Please fill in your first name.")
             return false
         }
         
-        if userModel.lastName.isEmpty {
+        if userAccountModel.lastName.isEmpty {
             showErrorAlert(viewController: viewController, error: "Last Name Required", message: "Please fill in your last name.")
             return false
         }
         
-        if userModel.email.isEmpty {
+        if userAccountModel.email.isEmpty {
             showErrorAlert(viewController: viewController, error: "Email Required", message: "Please fill in your email.")
             return false
         }
         
-        if !validateEmail(email: userModel.email) {
+        if !validateEmail(email: userAccountModel.email) {
             showErrorAlert(viewController: viewController, error: "Invalid Email", message: "Please enter a valid email address.")
             return false
         }
         
-        if userModel.password.isEmpty {
+        if userAccountModel.password.isEmpty {
             showErrorAlert(viewController: viewController, error: "Password Required", message: "Please fill in your password.")
             return false
         }
         
-        if userModel.password.count < 8 {
+        if userAccountModel.password.count < 8 {
             showErrorAlert(viewController: viewController, error: "Invalid Password", message: "Password should be at least \(8) characters long.")
             return false
         }
@@ -82,7 +82,7 @@ class FormValidator {
             return false
         }
         
-        if userModel.password != confirmPassword {
+        if userAccountModel.password != confirmPassword {
             showErrorAlert(viewController: viewController, error: "Passwords Do Not Match", message: "Password and Confirm Password do not match.")
             return false
         }
