@@ -45,6 +45,7 @@ struct AuthService {
                 } else {
                     completion(.failure(error))
                 }
+                //TODO: Validate: "There is no user record corresponding to this identifier. The user may have been deleted."
             } else {
                 // Handle unexpected case or provide a default error
                 let defaultError = NSError(domain: "FitnsessFlow.AuthService", code: 0, userInfo: [

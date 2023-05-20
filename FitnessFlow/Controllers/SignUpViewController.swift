@@ -16,7 +16,6 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        navigationController?.navigationBar.backgroundColor = AppThemeData.colorBackgroundLight
         navigationController?.navigationBar.tintColor = AppThemeData.colorTextDarkGray
     }
     
@@ -95,7 +94,7 @@ class SignUpViewController: UIViewController {
             "password": userAccountModel.password
         ]
         
-        FirestoreService.shared.createUserDocument(userID: userID, data: userData) { result in
+        UserAccountService.shared.createUserDocument(userID: userID, data: userData) { result in
             switch result {
             case .success:
                 print("User data stored in Firestore")

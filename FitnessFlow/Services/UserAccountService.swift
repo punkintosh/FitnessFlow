@@ -1,5 +1,5 @@
 //
-//  FirestoreService.swift
+//  UserAccountService.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-19.
@@ -8,8 +8,8 @@
 import Foundation
 import FirebaseFirestore
 
-struct FirestoreService {
-    static let shared = FirestoreService()
+struct UserAccountService {
+    static let shared = UserAccountService()
     
     private let db = Firestore.firestore()
     private let usersCollection = "users"

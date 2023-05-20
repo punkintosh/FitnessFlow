@@ -10,7 +10,7 @@ import FirebaseFirestore
 class ProfileAccountService {
     static let shared = ProfileAccountService()
     
-    private let firestoreService = FirestoreService.shared
+    private let firestoreService = UserAccountService.shared
     private let currentUserID = AuthService.currentUser?.uid
     
     private var userAccountModel: UserAccountModel?

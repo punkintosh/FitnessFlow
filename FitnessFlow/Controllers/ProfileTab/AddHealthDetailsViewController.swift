@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import MBProgressHUD
 
 class AddHealthDetailsViewController: UIViewController {
     private let addHealthDetailsView: AddHealthDetailsView
@@ -25,6 +26,7 @@ class AddHealthDetailsViewController: UIViewController {
         setupUI()
         customizeNavigationBar()
         customizeNavigationBarBackButton()
+        setupBindings()
     }
     
     private func setupUI() {
@@ -38,6 +40,10 @@ class AddHealthDetailsViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    private func setupBindings() {
+        addHealthDetailsView.saveInfoButton.addTarget(self, action: #selector(saveInfoButtonTapped), for: .touchUpInside)
     }
     
     private func customizeNavigationBar() {
@@ -60,6 +66,61 @@ class AddHealthDetailsViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: AppThemeData.colorTextDarkGray
         ]
         backButton.setTitleTextAttributes(attributes, for: .normal)
+    }
+
+    
+    @objc private func saveInfoButtonTapped() {
+        let height = addHealthDetailsView.heightTextField.text ?? ""
+        let weight = addHealthDetailsView.weightTextField.text ?? ""
+        let genderIndex = addHealthDetailsView.genderSegmentedControl.selectedSegmentIndex
+        let gender = addHealthDetailsView.genderSegmentedControl.titleForSegment(at: genderIndex) ?? ""
+        let age = addHealthDetailsView.ageTextField.text ?? ""
+        let healthConditions = addHealthDetailsView.healthConditionsTextField.text?
+            .components(separatedBy: ",")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) } ?? []
+        
+        // let formValidator = FormValidator()
+        // TODO: Validate button press later
+        
+        var heightValue: Double = 0.0
+        if let heightDoubleValue = Double(height) {
+            heightValue = heightDoubleValue
+        } else if let heightIntValue = Int(height) {
+            heightValue = Double(heightIntValue)
+        } else {
+            print("Invalid height value")
+            return
+        }
+        
+        var weightValue: Double = 0.0
+        if let weightDoubleValue = Double(weight) {
+            weightValue = weightDoubleValue
+        } else if let weightIntValue = Int(weight) {
+            weightValue = Double(weightIntValue)
+        } else {
+            print("Invalid weight value")
+            return
+        }
+        
+        if let ageValue = Int(age) {
+            let userHealthModel = UserHealthModel(height: heightValue, weight: weightValue, age: ageValue, gender: gender, healthConditions: healthConditions)
+            saveDataToFirestore(userHealthModel: userHealthModel)
+        } else {
+            print("Invalid age value")
+        }
+    }
+    
+    private func saveDataToFirestore(userHealthModel: UserHealthModel){
+        print("---------- User Health Details ----------")
+        print("Height: \(userHealthModel.height)")
+        print("Weight: \(userHealthModel.weight)")
+        print("Age: \(userHealthModel.age)")
+        print("Gender: \(userHealthModel.gender)")
+        print("Health Conditions: \(userHealthModel.healthConditions)")
+        
+        let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
+        progressHUD.label.text = "Saving..."
+        
     }
 
     

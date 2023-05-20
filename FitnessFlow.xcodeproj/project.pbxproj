@@ -21,7 +21,7 @@
 		6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BFA22A14D34600C369AA /* AppThemeData.swift */; };
 		604EE7402A154BD800D2598D /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE73F2A154BD800D2598D /* FormValidator.swift */; };
 		605C143F2A17261A00DCCC8D /* CAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C143E2A17261A00DCCC8D /* CAlert.swift */; };
-		605C14412A172DE000DCCC8D /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14402A172DE000DCCC8D /* FirestoreService.swift */; };
+		605C14412A172DE000DCCC8D /* UserAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14402A172DE000DCCC8D /* UserAccountService.swift */; };
 		605C14462A1741B700DCCC8D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14452A1741B700DCCC8D /* HomeViewController.swift */; };
 		605C14482A17421F00DCCC8D /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14472A17421F00DCCC8D /* WorkoutsViewController.swift */; };
 		605C144A2A17423500DCCC8D /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14492A17423500DCCC8D /* ProgressViewController.swift */; };
@@ -91,7 +91,7 @@
 		6049BFA22A14D34600C369AA /* AppThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeData.swift; sourceTree = "<group>"; };
 		604EE73F2A154BD800D2598D /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 		605C143E2A17261A00DCCC8D /* CAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAlert.swift; sourceTree = "<group>"; };
-		605C14402A172DE000DCCC8D /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		605C14402A172DE000DCCC8D /* UserAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountService.swift; sourceTree = "<group>"; };
 		605C14422A17374300DCCC8D /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		605C14452A1741B700DCCC8D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		605C14472A17421F00DCCC8D /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				607F0EDB2A1661CE0047DAB2 /* AuthService.swift */,
-				605C14402A172DE000DCCC8D /* FirestoreService.swift */,
+				605C14402A172DE000DCCC8D /* UserAccountService.swift */,
 				603BD9DD2A1864720005E123 /* ProfileAccountService.swift */,
 			);
 			path = Services;
@@ -460,7 +460,7 @@
 				605C14522A17431B00DCCC8D /* HomeView.swift in Sources */,
 				605C144A2A17423500DCCC8D /* ProgressViewController.swift in Sources */,
 				60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */,
-				605C14412A172DE000DCCC8D /* FirestoreService.swift in Sources */,
+				605C14412A172DE000DCCC8D /* UserAccountService.swift in Sources */,
 				605C144C2A17424B00DCCC8D /* NutritionViewController.swift in Sources */,
 				604EE7402A154BD800D2598D /* FormValidator.swift in Sources */,
 				605C14562A17434D00DCCC8D /* ProgressView.swift in Sources */,

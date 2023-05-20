@@ -14,7 +14,7 @@ struct UserHealthModel {
     let gender: String
     let healthConditions: Array<String>
     
-    init(height: Double, weight: Double, bmi: Double, age: Int, gender: String, healthConditions: Array<String>) {
+    init(height: Double, weight: Double, age: Int, gender: String, healthConditions: Array<String>) {
         self.height = height
         self.weight = weight
         self.age = age
