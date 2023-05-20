@@ -10,7 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     private let profileView: ProfileView
     // Account
-    private let profileService = ProfileAccountService.shared
+    private let profileAccountHelper = ProfileAccountHelper.shared
     
     init() {
         self.profileView = ProfileView()
@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
         setupUI()
         setupBindings()
         // Account
-        profileService.fetchUserData() { [weak self] result in
+        profileAccountHelper.fetchUserData() { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let userModel):
@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Account
-        profileService.startListeningForUserDataChanges() { [weak self] result in
+        profileAccountHelper.startListeningForUserDataChanges() { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let userModel):
@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Account
-        profileService.stopListeningForUserDataChanges()
+        profileAccountHelper.stopListeningForUserDataChanges()
     }
     
     private func setupUI() {

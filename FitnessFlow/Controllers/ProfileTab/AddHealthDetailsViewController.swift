@@ -11,6 +11,7 @@ import MBProgressHUD
 
 class AddHealthDetailsViewController: UIViewController {
     private let addHealthDetailsView: AddHealthDetailsView
+    let currentUserID = AuthService.currentUser?.uid
     
     init() {
         self.addHealthDetailsView = AddHealthDetailsView()
@@ -110,7 +111,7 @@ class AddHealthDetailsViewController: UIViewController {
         }
     }
     
-    private func saveDataToFirestore(userHealthModel: UserHealthModel){
+    private func saveDataToFirestore(userHealthModel: UserHealthModel) {
         print("---------- User Health Details ----------")
         print("Height: \(userHealthModel.height)")
         print("Weight: \(userHealthModel.weight)")
@@ -121,7 +122,20 @@ class AddHealthDetailsViewController: UIViewController {
         let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
         progressHUD.label.text = "Saving..."
         
+        UserHealthService.shared.createUserHealthDocument(userID: currentUserID!, healthData: userHealthModel) { result in
+            DispatchQueue.main.async {
+                progressHUD.hide(animated: true)
+                
+                switch result {
+                case .success:
+                    print("User health data saved in Firestore")
+                    // Proceed to the next step or show success message
+                case .failure(let error):
+                    print("Failed to save user health data in Firestore:", error)
+                    // Handle the error appropriately
+                }
+            }
+        }
     }
-
     
 }

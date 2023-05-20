@@ -27,9 +27,7 @@ struct UserAccountService {
         }
     }
     
-    // Add more Firestore operations as needed
-    
-    // Example: Fetch user document
+    // Fetch user document
     func fetchUserDocument(userID: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         let userDocumentRef = db.collection(usersCollection).document(userID)
         userDocumentRef.getDocument { (documentSnapshot, error) in
@@ -46,7 +44,7 @@ struct UserAccountService {
         }
     }
     
-    // Example: Add real-time listener for user document changes
+    // Add real-time listener for user document changes
     func addUserDocumentListener(userID: String, completion: @escaping (Result<[String: Any], Error>) -> Void) -> ListenerRegistration {
         let userDocumentRef = db.collection(usersCollection).document(userID)
         return userDocumentRef.addSnapshotListener { (documentSnapshot, error) in

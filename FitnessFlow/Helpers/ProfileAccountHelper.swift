@@ -1,5 +1,5 @@
 //
-//  ProfileAccountService.swift
+//  ProfileAccountHelper.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-20.
@@ -7,8 +7,8 @@
 
 import FirebaseFirestore
 
-class ProfileAccountService {
-    static let shared = ProfileAccountService()
+class ProfileAccountHelper {
+    static let shared = ProfileAccountHelper()
     
     private let firestoreService = UserAccountService.shared
     private let currentUserID = AuthService.currentUser?.uid

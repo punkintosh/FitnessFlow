@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B19E52A165C8900F377C0 /* AuthModel.swift */; };
 		602B19E82A165CA900F377C0 /* UserAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602B19E72A165CA900F377C0 /* UserAccountModel.swift */; };
-		603BD9DE2A1864720005E123 /* ProfileAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BD9DD2A1864720005E123 /* ProfileAccountService.swift */; };
+		603BD9DE2A1864720005E123 /* ProfileAccountHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BD9DD2A1864720005E123 /* ProfileAccountHelper.swift */; };
 		603BD9E02A188ED00005E123 /* UserFitnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BD9DF2A188ED00005E123 /* UserFitnessModel.swift */; };
+		603BD9E42A18CCF50005E123 /* UserHealthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603BD9E32A18CCF50005E123 /* UserHealthService.swift */; };
 		6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF882A14C00400C369AA /* AppDelegate.swift */; };
 		6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF8A2A14C00400C369AA /* SceneDelegate.swift */; };
 		6049BF8D2A14C00400C369AA /* TempHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BF8C2A14C00400C369AA /* TempHomeViewController.swift */; };
@@ -77,8 +78,9 @@
 /* Begin PBXFileReference section */
 		602B19E52A165C8900F377C0 /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		602B19E72A165CA900F377C0 /* UserAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountModel.swift; sourceTree = "<group>"; };
-		603BD9DD2A1864720005E123 /* ProfileAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountService.swift; sourceTree = "<group>"; };
+		603BD9DD2A1864720005E123 /* ProfileAccountHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountHelper.swift; sourceTree = "<group>"; };
 		603BD9DF2A188ED00005E123 /* UserFitnessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFitnessModel.swift; sourceTree = "<group>"; };
+		603BD9E32A18CCF50005E123 /* UserHealthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHealthService.swift; sourceTree = "<group>"; };
 		6049BF852A14C00400C369AA /* FitnessFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6049BF882A14C00400C369AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6049BF8A2A14C00400C369AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				604EE73F2A154BD800D2598D /* FormValidator.swift */,
+				603BD9DD2A1864720005E123 /* ProfileAccountHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -321,7 +324,7 @@
 			children = (
 				607F0EDB2A1661CE0047DAB2 /* AuthService.swift */,
 				605C14402A172DE000DCCC8D /* UserAccountService.swift */,
-				603BD9DD2A1864720005E123 /* ProfileAccountService.swift */,
+				603BD9E32A18CCF50005E123 /* UserHealthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				605C14522A17431B00DCCC8D /* HomeView.swift in Sources */,
+				603BD9E42A18CCF50005E123 /* UserHealthService.swift in Sources */,
 				605C144A2A17423500DCCC8D /* ProgressViewController.swift in Sources */,
 				60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */,
 				605C14412A172DE000DCCC8D /* UserAccountService.swift in Sources */,
@@ -490,7 +494,7 @@
 				605C14602A17864600DCCC8D /* CLabel.swift in Sources */,
 				605C144E2A17425E00DCCC8D /* ProfileViewController.swift in Sources */,
 				602B19E82A165CA900F377C0 /* UserAccountModel.swift in Sources */,
-				603BD9DE2A1864720005E123 /* ProfileAccountService.swift in Sources */,
+				603BD9DE2A1864720005E123 /* ProfileAccountHelper.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,
 				60789E362A17E335004AEAAE /* AddHealthDetailsView.swift in Sources */,
 				605C14542A17433600DCCC8D /* WorkoutsView.swift in Sources */,
