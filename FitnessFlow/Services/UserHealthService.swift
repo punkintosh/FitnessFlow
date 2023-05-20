@@ -14,20 +14,19 @@ class UserHealthService {
     
     private init() {}
     
+    // Create User Health Document
     func createUserHealthDocument(userID: String, healthData: UserHealthModel, completion: @escaping (Result<Void, Error>) -> Void) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd:HH:mm:ss"
-        let documentID = dateFormatter.string(from: Date())
         
         let userHealthData: [String: Any] = [
             "height": healthData.height,
             "weight": healthData.weight,
             "age": healthData.age,
             "gender": healthData.gender,
-            "healthConditions": healthData.healthConditions
+            "healthConditions": healthData.healthConditions,
+            "updated": healthData.updated
         ]
         
-        db.collection("users").document(userID).collection("healthData").document(documentID).setData(userHealthData) { error in
+        db.collection("users").document(userID).collection("healthData").document(healthData.updated).setData(userHealthData) { error in
             if let error = error {
                 completion(.failure(error))
             } else {

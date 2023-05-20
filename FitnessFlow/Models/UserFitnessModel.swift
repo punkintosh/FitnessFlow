@@ -10,11 +10,13 @@ import Foundation
 struct UserFitnessModel {
     let fitnessGoal: String
     let fitnessLevel: String
-    let weeklyGoal: Int
+    let weeklyGoal: String
+    let updated: String
     
-    init(fitnessGoal: String, fitnessLevel: String, weeklyGoal: Int) {
+    init(fitnessGoal: String, fitnessLevel: String, weeklyGoal: String, updated: String) {
         self.fitnessGoal = fitnessGoal
         self.fitnessLevel = fitnessLevel
         self.weeklyGoal = weeklyGoal
+        self.updated = updated
     }
 }

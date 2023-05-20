@@ -80,6 +80,10 @@ class AddHealthDetailsViewController: UIViewController {
             .components(separatedBy: ",")
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) } ?? []
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd:HH:mm:ss"
+        let dateTimeNow = dateFormatter.string(from: Date())
+        
         // let formValidator = FormValidator()
         // TODO: Validate button press later
         
@@ -104,7 +108,7 @@ class AddHealthDetailsViewController: UIViewController {
         }
         
         if let ageValue = Int(age) {
-            let userHealthModel = UserHealthModel(height: heightValue, weight: weightValue, age: ageValue, gender: gender, healthConditions: healthConditions)
+            let userHealthModel = UserHealthModel(height: heightValue, weight: weightValue, age: ageValue, gender: gender, healthConditions: healthConditions, updated: dateTimeNow)
             saveDataToFirestore(userHealthModel: userHealthModel)
         } else {
             print("Invalid age value")
@@ -129,7 +133,7 @@ class AddHealthDetailsViewController: UIViewController {
                 switch result {
                 case .success:
                     print("User health data saved in Firestore")
-                    // Proceed to the next step or show success message
+                    CAlert.showAlert(on: self, title: "Details Saved", message: "Your data has been added!")
                 case .failure(let error):
                     print("Failed to save user health data in Firestore:", error)
                     // Handle the error appropriately

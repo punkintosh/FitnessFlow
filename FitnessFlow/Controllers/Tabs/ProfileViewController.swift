@@ -9,8 +9,6 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     private let profileView: ProfileView
-    // Account
-    private let profileAccountHelper = ProfileAccountHelper.shared
     
     init() {
         self.profileView = ProfileView()
@@ -25,41 +23,9 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        // Account
-        profileAccountHelper.fetchUserData() { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let userModel):
-                    self?.profileView.configure(with: userModel)
-                case .failure(let error):
-                    print("Failed to fetch user data: \(error)")
-                    // Handle the error and update the UI accordingly
-                }
-            }
-        }
+        profileView.configure()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Account
-        profileAccountHelper.startListeningForUserDataChanges() { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let userModel):
-                    self?.profileView.configure(with: userModel)
-                case .failure(let error):
-                    print("Failed to listen for user data changes: \(error)")
-                    // Handle the error and update the UI accordingly
-                }
-            }
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // Account
-        profileAccountHelper.stopListeningForUserDataChanges()
-    }
+
     
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
@@ -76,6 +42,9 @@ class ProfileViewController: UIViewController {
         // Health
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(editHealthDetails))
         profileView.editButtonHealth.addGestureRecognizer(tapGesture2)
+        // Fitness
+        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(editFitnessDetails))
+        profileView.editButtonFitness.addGestureRecognizer(tapGesture3)
     }
     
     // Account
@@ -86,6 +55,12 @@ class ProfileViewController: UIViewController {
     // Health
     @objc private func editHealthDetails() {
         let nextViewController = AddHealthDetailsViewController()
-        navigationController?.pushViewController(nextViewController, animated: false)
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    // Fitness
+    @objc private func editFitnessDetails() {
+        let nextViewController = AddFitnessDetailsViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

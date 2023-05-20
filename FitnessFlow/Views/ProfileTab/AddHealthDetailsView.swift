@@ -27,12 +27,6 @@ class AddHealthDetailsView: UIView {
     }()
     
     var healthConditions: [String] = []
-//    let healthConditionsTextField: UITextField = {
-//        let textField = UITextField()
-//        textField.placeholder = "Health Conditions"
-//        textField.borderStyle = .roundedRect
-//        return textField
-//    }()
     
     let saveInfoButton: CRoundedButton = {
         let button = CRoundedButton(title: "Save Details")

@@ -89,20 +89,15 @@ class ProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with userAccountModel: UserAccountModel?) {
+    func configure() {
         // Account
         accountTitleLabel.text = "Account Details"
         accountSubheadLabel.text = "We need to identify who you are"
         nameTitleLabel.text = "Name"
         emailTitleLabel.text = "Email"
         
-        if let userAccountModel = userAccountModel {
-            nameDataLabel.text = "\(userAccountModel.firstName) \(userAccountModel.lastName)"
-            emailDataLabel.text = userAccountModel.email
-        } else {
-            nameDataLabel.text = "Loading..."
-            emailDataLabel.text = "Loading..."
-        }
+        nameDataLabel.text = "Not Set"
+        emailDataLabel.text = "Not Set"
         
         // Health
         healthTitleLabel.text = "Health Details"
