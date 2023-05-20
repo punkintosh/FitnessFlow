@@ -41,6 +41,13 @@
 		607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607F0EDB2A1661CE0047DAB2 /* AuthService.swift */; };
 		607F0EDF2A1666D70047DAB2 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 607F0EDE2A1666D70047DAB2 /* MBProgressHUD */; };
 		6093D4D92A1938F000B1ADA1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4D82A1938F000B1ADA1 /* UserModel.swift */; };
+		6093D4DD2A19469800B1ADA1 /* HealthDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4DC2A19469800B1ADA1 /* HealthDataViewController.swift */; };
+		6093D4DF2A1946A600B1ADA1 /* HealthDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4DE2A1946A600B1ADA1 /* HealthDataView.swift */; };
+		6093D4E12A19470600B1ADA1 /* FitnessDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E02A19470600B1ADA1 /* FitnessDataView.swift */; };
+		6093D4E32A19471400B1ADA1 /* FitnessDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E22A19471400B1ADA1 /* FitnessDataViewController.swift */; };
+		6093D4E52A194A7F00B1ADA1 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E42A194A7F00B1ADA1 /* CreateAccountView.swift */; };
+		6093D4E72A194A8E00B1ADA1 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E62A194A8E00B1ADA1 /* CreateAccountViewController.swift */; };
+		6093D4EA2A194F8900B1ADA1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E92A194F8900B1ADA1 /* UserService.swift */; };
 		60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 60A466392A167D62003609B3 /* FirebaseAnalytics */; };
 		60A4663C2A167D62003609B3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663B2A167D62003609B3 /* FirebaseAuth */; };
 		60A4663E2A167D62003609B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663D2A167D62003609B3 /* FirebaseFirestore */; };
@@ -114,6 +121,13 @@
 		60789E372A17E354004AEAAE /* AddHealthDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHealthDetailsViewController.swift; sourceTree = "<group>"; };
 		607F0EDB2A1661CE0047DAB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		6093D4D82A1938F000B1ADA1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		6093D4DC2A19469800B1ADA1 /* HealthDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataViewController.swift; sourceTree = "<group>"; };
+		6093D4DE2A1946A600B1ADA1 /* HealthDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataView.swift; sourceTree = "<group>"; };
+		6093D4E02A19470600B1ADA1 /* FitnessDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessDataView.swift; sourceTree = "<group>"; };
+		6093D4E22A19471400B1ADA1 /* FitnessDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessDataViewController.swift; sourceTree = "<group>"; };
+		6093D4E42A194A7F00B1ADA1 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		6093D4E62A194A8E00B1ADA1 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		6093D4E92A194F8900B1ADA1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		60A4663F2A167DE9003609B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
 		60B193C72A15D74A0045FCAF /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
@@ -245,6 +259,42 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		6093D4DA2A1945BB00B1ADA1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				6049BF8C2A14C00400C369AA /* TempHomeViewController.swift */,
+				60B193ED2A15F0250045FCAF /* LogInViewController.swift */,
+				60B8E5D82A1510DB00547439 /* SignUpViewController.swift */,
+				6093D4DC2A19469800B1ADA1 /* HealthDataViewController.swift */,
+				6093D4E22A19471400B1ADA1 /* FitnessDataViewController.swift */,
+				6093D4E62A194A8E00B1ADA1 /* CreateAccountViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		6093D4DB2A19463200B1ADA1 /* Onbaording */ = {
+			isa = PBXGroup;
+			children = (
+				60B8E5D12A14FA0D00547439 /* TempHomeView.swift */,
+				60B193EB2A15F0120045FCAF /* LogInView.swift */,
+				60B8E5D62A1510A000547439 /* SignUpView.swift */,
+				6093D4DE2A1946A600B1ADA1 /* HealthDataView.swift */,
+				6093D4E02A19470600B1ADA1 /* FitnessDataView.swift */,
+				6093D4E42A194A7F00B1ADA1 /* CreateAccountView.swift */,
+			);
+			path = Onbaording;
+			sourceTree = "<group>";
+		};
+		6093D4E82A194F3900B1ADA1 /* Blind */ = {
+			isa = PBXGroup;
+			children = (
+				605C14402A172DE000DCCC8D /* UserAccountService.swift */,
+				603BD9E32A18CCF50005E123 /* UserHealthService.swift */,
+				60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */,
+			);
+			path = Blind;
+			sourceTree = "<group>";
+		};
 		60B193B32A15D4BD0045FCAF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,11 +345,9 @@
 		60B3CF112A14F1F200BA6FCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6093D4DA2A1945BB00B1ADA1 /* Onboarding */,
 				603BD9E22A18AD6D0005E123 /* ProfileTab */,
 				605C14432A17411200DCCC8D /* Tabs */,
-				6049BF8C2A14C00400C369AA /* TempHomeViewController.swift */,
-				60B8E5D82A1510DB00547439 /* SignUpViewController.swift */,
-				60B193ED2A15F0250045FCAF /* LogInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -327,10 +375,9 @@
 		60B3CF152A14F27400BA6FCF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6093D4E82A194F3900B1ADA1 /* Blind */,
 				607F0EDB2A1661CE0047DAB2 /* AuthService.swift */,
-				605C14402A172DE000DCCC8D /* UserAccountService.swift */,
-				603BD9E32A18CCF50005E123 /* UserHealthService.swift */,
-				60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */,
+				6093D4E92A194F8900B1ADA1 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -348,11 +395,9 @@
 		60B8E5D02A14F9EE00547439 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6093D4DB2A19463200B1ADA1 /* Onbaording */,
 				603BD9E12A18AD540005E123 /* ProfileTab */,
 				605C14442A1741A000DCCC8D /* Tabs */,
-				60B8E5D12A14FA0D00547439 /* TempHomeView.swift */,
-				60B8E5D62A1510A000547439 /* SignUpView.swift */,
-				60B193EB2A15F0120045FCAF /* LogInView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -471,6 +516,7 @@
 				605C144A2A17423500DCCC8D /* ProgressViewController.swift in Sources */,
 				60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */,
 				605C14412A172DE000DCCC8D /* UserAccountService.swift in Sources */,
+				6093D4EA2A194F8900B1ADA1 /* UserService.swift in Sources */,
 				605C144C2A17424B00DCCC8D /* NutritionViewController.swift in Sources */,
 				604EE7402A154BD800D2598D /* FormValidator.swift in Sources */,
 				605C14562A17434D00DCCC8D /* ProgressView.swift in Sources */,
@@ -482,8 +528,11 @@
 				60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */,
 				60789E382A17E354004AEAAE /* AddHealthDetailsViewController.swift in Sources */,
 				6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */,
+				6093D4DD2A19469800B1ADA1 /* HealthDataViewController.swift in Sources */,
+				6093D4E12A19470600B1ADA1 /* FitnessDataView.swift in Sources */,
 				60B8E5D92A1510DB00547439 /* SignUpViewController.swift in Sources */,
 				607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */,
+				6093D4E32A19471400B1ADA1 /* FitnessDataViewController.swift in Sources */,
 				60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */,
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
 				60B1F4102A18F662006FA39A /* AddFitnessDetailsView.swift in Sources */,
@@ -491,9 +540,12 @@
 				6093D4D92A1938F000B1ADA1 /* UserModel.swift in Sources */,
 				605C145A2A17437E00DCCC8D /* ProfileView.swift in Sources */,
 				60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */,
+				6093D4E72A194A8E00B1ADA1 /* CreateAccountViewController.swift in Sources */,
 				602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */,
+				6093D4DF2A1946A600B1ADA1 /* HealthDataView.swift in Sources */,
 				60B8E5D22A14FA0D00547439 /* TempHomeView.swift in Sources */,
 				603BD9E02A188ED00005E123 /* UserFitnessModel.swift in Sources */,
+				6093D4E52A194A7F00B1ADA1 /* CreateAccountView.swift in Sources */,
 				605C145C2A17645900DCCC8D /* UserHealthModel.swift in Sources */,
 				605C14482A17421F00DCCC8D /* WorkoutsViewController.swift in Sources */,
 				60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */,

@@ -24,8 +24,8 @@ class SignUpView: UIView {
     let passwordTextField = CTextField(placeholder: "Password")
     let confirmPasswordTextField = CTextField(placeholder: "Confirm Password")
     
-    let signUpButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Sign Up")
+    let continueButton: CRoundedButton = {
+        let button = CRoundedButton(title: "Setup Health Details")
         return button
     }()
     
@@ -60,7 +60,7 @@ class SignUpView: UIView {
         addSubview(passwordTextField)
         addSubview(confirmPasswordLabel)
         addSubview(confirmPasswordTextField)
-        addSubview(signUpButton)
+        addSubview(continueButton)
         
         authHeader.configure(title: "Sign Up", caption: "Create your account", imageName: "logo_l.png")
         
@@ -129,7 +129,7 @@ class SignUpView: UIView {
             make.height.equalTo(40)
         }
         
-        signUpButton.snp.makeConstraints { make in
+        continueButton.snp.makeConstraints { make in
             make.top.equalTo(confirmPasswordTextField.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(16)
