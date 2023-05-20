@@ -80,6 +80,11 @@ class ProfileView: UIView {
     // Fitness Body Layer
     let fitnessBodyStackView = UIStackView()
     
+    let signOutButton: CRoundedButton = {
+        let button = CRoundedButton(title: "Save Details")
+        return button
+    }()
+    
     init() {
         super.init(frame: .zero)
         setupUI()
@@ -136,6 +141,15 @@ class ProfileView: UIView {
         createConstraintsAccountLayer()
         createConstraintsHealthLayer()
         createConstraintsFitnessLayer()
+        
+        addSubview(signOutButton)
+        signOutButton.snp.makeConstraints { make in
+            make.top.equalTo(fitnessBodyStackView.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+            make.height.equalTo(50)
+        }
     }
     
     private func setupTabHeaderUI(){

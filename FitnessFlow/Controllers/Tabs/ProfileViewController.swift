@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
         profileView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        profileView.signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
     }
     
     private func setupBindings() {
@@ -62,5 +63,20 @@ class ProfileViewController: UIViewController {
     @objc private func editFitnessDetails() {
         let nextViewController = AddFitnessDetailsViewController()
         navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    // SignOut
+    @objc private func signOutButtonTapped() {
+        AuthService.signOut {result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async {
+                    self.navigationController?.setViewControllers([LogInViewController()], animated: true)
+                    print("User sign out!")
+                }
+            case .failure(let error):
+                print("Error signing out: \(error.localizedDescription)")
+            }
+        }
     }
 }
