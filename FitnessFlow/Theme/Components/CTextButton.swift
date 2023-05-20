@@ -14,7 +14,7 @@ class CTextButton: UILabel {
         self.text = text
         self.textColor = color
         self.textAlignment = .center
-        self.font = AppThemeData.fontSizeTextButton
+        self.font = .systemFont(ofSize: 16, weight: .semibold)
         self.isUserInteractionEnabled = true
     }
     

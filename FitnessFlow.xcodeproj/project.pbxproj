@@ -40,6 +40,7 @@
 		60789E382A17E354004AEAAE /* AddHealthDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60789E372A17E354004AEAAE /* AddHealthDetailsViewController.swift */; };
 		607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607F0EDB2A1661CE0047DAB2 /* AuthService.swift */; };
 		607F0EDF2A1666D70047DAB2 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 607F0EDE2A1666D70047DAB2 /* MBProgressHUD */; };
+		6093D4D92A1938F000B1ADA1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4D82A1938F000B1ADA1 /* UserModel.swift */; };
 		60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 60A466392A167D62003609B3 /* FirebaseAnalytics */; };
 		60A4663C2A167D62003609B3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663B2A167D62003609B3 /* FirebaseAuth */; };
 		60A4663E2A167D62003609B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663D2A167D62003609B3 /* FirebaseFirestore */; };
@@ -65,7 +66,6 @@
 		60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EB2A15F0120045FCAF /* LogInView.swift */; };
 		60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193ED2A15F0250045FCAF /* LogInViewController.swift */; };
 		60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EF2A15F0EA0045FCAF /* CTextField.swift */; };
-		60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193F22A15F7330045FCAF /* CLabelTextField.swift */; };
 		60B1F4102A18F662006FA39A /* AddFitnessDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F40F2A18F662006FA39A /* AddFitnessDetailsView.swift */; };
 		60B1F4122A18F685006FA39A /* AddFitnessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F4112A18F685006FA39A /* AddFitnessDetailsViewController.swift */; };
 		60B1F4142A18F6BB006FA39A /* UserFitnessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */; };
@@ -113,6 +113,7 @@
 		60789E352A17E335004AEAAE /* AddHealthDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHealthDetailsView.swift; sourceTree = "<group>"; };
 		60789E372A17E354004AEAAE /* AddHealthDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHealthDetailsViewController.swift; sourceTree = "<group>"; };
 		607F0EDB2A1661CE0047DAB2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		6093D4D82A1938F000B1ADA1 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		60A4663F2A167DE9003609B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
 		60B193C72A15D74A0045FCAF /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
@@ -135,7 +136,6 @@
 		60B193EB2A15F0120045FCAF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		60B193ED2A15F0250045FCAF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		60B193EF2A15F0EA0045FCAF /* CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextField.swift; sourceTree = "<group>"; };
-		60B193F22A15F7330045FCAF /* CLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabelTextField.swift; sourceTree = "<group>"; };
 		60B1F40F2A18F662006FA39A /* AddFitnessDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFitnessDetailsView.swift; sourceTree = "<group>"; };
 		60B1F4112A18F685006FA39A /* AddFitnessDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFitnessDetailsViewController.swift; sourceTree = "<group>"; };
 		60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFitnessService.swift; sourceTree = "<group>"; };
@@ -284,7 +284,6 @@
 				60B8E5DA2A1528A300547439 /* CTextButton.swift */,
 				60B8E5DC2A15293400547439 /* CRoundedButton.swift */,
 				605C145F2A17864600DCCC8D /* CLabel.swift */,
-				60B193F22A15F7330045FCAF /* CLabelTextField.swift */,
 				60B193EF2A15F0EA0045FCAF /* CTextField.swift */,
 				605C143E2A17261A00DCCC8D /* CAlert.swift */,
 				60B8E5DE2A1535E200547439 /* CAuthHeader.swift */,
@@ -309,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				602B19E52A165C8900F377C0 /* AuthModel.swift */,
+				6093D4D82A1938F000B1ADA1 /* UserModel.swift */,
 				602B19E72A165CA900F377C0 /* UserAccountModel.swift */,
 				605C145B2A17645900DCCC8D /* UserHealthModel.swift */,
 				603BD9DF2A188ED00005E123 /* UserFitnessModel.swift */,
@@ -488,6 +488,7 @@
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
 				60B1F4102A18F662006FA39A /* AddFitnessDetailsView.swift in Sources */,
 				60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */,
+				6093D4D92A1938F000B1ADA1 /* UserModel.swift in Sources */,
 				605C145A2A17437E00DCCC8D /* ProfileView.swift in Sources */,
 				60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */,
 				602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */,
@@ -497,7 +498,6 @@
 				605C14482A17421F00DCCC8D /* WorkoutsViewController.swift in Sources */,
 				60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */,
 				605C14502A17427300DCCC8D /* MainTabBarController.swift in Sources */,
-				60B193F32A15F7330045FCAF /* CLabelTextField.swift in Sources */,
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
 				605C14602A17864600DCCC8D /* CLabel.swift in Sources */,
 				605C144E2A17425E00DCCC8D /* ProfileViewController.swift in Sources */,

@@ -19,7 +19,7 @@ class CTextField: UITextField {
     
     private func configureTextField(placeholder: String) {
         self.placeholder = placeholder
-        self.font = AppThemeData.fontSizeBody
+        self.font = .systemFont(ofSize: 17, weight: .regular)
         self.borderStyle = .roundedRect
     }
 }

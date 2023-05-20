@@ -12,11 +12,11 @@ class SignUpView: UIView {
     
     let authHeader = CAuthHeader()
     
-    let firstNameLabel = CLabelTextField(text: "First Name")
-    let lastNameLabel = CLabelTextField(text: "Last Name")
-    let emailLabel = CLabelTextField(text: "Email")
-    let passwordLabel = CLabelTextField(text: "Password")
-    let confirmPasswordLabel = CLabelTextField(text: "Confirm Password")
+    let firstNameLabel = CLabel.iOSSubhead()
+    let lastNameLabel = CLabel.iOSSubhead()
+    let emailLabel = CLabel.iOSSubhead()
+    let passwordLabel = CLabel.iOSSubhead()
+    let confirmPasswordLabel = CLabel.iOSSubhead()
     
     let firstNameTextField = CTextField(placeholder: "First Name")
     let lastNameTextField = CTextField(placeholder: "Last Name")
@@ -33,10 +33,19 @@ class SignUpView: UIView {
     init() {
         super.init(frame: .zero)
         setupUI()
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configure() {
+        firstNameLabel.text = "First Name"
+        lastNameLabel.text = "Last Name"
+        emailLabel.text = "Email"
+        passwordLabel.text = "Password"
+        confirmPasswordLabel.text = "Confirm Password"
     }
     
     private func setupUI() {

@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 
 class AddFitnessDetailsView: UIView {
-    let fitnessGoal = CLabelTextField(text: "fitness Goal")
-    let fitnessLevel = CLabelTextField(text: "Fitness Level")
-    let weeklyGoalLabel = CLabelTextField(text: "Weekly Goal")
+    let fitnessGoal = CLabel.iOSSubhead()
+    let fitnessLevel = CLabel.iOSSubhead()
+    let weeklyGoalLabel = CLabel.iOSSubhead()
     
     let fitnessGoalSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Weight Loss", "Muscle Building", "Stay Fit"])
@@ -44,6 +44,13 @@ class AddFitnessDetailsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        configure()
+    }
+    
+    private func configure() {
+        fitnessGoal.text = "Fitness Goal"
+        fitnessLevel.text = "Fitness Level"
+        weeklyGoalLabel.text = "Weekly Goal"
     }
     
     private func setupUI() {

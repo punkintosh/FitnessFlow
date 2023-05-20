@@ -9,19 +9,9 @@ import UIKit
 import SnapKit
 
 class CAuthHeader: UIView {
-    private let labelTitle: UILabel = {
-        let label = UILabel()
-        label.textColor = AppThemeData.colorTextBlack
-        label.font = AppThemeData.fontSizeTitle1
-        return label
-    }()
+    private let labelTitle = CLabel.iOSPageTitleUnscrolled()
     
-    private let labelCaption: UILabel = {
-        let label = UILabel()
-        label.textColor = AppThemeData.colorTextPrimary
-        label.font = AppThemeData.fontSizeTextButton
-        return label
-    }()
+    private let labelCaption = CLabel.iOSPageTitleScrolledPrimaryColor()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()

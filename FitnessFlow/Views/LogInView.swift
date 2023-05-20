@@ -12,8 +12,8 @@ class LogInView: UIView {
     
     let authHeader = CAuthHeader()
     
-    let emailLabel = CLabelTextField(text: "Email")
-    let passwordLabel = CLabelTextField(text: "Password")
+    let emailLabel = CLabel.iOSSubhead()
+    let passwordLabel = CLabel.iOSSubhead()
     
     let emailTextField = CTextField(placeholder: "Email")
     let passwordTextField = CTextField(placeholder: "Password")
@@ -32,10 +32,16 @@ class LogInView: UIView {
     init() {
         super.init(frame: .zero)
         setupUI()
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configure() {
+        emailLabel.text = "Email"
+        passwordLabel.text = "Password"
     }
     
     private func setupUI() {

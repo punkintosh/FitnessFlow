@@ -14,7 +14,7 @@ class CRoundedButton: UIButton {
         self.setTitle(title, for: .normal)
         self.setTitleColor(AppThemeData.colorTextWhite, for: .normal)
         self.backgroundColor = AppThemeData.colorPrimary
-        self.titleLabel?.font = AppThemeData.fontSizeButton
+        self.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         self.layer.cornerRadius = AppThemeData.cornerRadiusButton
     }
     

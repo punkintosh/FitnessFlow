@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 
 class AddHealthDetailsView: UIView {
-    let heightLabel = CLabelTextField(text: "Height (cm)")
-    let weightLabel = CLabelTextField(text: "Weight (Kg)")
-    let genderLabel = CLabelTextField(text: "Gender")
-    let ageLabel = CLabelTextField(text: "Age (Years)")
-    let healthConditionsLabel = CLabelTextField(text: "Health Conditions")
+    let heightLabel = CLabel.iOSSubhead()
+    let weightLabel = CLabel.iOSSubhead()
+    let genderLabel = CLabel.iOSSubhead()
+    let ageLabel = CLabel.iOSSubhead()
+    let healthConditionsLabel = CLabel.iOSSubhead()
     
     let heightTextField = CTextField(placeholder: "174")
     let weightTextField = CTextField(placeholder: "80")
@@ -40,6 +40,15 @@ class AddHealthDetailsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        configure()
+    }
+    
+    private func configure() {
+        heightLabel.text = "Height (cm)"
+        weightLabel.text = "Weight (Kg)"
+        genderLabel.text = "Gender"
+        ageLabel.text = "Age (Years)"
+        healthConditionsLabel.text = "Health Conditions"
     }
     
     private func setupUI() {
