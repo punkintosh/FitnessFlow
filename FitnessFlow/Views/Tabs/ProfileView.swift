@@ -131,9 +131,26 @@ class ProfileView: UIView {
     
     
     private func setupUI() {
+        
+        setupTabHeaderUI()
+        setupAccountLayerUI()
+        setupHealthLayerUI()
+        setupFitnessLayerUI()
+        
+        createConstraintsTabHeader()
+        createConstraintsAccountLayer()
+        createConstraintsHealthLayer()
+        createConstraintsFitnessLayer()
+    }
+    
+    private func setupTabHeaderUI(){
+        
         // Tab Header
         tabHeader.configure(title: "Profile", caption: "Manage your health data")
         addSubview(tabHeader)
+    }
+    
+    private func setupAccountLayerUI(){
         
         // Account Header Layer
         accountHeaderStackView.spacing = 16
@@ -162,6 +179,9 @@ class ProfileView: UIView {
         // Account Body Layer
         accountBodyStackView.addArrangedSubview(accountBodyTitleStackView)
         accountBodyStackView.addArrangedSubview(accountBodyDataStackView)
+    }
+    
+    private func setupHealthLayerUI(){
         
         // Health Header Layer
         healthHeaderStackView.spacing = 16
@@ -196,6 +216,9 @@ class ProfileView: UIView {
         // Health Body Layer
         healthBodyStackView.addArrangedSubview(healthBodyTitleStackView)
         healthBodyStackView.addArrangedSubview(healthBodyDataStackView)
+    }
+    
+    private func setupFitnessLayerUI(){
         
         // Fitness Header Layer
         fitnessHeaderStackView.spacing = 16
@@ -224,8 +247,6 @@ class ProfileView: UIView {
         // Fitness Body Layer
         fitnessBodyStackView.addArrangedSubview(fitnessBodyTitleStackView)
         fitnessBodyStackView.addArrangedSubview(fitnessBodyDataStackView)
-        
-        createConstraints()
     }
     
     private func createStackView(axis: NSLayoutConstraint.Axis, spacing: CGFloat) -> UIStackView {
@@ -236,13 +257,16 @@ class ProfileView: UIView {
         return stackView
     }
     
-    private func createConstraints() {
+    private func createConstraintsTabHeader() {
         // Tab Header
         tabHeader.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(88)
         }
+    }
+    
+    private func createConstraintsAccountLayer() {
         
         // Account Header Layer
         accountHeaderStackView.snp.makeConstraints { make in
@@ -264,6 +288,9 @@ class ProfileView: UIView {
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
+    }
+    
+    private func createConstraintsHealthLayer() {
         
         // Health Header Layer
         healthHeaderStackView.snp.makeConstraints { make in
@@ -285,6 +312,9 @@ class ProfileView: UIView {
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
+    }
+    
+    private func createConstraintsFitnessLayer() {
         
         // Fitness Header Layer
         fitnessHeaderStackView.snp.makeConstraints { make in
