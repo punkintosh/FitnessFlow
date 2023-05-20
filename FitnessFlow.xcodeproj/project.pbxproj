@@ -48,6 +48,7 @@
 		6093D4E52A194A7F00B1ADA1 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E42A194A7F00B1ADA1 /* CreateAccountView.swift */; };
 		6093D4E72A194A8E00B1ADA1 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E62A194A8E00B1ADA1 /* CreateAccountViewController.swift */; };
 		6093D4EA2A194F8900B1ADA1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E92A194F8900B1ADA1 /* UserService.swift */; };
+		6093D4EC2A1963F100B1ADA1 /* SampleCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4EB2A1963F100B1ADA1 /* SampleCodes.swift */; };
 		60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 60A466392A167D62003609B3 /* FirebaseAnalytics */; };
 		60A4663C2A167D62003609B3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663B2A167D62003609B3 /* FirebaseAuth */; };
 		60A4663E2A167D62003609B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663D2A167D62003609B3 /* FirebaseFirestore */; };
@@ -128,6 +129,7 @@
 		6093D4E42A194A7F00B1ADA1 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		6093D4E62A194A8E00B1ADA1 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		6093D4E92A194F8900B1ADA1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		6093D4EB2A1963F100B1ADA1 /* SampleCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCodes.swift; sourceTree = "<group>"; };
 		60A4663F2A167DE9003609B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
 		60B193C72A15D74A0045FCAF /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				60B193F12A15F2AC0045FCAF /* Components */,
 				60B193B32A15D4BD0045FCAF /* Fonts */,
 				6049BFA22A14D34600C369AA /* AppThemeData.swift */,
+				6093D4EB2A1963F100B1ADA1 /* SampleCodes.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				6093D4E32A19471400B1ADA1 /* FitnessDataViewController.swift in Sources */,
 				60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */,
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
+				6093D4EC2A1963F100B1ADA1 /* SampleCodes.swift in Sources */,
 				60B1F4102A18F662006FA39A /* AddFitnessDetailsView.swift in Sources */,
 				60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */,
 				6093D4D92A1938F000B1ADA1 /* UserModel.swift in Sources */,

@@ -86,9 +86,9 @@ class FitnessDataViewController: UIViewController {
         
         // let formValidator = FormValidator()
         // TODO: Validate button press later
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd:HH:mm:ss"
-        let dateTimeNow = dateFormatter.string(from: Date())
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd:HH:mm:ss"
+//        let dateTimeNow = dateFormatter.string(from: Date())
         
 //        let userFitnessModel = UserFitnessModel(fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal, updated: dateTimeNow)
         
