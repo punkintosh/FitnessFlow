@@ -42,7 +42,7 @@ class WorkoutCardCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
-
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -95,25 +95,23 @@ class WorkoutCardCell: UICollectionViewCell {
         captionLabel.textColor = .white
         valueLabel.textColor = .white
     }
-
+    
     
     func configure(card: CardModel) {
         titleLabel.text = card.title
         captionLabel.text = card.caption
         valueLabel.text = card.value
         
-        var imageURL = card.image
-        if card.image == ""{
-            imageURL = "https://github.com/punkintosh.png"
+        if let imageUrl = URL(string: card.image) {
+            // The URL string is valid, proceed to load the image
+            backgroundImageView.sd_setImage(with: imageUrl, completed: nil)
+        } else {
+            // The URL string is valid, proceed to load the image
+            backgroundImageView.sd_setImage(with: URL(string: "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=1600"), completed: nil)
+            
         }
         
-        // Set the background image using SDWebImage
-        if let imageUrl = URL(string: imageURL) {
-            backgroundImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "placeholder_image"))
-        } else {
-            backgroundImageView.image = UIImage(named: "placeholder_image")
-        }
     }
-
+    
 }
 

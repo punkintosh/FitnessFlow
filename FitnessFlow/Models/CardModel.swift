@@ -19,6 +19,6 @@ struct CardModel {
         self.title = title
         self.caption = caption
         self.value = value
-        self.image = value
+        self.image = image
     }
 }

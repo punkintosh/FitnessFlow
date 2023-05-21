@@ -177,3 +177,4 @@ Dependencies/
 Packages
 xcuserdata
 *.xcodeproj
+FitnessFlow/Services/FirebaseToken.swift

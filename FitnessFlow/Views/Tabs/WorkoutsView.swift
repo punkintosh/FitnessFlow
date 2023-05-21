@@ -119,14 +119,16 @@ class WorkoutsView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
         
         // Recommended
         recommendedWorkoutsLabel.text = "Recommended Workouts"
-        let card1R = CardModel(id: "", title: "Current Workout", caption: "Fat Loose", value: "3 days", image: "")
-        let card2R = CardModel(id: "", title: "Last Excersise", caption: "Push Ups", value: "10", image: "")
+        let card1R = CardModel(id: "", title: "Basic Plan", caption: "Fat Loose", value: "3 days", image: "")
+        let card2R = CardModel(id: "", title: "Cardio Heat Plan", caption: "Build Muscles", value: "10 days", image: "")
         recommendedWorkoutCards = [card1R, card2R]
         
         // Beginner
         beginnerWorkoutsLabel.text = "Beginner Workouts"
-        let card1B = CardModel(id: "", title: "ABS Beginner", caption: "16 workouts", value: "20 mins", image: "")
-        let card2B = CardModel(id: "", title: "Chest Beginner", caption: "11 workouts", value: "7 mins", image: "")
+        let image1B = "https://images.pexels.com/photos/1547248/pexels-photo-1547248.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        let image2B = "https://images.pexels.com/photos/2827392/pexels-photo-2827392.jpeg?auto=compress&cs=tinysrgb&w=160"
+        let card1B = CardModel(id: "", title: "ABS Beginner", caption: "16 workouts", value: "20 mins", image: image1B)
+        let card2B = CardModel(id: "", title: "Chest Beginner", caption: "11 workouts", value: "7 mins", image: image2B)
         let card3B = CardModel(id: "", title: "Arm Beginner", caption: "19 workouts", value: "17 mins", image: "")
         let card4B = CardModel(id: "", title: "Leg Beginner", caption: "23 workouts", value: "26 mins", image: "")
         let card5B = CardModel(id: "", title: "Shoulder & Back Beginner", caption: "17 workouts", value: "17 mins", image: "")
