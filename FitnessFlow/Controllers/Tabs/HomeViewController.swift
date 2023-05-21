@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     private let homeView: HomeView
     private let userModel: UserModel
 
-    let userDatafromFirestore = UserModel(firstName: "Sample", lastName: "User", email: "sample@gmail.com", password: "", height: 178, weight: 78, age: 24, gender: "Male", healthConditions: [""], fitnessGoal: "Keep Fit", fitnessLevel: "Beginner", weeklyGoal: "7")
+    let userDatafromFirestore = UserModel(firstName: "Dileepa", lastName: "Bandara", email: "contact@dileepbandara.dev", password: "", height: 178, weight: 78, age: 24, gender: "Male", healthConditions: [""], fitnessGoal: "Keep Fit", fitnessLevel: "Beginner", weeklyGoal: "7")
 
     init() {
         self.userModel = userDatafromFirestore

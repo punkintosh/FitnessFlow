@@ -104,8 +104,8 @@ class ProfileView: UIView {
         nameTitleLabel.text = "Name"
         emailTitleLabel.text = "Email"
         
-        nameDataLabel.text = "Not Set"
-        emailDataLabel.text = "Not Set"
+        nameDataLabel.text = "Dileepa Bandara"
+        emailDataLabel.text = "contact@dileepabandara.dev"
         
         // Health
         healthTitleLabel.text = "Health Details"
@@ -116,10 +116,10 @@ class ProfileView: UIView {
         genderTitleLabel.text = "Gender"
         healthConditionsTitleLabel.text = "Health Conditions"
         
-        heightDataLabel.text = "Not Set"
-        weightDataLabel.text = "Not Set"
-        ageDataLabel.text = "Not Set"
-        genderDataLabel.text = "Not Set"
+        heightDataLabel.text = "178"
+        weightDataLabel.text = "78"
+        ageDataLabel.text = "24"
+        genderDataLabel.text = "Male"
         healthConditionsDataLabel.text = "Not Set"
         
         // Fitness
@@ -128,8 +128,8 @@ class ProfileView: UIView {
         fitnessGoalTitleLabel.text = "Fitness Goal"
         fitnessLevelTitleLabel.text = "Fitness Level"
         
-        fitnessGoalDataLabel.text = "Not Set"
-        fitnessLevelDataLabel.text = "Not Set"
+        fitnessGoalDataLabel.text = "Keep Fit"
+        fitnessLevelDataLabel.text = "Beginner"
     }
     
     
