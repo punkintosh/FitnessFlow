@@ -8,13 +8,17 @@
 import Foundation
 
 struct CardModel {
+    let id: String
     let title: String
     let caption: String
     let value: String
+    let image: String
     
-    init(title: String, caption: String, value: String) {
+    init(id: String, title: String, caption: String, value: String, image: String) {
+        self.id = id
         self.title = title
         self.caption = caption
         self.value = value
+        self.image = value
     }
 }

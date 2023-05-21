@@ -10,7 +10,7 @@ import SnapKit
 
 class WorkoutsViewController: UIViewController {
     private let workoutsView: WorkoutsView
-
+    
     init() {
         self.workoutsView = WorkoutsView()
         super.init(nibName: nil, bundle: nil)
@@ -23,6 +23,7 @@ class WorkoutsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        workoutsView.configure()
     }
 
     private func setupUI() {

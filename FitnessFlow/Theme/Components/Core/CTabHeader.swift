@@ -9,19 +9,10 @@ import UIKit
 import SnapKit
 
 class CTabHeader: UIView {
-    private let labelTitle: UILabel = {
-        let label = UILabel()
-        label.textColor = AppThemeData.colorTextBlack
-        label.font = AppThemeData.fontSizeTitle1
-        return label
-    }()
+    private let labelTitle = CLabel.iOSPageTitleUnscrolled()
     
-    private let labelCaption: UILabel = {
-        let label = UILabel()
-        label.textColor = AppThemeData.colorTextLightGray
-        label.font = AppThemeData.fontSizeTextButton
-        return label
-    }()
+    private let labelCaption = CLabel.iOSSubhead()
+    
     init() {
         super.init(frame: .zero)
         setupSubviews()
@@ -46,7 +37,7 @@ class CTabHeader: UIView {
         
         stackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalToSuperview()
         }
     }
     

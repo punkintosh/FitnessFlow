@@ -135,8 +135,8 @@ class HomeView: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewData
         weeklyGoalLabel.text = "Weekly Goal: \(userModel.weeklyGoal)"
         workoutSummaryLabel.text = "Workout Summary"
         
-        let card1 = CardModel(title: "Current Workout", caption: "Fat Loose", value: "3 days")
-        let card2 = CardModel(title: "Last Excersise", caption: "Push Ups", value: "10")
+        let card1 = CardModel(id: "", title: "Current Workout", caption: "Fat Loose", value: "3 days", image: "")
+        let card2 = CardModel(id: "", title: "Last Excersise", caption: "Push Ups", value: "10", image: "")
         
         cards = [card1, card2]
     }
