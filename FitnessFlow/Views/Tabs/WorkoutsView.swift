@@ -250,16 +250,9 @@ class WorkoutsView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
         collectionViewFour.dataSource = self
     }
     
-    var selectedCard: CardModel? {
-        didSet {
-            if let card = selectedCard {
-                print("Selected Card:")
-                print("Title: \(card.title)")
-                print("Caption: \(card.caption)")
-                print("Value: \(card.value)")
-            }
-        }
-    }
+    
+    weak var selectionDelegate: WorkoutSelectionDelegate?
+
     
     // MARK: - UICollectionViewDataSource
 
@@ -307,6 +300,7 @@ class WorkoutsView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
 
     // MARK: - Card Select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var selectedCard: CardModel?
         if collectionView == collectionViewOne {
             selectedCard = recommendedWorkoutCards[indexPath.item]
         } else if collectionView == collectionViewTwo {
@@ -316,6 +310,14 @@ class WorkoutsView: UIView, UICollectionViewDelegateFlowLayout, UICollectionView
         } else if collectionView == collectionViewFour {
             selectedCard = advancedWorkoutCards[indexPath.item]
         }
+        
+        if let card = selectedCard {
+            selectionDelegate?.didSelectWorkout(card)
+        }
     }
 
+}
+
+protocol WorkoutSelectionDelegate: AnyObject {
+    func didSelectWorkout(_ workout: CardModel)
 }

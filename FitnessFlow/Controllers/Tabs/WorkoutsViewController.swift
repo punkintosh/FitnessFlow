@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class WorkoutsViewController: UIViewController {
+class WorkoutsViewController: UIViewController, WorkoutSelectionDelegate {
     private let workoutsView: WorkoutsView
     
     init() {
@@ -22,6 +22,7 @@ class WorkoutsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        workoutsView.selectionDelegate = self
         setupUI()
         workoutsView.configure()
     }
@@ -33,6 +34,14 @@ class WorkoutsViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-
+    
+    // Implement the delegate method
+    func didSelectWorkout(_ workout: CardModel) {
+        let aboutWorkoutViewController = AboutWorkoutViewController(workout: workout)
+        // Present or push the `aboutWorkoutViewController` as needed
+        navigationController?.pushViewController(aboutWorkoutViewController, animated: true)
+    }
 }
+
+
 
