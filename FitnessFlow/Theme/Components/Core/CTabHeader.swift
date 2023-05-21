@@ -37,7 +37,7 @@ class CTabHeader: UIView {
         
         stackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
         }
     }
     

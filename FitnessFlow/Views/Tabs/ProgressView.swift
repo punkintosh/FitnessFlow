@@ -10,13 +10,25 @@ import SnapKit
 
 class ProgressView: UIView {
     
-    let tabHeader = CTabHeader()
-
-    let title: UILabel = {
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
+    let contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    let tabHeaderTitle = CLabel.iOSPageTitleUnscrolled()
+    let tabHeaderCaption = CLabel.iOSSubhead()
+    
+    // MARK: Current Progress
+    let currentProgressLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = AppThemeData.colorTextBlack
-        label.font = AppThemeData.fontSizeTitle1
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
 
@@ -29,21 +41,46 @@ class ProgressView: UIView {
         setupUI()
         configure()
     }
-
-    private func setupUI() {
-        addSubview(tabHeader)
+    func configure() {
+        tabHeaderTitle.text = "Progress"
+        tabHeaderCaption.text = "Visualize achievements"
         
-        tabHeader.configure(title: "Progress", caption: "Visualize achievements")
-        
-        tabHeader.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(88)
-        }
+        // Recommended
+        currentProgressLabel.text = "Current Progress"
     }
 
-    private func configure() {
-        title.text = "Progress"
+    private func setupUI() {
+        backgroundColor = .white
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(tabHeaderTitle)
+        contentView.addSubview(tabHeaderCaption)
+        contentView.addSubview(currentProgressLabel)
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+            make.bottom.equalTo(currentProgressLabel.snp.bottom).offset(16)
+        }
+        
+        tabHeaderTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        tabHeaderCaption.snp.makeConstraints { make in
+            make.top.equalTo(tabHeaderTitle.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        currentProgressLabel.snp.makeConstraints { make in
+            make.top.equalTo(tabHeaderCaption.snp.bottom).offset(32)
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
     }
 }
 

@@ -9,8 +9,9 @@ import UIKit
 import SnapKit
 
 class ProfileView: UIView {
-    // Tab Header
-    let tabHeader = CTabHeader()
+    let tabHeaderTitle = CLabel.iOSPageTitleUnscrolled()
+    let tabHeaderCaption = CLabel.iOSSubhead()
+    
     // Account Header
     let accountTitleLabel = CLabel.createLabelTitle3()
     // Account Subhead
@@ -81,7 +82,7 @@ class ProfileView: UIView {
     let fitnessBodyStackView = UIStackView()
     
     let signOutButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Save Details")
+        let button = CRoundedButton(title: "Sign Out")
         return button
     }()
     
@@ -95,6 +96,8 @@ class ProfileView: UIView {
     }
     
     func configure() {
+        tabHeaderTitle.text = "Profile"
+        tabHeaderCaption.text = "Manage your health data"
         // Account
         accountTitleLabel.text = "Account Details"
         accountSubheadLabel.text = "We need to identify who you are"
@@ -132,12 +135,13 @@ class ProfileView: UIView {
     
     private func setupUI() {
         
-        setupTabHeaderUI()
+        addSubview(tabHeaderTitle)
+        addSubview(tabHeaderCaption)
+        
         setupAccountLayerUI()
         setupHealthLayerUI()
         setupFitnessLayerUI()
         
-        createConstraintsTabHeader()
         createConstraintsAccountLayer()
         createConstraintsHealthLayer()
         createConstraintsFitnessLayer()
@@ -150,13 +154,6 @@ class ProfileView: UIView {
             make.right.equalToSuperview().offset(-16)
             make.height.equalTo(50)
         }
-    }
-    
-    private func setupTabHeaderUI(){
-        
-        // Tab Header
-        tabHeader.configure(title: "Profile", caption: "Manage your health data")
-        addSubview(tabHeader)
     }
     
     private func setupAccountLayerUI(){
@@ -266,20 +263,21 @@ class ProfileView: UIView {
         return stackView
     }
     
-    private func createConstraintsTabHeader() {
-        // Tab Header
-        tabHeader.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(16)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(88)
-        }
-    }
-    
     private func createConstraintsAccountLayer() {
+        
+        tabHeaderTitle.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(64)
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        tabHeaderCaption.snp.makeConstraints { make in
+            make.top.equalTo(tabHeaderTitle.snp.bottom).offset(5)
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
         
         // Account Header Layer
         accountHeaderStackView.snp.makeConstraints { make in
-            make.top.equalTo(tabHeader.snp.bottom).offset(16)
+            make.top.equalTo(tabHeaderCaption.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }

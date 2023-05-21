@@ -67,7 +67,7 @@ class AboutWorkoutView: UIView {
     
     func configure(cardModel: CardModel) {
         titleLabel.text = cardModel.title
-        aboutLabel.text = "cardModel.caption" + " - " + "cardModel.values"
+        aboutLabel.text = cardModel.caption + " - " + cardModel.value
         
         let exercises = [
             ("Jumping Jacks", "20 seconds"),

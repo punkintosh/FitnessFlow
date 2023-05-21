@@ -32,7 +32,7 @@ class AboutWorkoutViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
-        title = "workout.title"
+        title = workout.title
         view.addSubview(aboutWorkoutView)
         aboutWorkoutView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
