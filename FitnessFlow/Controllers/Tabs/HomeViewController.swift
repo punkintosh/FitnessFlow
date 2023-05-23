@@ -7,34 +7,71 @@
 
 import UIKit
 import SnapKit
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
     private let homeView: HomeView
-    private let userModel: UserModel
-
-    let userDatafromFirestore = UserModel(firstName: "Dileepa", lastName: "Bandara", email: "contact@dileepbandara.dev", password: "", height: 178, weight: 78, age: 24, gender: "Male", healthConditions: [""], fitnessGoal: "Keep Fit", fitnessLevel: "Beginner", weeklyGoal: "7")
-
+    private var userModel: UserModel?
+    private let currentUserID = AuthService.currentUser?.uid
+    private var userDocumentListener: ListenerRegistration?
+    
     init() {
-        self.userModel = userDatafromFirestore
+        self.userModel = nil
         self.homeView = HomeView()
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        homeView.configure(userModel: userModel)
+        startListeningForUserDataChanges()
     }
-
+    
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
         view.addSubview(homeView)
         homeView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    private func startListeningForUserDataChanges() {
+        userDocumentListener = UserService.shared.addUserDocumentListener(userID: currentUserID!) { [weak self] result in
+            switch result {
+            case .success(let userData):
+                guard let firstName = userData["firstName"] as? String,
+                      let lastName = userData["lastName"] as? String,
+                      let email = userData["email"] as? String,
+                      let password = userData["password"] as? String,
+                      let height = userData["height"] as? Double,
+                      let weight = userData["weight"] as? Double,
+                      let age = userData["age"] as? Int,
+                      let gender = userData["gender"] as? String,
+                      let healthConditions = userData["healthConditions"] as? Array<String>,
+                      let fitnessGoal = userData["fitnessGoal"] as? String,
+                      let fitnessLevel = userData["fitnessLevel"] as? String,
+                      let weeklyGoal = userData["weeklyGoal"] as? String else {
+                    // Handle missing data or incorrect types
+                    print("Invalid user data")
+                    return
+                }
+                let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password, height: height, weight: weight, age: age, gender: gender, healthConditions: healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal)
+                self?.userModel = userModel
+                self?.homeView.configure(userModel: userModel)
+                // Update BMI value
+                self?.homeView.updateBMIValue(height: height, weight: weight)
+            case .failure(let error):
+                print("Failed to fetch user data: \(error)")
+            }
+        }
+    }
+    
+    private func stopListeningForUserDataChanges() {
+        userDocumentListener?.remove()
+        userDocumentListener = nil
     }
 }

@@ -95,6 +95,11 @@
 		60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DA2A1528A300547439 /* CTextButton.swift */; };
 		60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DC2A15293400547439 /* CRoundedButton.swift */; };
 		60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DE2A1535E200547439 /* CAuthHeader.swift */; };
+		60FBB1B52A1CF96700D6729C /* LabelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FBB1B42A1CF96700D6729C /* LabelWrapper.swift */; };
+		60FBB1B72A1CFD0500D6729C /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FBB1B62A1CFD0500D6729C /* ButtonWrapper.swift */; };
+		60FBB1B92A1CFD6600D6729C /* TextFieldWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FBB1B82A1CFD6600D6729C /* TextFieldWrapper.swift */; };
+		60FBB1BB2A1D237500D6729C /* BMIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FBB1BA2A1D237500D6729C /* BMIHelper.swift */; };
+		60FBB1BD2A1D2E4D00D6729C /* GreetingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FBB1BC2A1D2E4D00D6729C /* GreetingHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +189,11 @@
 		60B8E5DA2A1528A300547439 /* CTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextButton.swift; sourceTree = "<group>"; };
 		60B8E5DC2A15293400547439 /* CRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRoundedButton.swift; sourceTree = "<group>"; };
 		60B8E5DE2A1535E200547439 /* CAuthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAuthHeader.swift; sourceTree = "<group>"; };
+		60FBB1B42A1CF96700D6729C /* LabelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWrapper.swift; sourceTree = "<group>"; };
+		60FBB1B62A1CFD0500D6729C /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
+		60FBB1B82A1CFD6600D6729C /* TextFieldWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWrapper.swift; sourceTree = "<group>"; };
+		60FBB1BA2A1D237500D6729C /* BMIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIHelper.swift; sourceTree = "<group>"; };
+		60FBB1BC2A1D2E4D00D6729C /* GreetingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +313,9 @@
 				605C143E2A17261A00DCCC8D /* CAlert.swift */,
 				60B8E5DE2A1535E200547439 /* CAuthHeader.swift */,
 				605C145D2A17689D00DCCC8D /* CTabHeader.swift */,
+				60FBB1B42A1CF96700D6729C /* LabelWrapper.swift */,
+				60FBB1B62A1CFD0500D6729C /* ButtonWrapper.swift */,
+				60FBB1B82A1CFD6600D6729C /* TextFieldWrapper.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -433,8 +446,8 @@
 				603BD9DF2A188ED00005E123 /* UserFitnessModel.swift */,
 				6062D7282A19BF11008B05A9 /* CardModel.swift */,
 				6076A75F2A1A4F0B002DC795 /* ExerciseModel.swift */,
-				6076A7612A1A7C5A002DC795 /* FitnessProgressModel.swift */,
 				6076A7632A1A7D07002DC795 /* WorkoutModel.swift */,
+				6076A7612A1A7C5A002DC795 /* FitnessProgressModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				604EE73F2A154BD800D2598D /* FormValidator.swift */,
+				60FBB1BA2A1D237500D6729C /* BMIHelper.swift */,
+				60FBB1BC2A1D2E4D00D6729C /* GreetingHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -611,6 +626,7 @@
 				605C14462A1741B700DCCC8D /* HomeViewController.swift in Sources */,
 				60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */,
 				60789E382A17E354004AEAAE /* AddHealthDetailsViewController.swift in Sources */,
+				60FBB1B52A1CF96700D6729C /* LabelWrapper.swift in Sources */,
 				6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */,
 				6093D4DD2A19469800B1ADA1 /* HealthDataViewController.swift in Sources */,
 				6093D4E12A19470600B1ADA1 /* FitnessDataView.swift in Sources */,
@@ -624,6 +640,7 @@
 				6062D7292A19BF11008B05A9 /* CardModel.swift in Sources */,
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
 				6093D4EC2A1963F100B1ADA1 /* SampleCodes.swift in Sources */,
+				60FBB1BB2A1D237500D6729C /* BMIHelper.swift in Sources */,
 				60B1F4102A18F662006FA39A /* AddFitnessDetailsView.swift in Sources */,
 				60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */,
 				6076A7602A1A4F0B002DC795 /* ExerciseModel.swift in Sources */,
@@ -631,6 +648,7 @@
 				605C145A2A17437E00DCCC8D /* ProfileView.swift in Sources */,
 				60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */,
 				6093D4E72A194A8E00B1ADA1 /* CreateAccountViewController.swift in Sources */,
+				60FBB1B72A1CFD0500D6729C /* ButtonWrapper.swift in Sources */,
 				602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */,
 				6093D4DF2A1946A600B1ADA1 /* HealthDataView.swift in Sources */,
 				60B8E5D22A14FA0D00547439 /* TempHomeView.swift in Sources */,
@@ -643,8 +661,10 @@
 				6076A7582A1A3602002DC795 /* AboutWorkoutViewController.swift in Sources */,
 				605C14502A17427300DCCC8D /* MainTabBarController.swift in Sources */,
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
+				60FBB1B92A1CFD6600D6729C /* TextFieldWrapper.swift in Sources */,
 				605C14602A17864600DCCC8D /* CLabel.swift in Sources */,
 				605C144E2A17425E00DCCC8D /* ProfileViewController.swift in Sources */,
+				60FBB1BD2A1D2E4D00D6729C /* GreetingHelper.swift in Sources */,
 				602B19E82A165CA900F377C0 /* UserAccountModel.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,
 				60789E362A17E335004AEAAE /* AddHealthDetailsView.swift in Sources */,
