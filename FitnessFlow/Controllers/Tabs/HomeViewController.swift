@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 import FirebaseFirestore
 
 class HomeViewController: UIViewController {

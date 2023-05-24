@@ -9,78 +9,235 @@ import UIKit
 import SnapKit
 
 class ProfileView: UIView {
-    let tabHeaderTitle = CLabel.iOSPageTitleUnscrolled()
-    let tabHeaderCaption = CLabel.iOSSubhead()
     
-    // Account Header
-    let accountTitleLabel = CLabel.createLabelTitle3()
-    // Account Subhead
-    let accountSubheadLabel = CLabel.createLabelSubhead()
-    // Account Body
-    let nameTitleLabel = CLabel.createLabelTextButtonSize()
-    let nameDataLabel = CLabel.createLabelBody()
-    let emailTitleLabel = CLabel.createLabelTextButtonSize()
-    let emailDataLabel = CLabel.createLabelBody()
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
     
-    // Edit Account Details
+    let contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    let tabHeaderTitle: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 34, weight: .bold)
+        return label
+    }()
+    
+    let tabHeaderCaption: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.textColor = AppThemeData.colorTextLightGray
+        label.font = .systemFont(ofSize: 14, weight: .medium)
+        return label
+    }()
+    
+    // MARK: Account
+    
+    // Header
+    let accountTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 19, weight: .semibold)
+        return label
+    }()
+
     let editButtonAccount: CTextButton = {
         let button = CTextButton(text: "Edit", color: AppThemeData.colorTextPrimary)
         return button
     }()
     
-    // Account Header Layer
-    let accountHeaderStackView = UIStackView()
-    // Account Body Layer
-    let accountBodyStackView = UIStackView()
+    // Titles
+    let nameTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let emailTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
     
-    // Health Header
-    let healthTitleLabel = CLabel.createLabelTitle3()
-    // Health Subhead
-    let healthSubheadLabel = CLabel.createLabelSubhead()
-    // Health Body
-    let heightTitleLabel = CLabel.createLabelTextButtonSize()
-    let heightDataLabel = CLabel.createLabelBody()
-    let weightTitleLabel = CLabel.createLabelTextButtonSize()
-    let weightDataLabel = CLabel.createLabelBody()
-    let ageTitleLabel = CLabel.createLabelTextButtonSize()
-    let ageDataLabel = CLabel.createLabelBody()
-    let genderTitleLabel = CLabel.createLabelTextButtonSize()
-    let genderDataLabel = CLabel.createLabelBody()
-    let healthConditionsTitleLabel = CLabel.createLabelTextButtonSize()
-    let healthConditionsDataLabel = CLabel.createLabelBody()
+    // Data
+    let nameDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let emailDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
     
-    // Edit Health Details
+    // MARK: Health
+    
+    // Header
+    let healthTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 19, weight: .semibold)
+        return label
+    }()
+
     let editButtonHealth: CTextButton = {
         let button = CTextButton(text: "Edit", color: AppThemeData.colorTextPrimary)
         return button
     }()
     
-    // Health Header Layer
-    let healthHeaderStackView = UIStackView()
-    // Health Body Layer
-    let healthBodyStackView = UIStackView()
+    // Titles
+    let heightTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let weightTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let ageTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let genderTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let healthConditionsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
     
-    // Fitness Header
-    let fitnessTitleLabel = CLabel.createLabelTitle3()
-    // Fitness Subhead
-    let fitnessSubheadLabel = CLabel.createLabelSubhead()
-    // Fitness Body
-    let fitnessGoalTitleLabel = CLabel.createLabelTextButtonSize()
-    let fitnessGoalDataLabel = CLabel.createLabelBody()
-    let fitnessLevelTitleLabel = CLabel.createLabelTextButtonSize()
-    let fitnessLevelDataLabel = CLabel.createLabelBody()
+    // Data
+    let heightDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let weightDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let ageDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let genderDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let healthConditionsDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
     
-    // Edit Fitness Details
+    // MARK: Fitness
+    
+    // Header
+    let fitnessTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 19, weight: .semibold)
+        return label
+    }()
+
     let editButtonFitness: CTextButton = {
         let button = CTextButton(text: "Edit", color: AppThemeData.colorTextPrimary)
         return button
     }()
     
-    // Fitness Header Layer
-    let fitnessHeaderStackView = UIStackView()
-    // Fitness Body Layer
-    let fitnessBodyStackView = UIStackView()
+    // Titles
+    let fitnessGoalTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let fitnessLevelTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let weeklyGoalTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
     
+    // Data
+    let fitnessGoalDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let fitnessLevelDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let weeklyGoalDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    
+    // Sign Out
     let signOutButton: CRoundedButton = {
         let button = CRoundedButton(title: "Sign Out")
         return button
@@ -95,178 +252,150 @@ class ProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure() {
+    func configure(userModel: UserModel) {
         tabHeaderTitle.text = "Profile"
         tabHeaderCaption.text = "Manage your health data"
-        // Account
+        
+        // MARK: Account
         accountTitleLabel.text = "Account Details"
-        accountSubheadLabel.text = "We need to identify who you are"
         nameTitleLabel.text = "Name"
         emailTitleLabel.text = "Email"
+        nameDataLabel.text = userModel.firstName + " " + userModel.lastName
+        emailDataLabel.text = userModel.email
         
-        nameDataLabel.text = "Dileepa Bandara"
-        emailDataLabel.text = "contact@dileepabandara.dev"
-        
-        // Health
+        // MARK: Health
         healthTitleLabel.text = "Health Details"
-        healthSubheadLabel.text = "Enter your health data to keep track on"
         heightTitleLabel.text = "Height"
         weightTitleLabel.text = "Weight"
         ageTitleLabel.text = "Age"
         genderTitleLabel.text = "Gender"
         healthConditionsTitleLabel.text = "Health Conditions"
+        heightDataLabel.text = "\(userModel.height)"
+        weightDataLabel.text = "\(userModel.weight)"
+        ageDataLabel.text = "\(userModel.age)"
+        genderDataLabel.text = userModel.gender
+        if userModel.healthConditions.count == 1 && userModel.healthConditions[0] == "" {
+            healthConditionsDataLabel.text = "0"
+        } else {
+            healthConditionsDataLabel.text = "\(userModel.healthConditions.count)"
+        }
         
-        heightDataLabel.text = "178"
-        weightDataLabel.text = "78"
-        ageDataLabel.text = "24"
-        genderDataLabel.text = "Male"
-        healthConditionsDataLabel.text = "Not Set"
-        
-        // Fitness
+        // MARK: Fitness
         fitnessTitleLabel.text = "Fitness Details"
-        fitnessSubheadLabel.text = "Optimize your fitness model"
         fitnessGoalTitleLabel.text = "Fitness Goal"
         fitnessLevelTitleLabel.text = "Fitness Level"
-        
-        fitnessGoalDataLabel.text = "Keep Fit"
-        fitnessLevelDataLabel.text = "Beginner"
+        weeklyGoalTitleLabel.text = "Weekly Goal"
+        fitnessGoalDataLabel.text = userModel.fitnessGoal
+        fitnessLevelDataLabel.text = userModel.fitnessLevel
+        weeklyGoalDataLabel.text = "\(userModel.weeklyGoal)"
     }
     
     
     private func setupUI() {
         
-        addSubview(tabHeaderTitle)
-        addSubview(tabHeaderCaption)
+        // MARK: Account
         
-        setupAccountLayerUI()
-        setupHealthLayerUI()
-        setupFitnessLayerUI()
+        let accountStackViewHeader = UIStackView()
+        accountStackViewHeader.axis = .horizontal
+        accountStackViewHeader.alignment = .center
+        accountStackViewHeader.spacing = 8
+        accountStackViewHeader.addArrangedSubview(accountTitleLabel)
+        accountStackViewHeader.addArrangedSubview(editButtonAccount)
         
-        createConstraintsAccountLayer()
-        createConstraintsHealthLayer()
-        createConstraintsFitnessLayer()
+        let accountStackViewtitles = UIStackView()
+        accountStackViewtitles.axis = .vertical
+        accountStackViewtitles.alignment = .leading
+        accountStackViewtitles.spacing = 8
+        accountStackViewtitles.addArrangedSubview(nameTitleLabel)
+        accountStackViewtitles.addArrangedSubview(emailTitleLabel)
         
-        addSubview(signOutButton)
-        signOutButton.snp.makeConstraints { make in
-            make.top.equalTo(fitnessBodyStackView.snp.bottom).offset(30)
-            make.centerX.equalToSuperview()
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
-            make.height.equalTo(50)
+        let accountStackViewdata = UIStackView()
+        accountStackViewdata.axis = .vertical
+        accountStackViewdata.alignment = .trailing
+        accountStackViewdata.spacing = 8
+        accountStackViewdata.addArrangedSubview(nameDataLabel)
+        accountStackViewdata.addArrangedSubview(emailDataLabel)
+        
+        // MARK: Health
+        let healthStackViewHeader = UIStackView()
+        healthStackViewHeader.axis = .horizontal
+        healthStackViewHeader.alignment = .center
+        healthStackViewHeader.spacing = 8
+        healthStackViewHeader.addArrangedSubview(healthTitleLabel)
+        healthStackViewHeader.addArrangedSubview(editButtonHealth)
+
+        let healthStackViewTitles = UIStackView()
+        healthStackViewTitles.axis = .vertical
+        healthStackViewTitles.alignment = .leading
+        healthStackViewTitles.spacing = 8
+        healthStackViewTitles.addArrangedSubview(heightTitleLabel)
+        healthStackViewTitles.addArrangedSubview(weightTitleLabel)
+        healthStackViewTitles.addArrangedSubview(ageTitleLabel)
+        healthStackViewTitles.addArrangedSubview(genderTitleLabel)
+        healthStackViewTitles.addArrangedSubview(healthConditionsTitleLabel)
+
+        let healthStackViewData = UIStackView()
+        healthStackViewData.axis = .vertical
+        healthStackViewData.alignment = .trailing
+        healthStackViewData.spacing = 8
+        healthStackViewData.addArrangedSubview(heightDataLabel)
+        healthStackViewData.addArrangedSubview(weightDataLabel)
+        healthStackViewData.addArrangedSubview(ageDataLabel)
+        healthStackViewData.addArrangedSubview(genderDataLabel)
+        healthStackViewData.addArrangedSubview(healthConditionsDataLabel)
+        
+        // MARK: Fitness
+        let fitnessStackViewHeader = UIStackView()
+        fitnessStackViewHeader.axis = .horizontal
+        fitnessStackViewHeader.alignment = .center
+        fitnessStackViewHeader.spacing = 8
+        fitnessStackViewHeader.addArrangedSubview(fitnessTitleLabel)
+        fitnessStackViewHeader.addArrangedSubview(editButtonFitness)
+
+        let fitnessStackViewTitles = UIStackView()
+        fitnessStackViewTitles.axis = .vertical
+        fitnessStackViewTitles.alignment = .leading
+        fitnessStackViewTitles.spacing = 8
+        fitnessStackViewTitles.addArrangedSubview(fitnessGoalTitleLabel)
+        fitnessStackViewTitles.addArrangedSubview(fitnessLevelTitleLabel)
+        fitnessStackViewTitles.addArrangedSubview(weeklyGoalTitleLabel)
+
+        let fitnessStackViewData = UIStackView()
+        fitnessStackViewData.axis = .vertical
+        fitnessStackViewData.alignment = .trailing
+        fitnessStackViewData.spacing = 8
+        fitnessStackViewData.addArrangedSubview(fitnessGoalDataLabel)
+        fitnessStackViewData.addArrangedSubview(fitnessLevelDataLabel)
+        fitnessStackViewData.addArrangedSubview(weeklyGoalDataLabel)
+        
+        backgroundColor = .white
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(tabHeaderTitle)
+        contentView.addSubview(tabHeaderCaption)
+        contentView.addSubview(accountStackViewHeader)
+        contentView.addSubview(accountStackViewtitles)
+        contentView.addSubview(accountStackViewdata)
+        contentView.addSubview(healthStackViewHeader)
+        contentView.addSubview(healthStackViewTitles)
+        contentView.addSubview(healthStackViewData)
+        contentView.addSubview(fitnessStackViewHeader)
+        contentView.addSubview(fitnessStackViewTitles)
+        contentView.addSubview(fitnessStackViewData)
+        contentView.addSubview(signOutButton)
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
-    }
-    
-    private func setupAccountLayerUI(){
         
-        // Account Header Layer
-        accountHeaderStackView.spacing = 16
-        accountHeaderStackView.addArrangedSubview(accountTitleLabel)
-        accountHeaderStackView.addArrangedSubview(editButtonAccount)
-        addSubview(accountHeaderStackView)
-        
-        // Account Subhead Layer
-        addSubview(accountSubheadLabel)
-        
-        // Account Body Layer
-        accountBodyStackView.axis = .horizontal
-        accountBodyStackView.spacing = 16
-        addSubview(accountBodyStackView)
-        
-        // Account Body Layer Left
-        let accountBodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
-        accountBodyTitleStackView.addArrangedSubview(nameTitleLabel)
-        accountBodyTitleStackView.addArrangedSubview(emailTitleLabel)
-        
-        // Account Body Layer Right
-        let accountBodyDataStackView = createStackView(axis: .vertical, spacing: 8)
-        accountBodyDataStackView.addArrangedSubview(nameDataLabel)
-        accountBodyDataStackView.addArrangedSubview(emailDataLabel)
-        
-        // Account Body Layer
-        accountBodyStackView.addArrangedSubview(accountBodyTitleStackView)
-        accountBodyStackView.addArrangedSubview(accountBodyDataStackView)
-    }
-    
-    private func setupHealthLayerUI(){
-        
-        // Health Header Layer
-        healthHeaderStackView.spacing = 16
-        healthHeaderStackView.addArrangedSubview(healthTitleLabel)
-        healthHeaderStackView.addArrangedSubview(editButtonHealth)
-        addSubview(healthHeaderStackView)
-        
-        // Health Subhead Layer
-        addSubview(healthSubheadLabel)
-        
-        // Health Body Layer
-        healthBodyStackView.axis = .horizontal
-        healthBodyStackView.spacing = 16
-        addSubview(healthBodyStackView)
-        
-        // Health Body Layer Left
-        let healthBodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
-        healthBodyTitleStackView.addArrangedSubview(heightTitleLabel)
-        healthBodyTitleStackView.addArrangedSubview(weightTitleLabel)
-        healthBodyTitleStackView.addArrangedSubview(ageTitleLabel)
-        healthBodyTitleStackView.addArrangedSubview(genderTitleLabel)
-        healthBodyTitleStackView.addArrangedSubview(healthConditionsTitleLabel)
-        
-        // Health Body Layer Right
-        let healthBodyDataStackView = createStackView(axis: .vertical, spacing: 8)
-        healthBodyDataStackView.addArrangedSubview(heightDataLabel)
-        healthBodyDataStackView.addArrangedSubview(weightDataLabel)
-        healthBodyDataStackView.addArrangedSubview(ageDataLabel)
-        healthBodyDataStackView.addArrangedSubview(genderDataLabel)
-        healthBodyDataStackView.addArrangedSubview(healthConditionsDataLabel)
-        
-        // Health Body Layer
-        healthBodyStackView.addArrangedSubview(healthBodyTitleStackView)
-        healthBodyStackView.addArrangedSubview(healthBodyDataStackView)
-    }
-    
-    private func setupFitnessLayerUI(){
-        
-        // Fitness Header Layer
-        fitnessHeaderStackView.spacing = 16
-        fitnessHeaderStackView.addArrangedSubview(fitnessTitleLabel)
-        fitnessHeaderStackView.addArrangedSubview(editButtonFitness)
-        addSubview(fitnessHeaderStackView)
-        
-        // Fitness Subhead Layer
-        addSubview(fitnessSubheadLabel)
-        
-        // Fitness Body Layer
-        fitnessBodyStackView.axis = .horizontal
-        fitnessBodyStackView.spacing = 16
-        addSubview(fitnessBodyStackView)
-        
-        // Fitness Body Layer Left
-        let fitnessBodyTitleStackView = createStackView(axis: .vertical, spacing: 8)
-        fitnessBodyTitleStackView.addArrangedSubview(fitnessGoalTitleLabel)
-        fitnessBodyTitleStackView.addArrangedSubview(fitnessLevelTitleLabel)
-        
-        // Fitness Body Layer Right
-        let fitnessBodyDataStackView = createStackView(axis: .vertical, spacing: 8)
-        fitnessBodyDataStackView.addArrangedSubview(fitnessGoalDataLabel)
-        fitnessBodyDataStackView.addArrangedSubview(fitnessLevelDataLabel)
-        
-        // Fitness Body Layer
-        fitnessBodyStackView.addArrangedSubview(fitnessBodyTitleStackView)
-        fitnessBodyStackView.addArrangedSubview(fitnessBodyDataStackView)
-    }
-    
-    private func createStackView(axis: NSLayoutConstraint.Axis, spacing: CGFloat) -> UIStackView {
-        let stackView = UIStackView()
-        stackView.axis = axis
-        stackView.spacing = spacing
-        stackView.alignment = .leading
-        return stackView
-    }
-    
-    private func createConstraintsAccountLayer() {
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
+            make.bottom.equalTo(signOutButton.snp.bottom).offset(16)
+        }
         
         tabHeaderTitle.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(64)
+            make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
@@ -275,73 +404,81 @@ class ProfileView: UIView {
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
-        // Account Header Layer
-        accountHeaderStackView.snp.makeConstraints { make in
-            make.top.equalTo(tabHeaderCaption.snp.bottom).offset(16)
+        // MARK: Account
+        accountStackViewHeader.snp.makeConstraints { make in
+            make.top.equalTo(tabHeaderCaption.snp.bottom).offset(32)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+
+        editButtonAccount.snp.makeConstraints { make in
+            make.leading.greaterThanOrEqualTo(accountTitleLabel.snp.trailing).offset(8)
+            make.trailing.equalToSuperview()
+        }
+
+        accountStackViewtitles.snp.makeConstraints { make in
+            make.top.equalTo(accountStackViewHeader.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
         }
         
-        // Account Subhead Layer
-        accountSubheadLabel.snp.makeConstraints { make in
-            make.top.equalTo(accountHeaderStackView.snp.bottom).offset(5)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+        accountStackViewdata.snp.makeConstraints { make in
+            make.top.equalTo(accountStackViewtitles)
+            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalTo(accountStackViewtitles.snp.trailing).offset(16)
         }
         
-        // Account Body Layer
-        accountBodyStackView.snp.makeConstraints { make in
-            make.top.equalTo(accountSubheadLabel.snp.bottom).offset(20)
+        // MARK: Health
+        healthStackViewHeader.snp.makeConstraints { make in
+            make.top.equalTo(accountStackViewdata.snp.bottom).offset(32)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+            make.trailing.equalToSuperview().offset(-16)
         }
-    }
-    
-    private func createConstraintsHealthLayer() {
-        
-        // Health Header Layer
-        healthHeaderStackView.snp.makeConstraints { make in
-            make.top.equalTo(accountBodyStackView.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+
+        editButtonHealth.snp.makeConstraints { make in
+            make.leading.greaterThanOrEqualTo(healthTitleLabel.snp.trailing).offset(8)
+            make.trailing.equalToSuperview()
         }
-        
-        // Health Subhead Layer
-        healthSubheadLabel.snp.makeConstraints { make in
-            make.top.equalTo(healthHeaderStackView.snp.bottom).offset(5)
+
+        healthStackViewTitles.snp.makeConstraints { make in
+            make.top.equalTo(healthStackViewHeader.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
         }
-        
-        // Health Body Layer
-        healthBodyStackView.snp.makeConstraints { make in
-            make.top.equalTo(healthSubheadLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
-        }
-    }
-    
-    private func createConstraintsFitnessLayer() {
-        
-        // Fitness Header Layer
-        fitnessHeaderStackView.snp.makeConstraints { make in
-            make.top.equalTo(healthBodyStackView.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+
+        healthStackViewData.snp.makeConstraints { make in
+            make.top.equalTo(healthStackViewTitles)
+            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalTo(healthStackViewTitles.snp.trailing).offset(16)
         }
         
-        // Fitness Subhead Layer
-        fitnessSubheadLabel.snp.makeConstraints { make in
-            make.top.equalTo(fitnessHeaderStackView.snp.bottom).offset(5)
+        // MARK: Fitness
+        fitnessStackViewHeader.snp.makeConstraints { make in
+            make.top.equalTo(healthStackViewData.snp.bottom).offset(32)
             make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+            make.trailing.equalToSuperview().offset(-16)
+        }
+
+        editButtonFitness.snp.makeConstraints { make in
+            make.leading.greaterThanOrEqualTo(fitnessTitleLabel.snp.trailing).offset(8)
+            make.trailing.equalToSuperview()
+        }
+
+        fitnessStackViewTitles.snp.makeConstraints { make in
+            make.top.equalTo(fitnessStackViewHeader.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+        }
+
+        fitnessStackViewData.snp.makeConstraints { make in
+            make.top.equalTo(fitnessStackViewTitles)
+            make.trailing.equalToSuperview().offset(-16)
+            make.leading.equalTo(fitnessStackViewTitles.snp.trailing).offset(16)
         }
         
-        // Fitness Body Layer
-        fitnessBodyStackView.snp.makeConstraints { make in
-            make.top.equalTo(fitnessSubheadLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(16)
-            make.trailing.lessThanOrEqualToSuperview().offset(-16)
+        signOutButton.snp.makeConstraints { make in
+            make.top.equalTo(fitnessStackViewTitles.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+            make.height.equalTo(50)
         }
     }
 }

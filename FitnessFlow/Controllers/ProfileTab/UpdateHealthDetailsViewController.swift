@@ -1,5 +1,5 @@
 //
-//  AddHealthDetailsViewController.swift
+//  UpdateHealthDetailsViewController.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-19.
@@ -9,12 +9,14 @@ import UIKit
 import SnapKit
 import MBProgressHUD
 
-class AddHealthDetailsViewController: UIViewController {
-    private let addHealthDetailsView: AddHealthDetailsView
+class UpdateHealthDetailsViewController: UIViewController {
+    private let updateHealthDetailsView: UpdateHealthDetailsView
     let currentUserID = AuthService.currentUser?.uid
+    private let userHealthModel: UserHealthModel
     
-    init() {
-        self.addHealthDetailsView = AddHealthDetailsView()
+    init(userHealthModel: UserHealthModel) {
+        self.userHealthModel = userHealthModel
+        self.updateHealthDetailsView = UpdateHealthDetailsView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,23 +30,24 @@ class AddHealthDetailsViewController: UIViewController {
         customizeNavigationBar()
         customizeNavigationBarBackButton()
         setupBindings()
+        updateHealthDetailsView.configure(userHealthModel: userHealthModel)
     }
     
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
-        view.addSubview(addHealthDetailsView)
+        view.addSubview(updateHealthDetailsView)
         
         // Title
-        title = "Add Health Details"
+        title = "Update Health Details"
         
-        addHealthDetailsView.snp.makeConstraints { make in
+        updateHealthDetailsView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
     private func setupBindings() {
-        addHealthDetailsView.saveInfoButton.addTarget(self, action: #selector(saveInfoButtonTapped), for: .touchUpInside)
+        updateHealthDetailsView.updateInfoButton.addTarget(self, action: #selector(updateInfoButtonTapped), for: .touchUpInside)
     }
     
     private func customizeNavigationBar() {
@@ -68,15 +71,15 @@ class AddHealthDetailsViewController: UIViewController {
         ]
         backButton.setTitleTextAttributes(attributes, for: .normal)
     }
-
     
-    @objc private func saveInfoButtonTapped() {
-        let height = addHealthDetailsView.heightTextField.text ?? ""
-        let weight = addHealthDetailsView.weightTextField.text ?? ""
-        let genderIndex = addHealthDetailsView.genderSegmentedControl.selectedSegmentIndex
-        let gender = addHealthDetailsView.genderSegmentedControl.titleForSegment(at: genderIndex) ?? ""
-        let age = addHealthDetailsView.ageTextField.text ?? ""
-        let healthConditions = addHealthDetailsView.healthConditionsTextField.text?
+    
+    @objc private func updateInfoButtonTapped() {
+        let height = updateHealthDetailsView.heightTextField.text ?? ""
+        let weight = updateHealthDetailsView.weightTextField.text ?? ""
+        let genderIndex = updateHealthDetailsView.genderSegmentedControl.selectedSegmentIndex
+        let gender = updateHealthDetailsView.genderSegmentedControl.titleForSegment(at: genderIndex) ?? ""
+        let age = updateHealthDetailsView.ageTextField.text ?? ""
+        let healthConditions = updateHealthDetailsView.healthConditionsTextField.text?
             .components(separatedBy: ",")
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) } ?? []
         
@@ -109,37 +112,48 @@ class AddHealthDetailsViewController: UIViewController {
         
         if let ageValue = Int(age) {
             let userHealthModel = UserHealthModel(height: heightValue, weight: weightValue, age: ageValue, gender: gender, healthConditions: healthConditions, updated: dateTimeNow)
-            saveDataToFirestore(userHealthModel: userHealthModel)
+                print("---------- User Health Details ----------")
+                print("Height: \(userHealthModel.height)")
+                print("Weight: \(userHealthModel.weight)")
+                print("Age: \(userHealthModel.age)")
+                print("Gender: \(userHealthModel.gender)")
+                print("Health Conditions: \(userHealthModel.healthConditions)")
+            updateUserDataToFirestore(userHealthModel: userHealthModel)
         } else {
             print("Invalid age value")
         }
     }
     
-    private func saveDataToFirestore(userHealthModel: UserHealthModel) {
-        print("---------- User Health Details ----------")
-        print("Height: \(userHealthModel.height)")
-        print("Weight: \(userHealthModel.weight)")
-        print("Age: \(userHealthModel.age)")
-        print("Gender: \(userHealthModel.gender)")
-        print("Health Conditions: \(userHealthModel.healthConditions)")
+    // Update to user document
+    private func updateUserDataToFirestore(userHealthModel: UserHealthModel) {
         
         let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
         progressHUD.label.text = "Saving..."
+        let userService = UserService.shared
         
-        UserHealthService.shared.createUserHealthDocument(userID: currentUserID!, healthData: userHealthModel) { result in
+        guard let userID = AuthService.currentUser?.uid else {
+            // Handle the case when the user ID is not available
+            return
+        }
+        
+        userService.updateUserHealthData(userID: userID, healthData: userHealthModel) { result in
             DispatchQueue.main.async {
                 progressHUD.hide(animated: true)
                 
                 switch result {
                 case .success:
-                    print("User health data saved in Firestore")
-                    CAlert.showAlert(on: self, title: "Details Saved", message: "Your data has been added!")
+                    // Update successful
+                    print("User health data updated successfully")
+                    // Perform any additional actions or show success message
+                    
                 case .failure(let error):
-                    print("Failed to save user health data in Firestore:", error)
-                    // Handle the error appropriately
+                    // Update failed
+                    print("Failed to update user health data: \(error)")
+                    // Display an error message or handle the error gracefully
                 }
             }
         }
+        
     }
     
 }

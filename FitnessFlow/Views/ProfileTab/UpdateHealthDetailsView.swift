@@ -1,5 +1,5 @@
 //
-//  AddHealthDetailsView.swift
+//  UpdateHealthDetailsView.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-19.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class AddHealthDetailsView: UIView {
+class UpdateHealthDetailsView: UIView {
     let heightLabel = CLabel.iOSSubhead()
     let weightLabel = CLabel.iOSSubhead()
     let genderLabel = CLabel.iOSSubhead()
@@ -28,8 +28,8 @@ class AddHealthDetailsView: UIView {
     
     var healthConditions: [String] = []
     
-    let saveInfoButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Save Details")
+    let updateInfoButton: CRoundedButton = {
+        let button = CRoundedButton(title: "Update Details")
         return button
     }()
     
@@ -40,15 +40,25 @@ class AddHealthDetailsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        configure()
     }
     
-    private func configure() {
+    func configure(userHealthModel: UserHealthModel) {
         heightLabel.text = "Height (cm)"
         weightLabel.text = "Weight (Kg)"
         genderLabel.text = "Gender"
         ageLabel.text = "Age (Years)"
         healthConditionsLabel.text = "Health Conditions"
+        
+        heightTextField.text = String(userHealthModel.height)
+        weightTextField.text = String(userHealthModel.weight)
+        ageTextField.text = String(userHealthModel.age)
+        healthConditionsTextField.text = userHealthModel.healthConditions.joined(separator: ", ")
+        
+        if userHealthModel.gender == "Female" {
+            genderSegmentedControl.selectedSegmentIndex = 1
+        } else {
+            genderSegmentedControl.selectedSegmentIndex = 0
+        }
     }
     
     private func setupUI() {
@@ -62,7 +72,7 @@ class AddHealthDetailsView: UIView {
         addSubview(ageTextField)
         addSubview(healthConditionsLabel)
         addSubview(healthConditionsTextField)
-        addSubview(saveInfoButton)
+        addSubview(updateInfoButton)
     
         heightLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
@@ -124,7 +134,7 @@ class AddHealthDetailsView: UIView {
             make.height.equalTo(40)
         }
         
-        saveInfoButton.snp.makeConstraints { make in
+        updateInfoButton.snp.makeConstraints { make in
             make.top.equalTo(healthConditionsTextField.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(16)

@@ -16,7 +16,7 @@ struct UserService {
     
     private init() {}
     
-    // Create User Document
+    // Create user document
     func createUserDocument(userID: String, data: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
         let userDocumentRef = db.collection(usersCollection).document(userID)
         userDocumentRef.setData(data, merge: true) { error in
@@ -41,6 +41,57 @@ struct UserService {
                     NSLocalizedDescriptionKey: "No user data found"
                 ])
                 completion(.failure(noDataError))
+            }
+        }
+    }
+    
+    // Update user health data
+    func updateUserHealthData(userID: String, healthData: UserHealthModel, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userHealthData: [String: Any] = [
+            "height": healthData.height,
+            "weight": healthData.weight,
+            "age": healthData.age,
+            "gender": healthData.gender,
+            "healthConditions": healthData.healthConditions
+        ]
+        
+        let userDocumentRef = db.collection(usersCollection).document(userID)
+        
+        userDocumentRef.updateData(userHealthData) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+
+    
+//        let userHealthDocumentRef = db.collection(usersCollection).document(userID).collection("healthData").document()
+//
+//        userHealthDocumentRef.setData(userHealthData) { error in
+//            if let error = error {
+//                completion(.failure(error))
+//            } else {
+//                completion(.success(()))
+//            }
+//        }
+    
+    // Update user fitness data
+    func updateUserFitnessData(userID: String, fitnessData: UserFitnessModel, completion: @escaping (Result<Void, Error>) -> Void) {
+        let userFitnessData: [String: Any] = [
+            "fitnessGoal": fitnessData.fitnessGoal,
+            "fitnessLevel": fitnessData.fitnessLevel,
+            "weeklyGoal": fitnessData.weeklyGoal
+        ]
+        
+        let userFitnessDocumentRef = db.collection(usersCollection).document(userID).collection("fitnessData").document()
+        
+        userFitnessDocumentRef.setData(userFitnessData) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
             }
         }
     }
