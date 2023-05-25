@@ -57,12 +57,14 @@ class ProfileViewController: UIViewController {
                       let healthConditions = userData["healthConditions"] as? Array<String>,
                       let fitnessGoal = userData["fitnessGoal"] as? String,
                       let fitnessLevel = userData["fitnessLevel"] as? String,
-                      let weeklyGoal = userData["weeklyGoal"] as? String else {
+                      let created = userData["created"] as? String,
+                      let updated = userData["updated"] as? String,
+                      let weeklyGoal = userData["weeklyGoal"] as? Array<String> else {
                     // Handle missing data or incorrect types
                     print("Invalid user data")
                     return
                 }
-                let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password, height: height, weight: weight, age: age, gender: gender, healthConditions: healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal)
+                let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password, height: height, weight: weight, age: age, gender: gender, healthConditions: healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal, created: created, updated: updated)
                 self?.userModel = userModel
                 self?.profileView.configure(userModel: userModel)
             case .failure(let error):
@@ -95,13 +97,13 @@ class ProfileViewController: UIViewController {
     
     // Health
     @objc private func editHealthDetails() {
-        let nextViewController = UpdateHealthDetailsViewController(userHealthModel: UserHealthModel(height: userModel!.height, weight: userModel!.weight, age: userModel!.age, gender: userModel!.gender, healthConditions: userModel!.healthConditions, updated: DateTimeHelper().getCurrentDateTime))
+        let nextViewController = UpdateHealthDetailsViewController(userHealthModel: UserHealthModel(height: userModel!.height, weight: userModel!.weight, age: userModel!.age, gender: userModel!.gender, healthConditions: userModel!.healthConditions, updated: userModel!.updated))
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     // Fitness
     @objc private func editFitnessDetails() {
-        let nextViewController = AddFitnessDetailsViewController()
+        let nextViewController = UpdateFitnessDetailsViewController(userFitnessModel: UserFitnessModel(fitnessGoal: userModel!.fitnessGoal, fitnessLevel: userModel!.fitnessLevel, weeklyGoal: userModel!.weeklyGoal, updated: userModel!.updated))
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     

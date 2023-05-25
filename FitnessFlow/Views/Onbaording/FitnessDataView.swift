@@ -25,10 +25,13 @@ class FitnessDataView: UIView {
         return segmentedControl
     }()
     
-    let weeklyGoalSegmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: ["1", "2", "3", "4", "5", "6", "7"])
-        segmentedControl.selectedSegmentIndex = 0
-        return segmentedControl
+    let weeklyGoalCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.allowsMultipleSelection = true
+        collectionView.backgroundColor = .clear
+        return collectionView
     }()
     
     
@@ -59,7 +62,7 @@ class FitnessDataView: UIView {
         addSubview(weeklyGoalLabel)
         addSubview(fitnessGoalSegmentedControl)
         addSubview(fitnessLevelSegmentedControl)
-        addSubview(weeklyGoalSegmentedControl)
+        addSubview(weeklyGoalCollectionView)
         addSubview(continueButton)
     
         fitnessGoal.snp.makeConstraints { make in
@@ -92,14 +95,14 @@ class FitnessDataView: UIView {
             make.height.equalTo(20)
         }
         
-        weeklyGoalSegmentedControl.snp.makeConstraints { make in
+        weeklyGoalCollectionView.snp.makeConstraints { make in
             make.top.equalTo(weeklyGoalLabel.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(30)
+            make.height.equalTo(150) // Set the desired height for the collection view
         }
         
         continueButton.snp.makeConstraints { make in
-            make.top.equalTo(weeklyGoalSegmentedControl.snp.bottom).offset(32)
+            make.top.equalTo(weeklyGoalCollectionView.snp.bottom).offset(32)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)

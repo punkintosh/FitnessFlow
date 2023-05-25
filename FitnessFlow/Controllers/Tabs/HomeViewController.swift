@@ -53,12 +53,12 @@ class HomeViewController: UIViewController {
                       let healthConditions = userData["healthConditions"] as? Array<String>,
                       let fitnessGoal = userData["fitnessGoal"] as? String,
                       let fitnessLevel = userData["fitnessLevel"] as? String,
-                      let weeklyGoal = userData["weeklyGoal"] as? String else {
+                      let weeklyGoal = userData["weeklyGoal"] as? Array<String> else {
                     // Handle missing data or incorrect types
                     print("Invalid user data")
                     return
                 }
-                let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password, height: height, weight: weight, age: age, gender: gender, healthConditions: healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal)
+                let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password, height: height, weight: weight, age: age, gender: gender, healthConditions: healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal, created: DateTimeHelper().getCurrentDateTime, updated: DateTimeHelper().getCurrentDateTime)
                 self?.userModel = userModel
                 self?.homeView.configure(userModel: userModel)
                 // Update BMI value

@@ -68,6 +68,20 @@ class ProfileView: UIView {
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
+    let createdTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
+    let updatedTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        return label
+    }()
     
     // Data
     let nameDataLabel: UILabel = {
@@ -78,6 +92,20 @@ class ProfileView: UIView {
         return label
     }()
     let emailDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let createdDataLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = AppThemeData.colorTextBlack
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    let updatedDataLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = AppThemeData.colorTextBlack
@@ -260,8 +288,12 @@ class ProfileView: UIView {
         accountTitleLabel.text = "Account Details"
         nameTitleLabel.text = "Name"
         emailTitleLabel.text = "Email"
+        createdTitleLabel.text = "Created"
+        updatedTitleLabel.text = "Updated"
         nameDataLabel.text = userModel.firstName + " " + userModel.lastName
         emailDataLabel.text = userModel.email
+        createdDataLabel.text = userModel.created
+        updatedDataLabel.text = userModel.updated
         
         // MARK: Health
         healthTitleLabel.text = "Health Details"
@@ -287,7 +319,7 @@ class ProfileView: UIView {
         weeklyGoalTitleLabel.text = "Weekly Goal"
         fitnessGoalDataLabel.text = userModel.fitnessGoal
         fitnessLevelDataLabel.text = userModel.fitnessLevel
-        weeklyGoalDataLabel.text = "\(userModel.weeklyGoal)"
+        weeklyGoalDataLabel.text = "\(userModel.weeklyGoal.count)"
     }
     
     
@@ -308,6 +340,8 @@ class ProfileView: UIView {
         accountStackViewtitles.spacing = 8
         accountStackViewtitles.addArrangedSubview(nameTitleLabel)
         accountStackViewtitles.addArrangedSubview(emailTitleLabel)
+        accountStackViewtitles.addArrangedSubview(createdTitleLabel)
+        accountStackViewtitles.addArrangedSubview(updatedTitleLabel)
         
         let accountStackViewdata = UIStackView()
         accountStackViewdata.axis = .vertical
@@ -315,6 +349,8 @@ class ProfileView: UIView {
         accountStackViewdata.spacing = 8
         accountStackViewdata.addArrangedSubview(nameDataLabel)
         accountStackViewdata.addArrangedSubview(emailDataLabel)
+        accountStackViewdata.addArrangedSubview(createdDataLabel)
+        accountStackViewdata.addArrangedSubview(updatedDataLabel)
         
         // MARK: Health
         let healthStackViewHeader = UIStackView()

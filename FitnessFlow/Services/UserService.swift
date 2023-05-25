@@ -52,7 +52,8 @@ struct UserService {
             "weight": healthData.weight,
             "age": healthData.age,
             "gender": healthData.gender,
-            "healthConditions": healthData.healthConditions
+            "healthConditions": healthData.healthConditions,
+            "updated": healthData.updated
         ]
         
         let userDocumentRef = db.collection(usersCollection).document(userID)
@@ -85,9 +86,9 @@ struct UserService {
             "weeklyGoal": fitnessData.weeklyGoal
         ]
         
-        let userFitnessDocumentRef = db.collection(usersCollection).document(userID).collection("fitnessData").document()
+        let userDocumentRef = db.collection(usersCollection).document(userID)
         
-        userFitnessDocumentRef.setData(userFitnessData) { error in
+        userDocumentRef.updateData(userFitnessData) { error in
             if let error = error {
                 completion(.failure(error))
             } else {

@@ -87,8 +87,8 @@
 		60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EB2A15F0120045FCAF /* LogInView.swift */; };
 		60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193ED2A15F0250045FCAF /* LogInViewController.swift */; };
 		60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EF2A15F0EA0045FCAF /* CTextField.swift */; };
-		60B1F4102A18F662006FA39A /* AddFitnessDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F40F2A18F662006FA39A /* AddFitnessDetailsView.swift */; };
-		60B1F4122A18F685006FA39A /* AddFitnessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F4112A18F685006FA39A /* AddFitnessDetailsViewController.swift */; };
+		60B1F4102A18F662006FA39A /* UpdateFitnessDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F40F2A18F662006FA39A /* UpdateFitnessDetailsView.swift */; };
+		60B1F4122A18F685006FA39A /* UpdateFitnessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F4112A18F685006FA39A /* UpdateFitnessDetailsViewController.swift */; };
 		60B1F4142A18F6BB006FA39A /* UserFitnessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */; };
 		60B8E5D22A14FA0D00547439 /* TempHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D12A14FA0D00547439 /* TempHomeView.swift */; };
 		60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D62A1510A000547439 /* SignUpView.swift */; };
@@ -182,8 +182,8 @@
 		60B193EB2A15F0120045FCAF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		60B193ED2A15F0250045FCAF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		60B193EF2A15F0EA0045FCAF /* CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextField.swift; sourceTree = "<group>"; };
-		60B1F40F2A18F662006FA39A /* AddFitnessDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFitnessDetailsView.swift; sourceTree = "<group>"; };
-		60B1F4112A18F685006FA39A /* AddFitnessDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFitnessDetailsViewController.swift; sourceTree = "<group>"; };
+		60B1F40F2A18F662006FA39A /* UpdateFitnessDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFitnessDetailsView.swift; sourceTree = "<group>"; };
+		60B1F4112A18F685006FA39A /* UpdateFitnessDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFitnessDetailsViewController.swift; sourceTree = "<group>"; };
 		60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFitnessService.swift; sourceTree = "<group>"; };
 		60B8E5D12A14FA0D00547439 /* TempHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempHomeView.swift; sourceTree = "<group>"; };
 		60B8E5D62A1510A000547439 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				60789E352A17E335004AEAAE /* UpdateHealthDetailsView.swift */,
-				60B1F40F2A18F662006FA39A /* AddFitnessDetailsView.swift */,
+				60B1F40F2A18F662006FA39A /* UpdateFitnessDetailsView.swift */,
 			);
 			path = ProfileTab;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				60789E372A17E354004AEAAE /* UpdateHealthDetailsViewController.swift */,
-				60B1F4112A18F685006FA39A /* AddFitnessDetailsViewController.swift */,
+				60B1F4112A18F685006FA39A /* UpdateFitnessDetailsViewController.swift */,
 			);
 			path = ProfileTab;
 			sourceTree = "<group>";
@@ -644,7 +644,7 @@
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
 				6093D4EC2A1963F100B1ADA1 /* SampleCodes.swift in Sources */,
 				60FBB1BB2A1D237500D6729C /* BMIHelper.swift in Sources */,
-				60B1F4102A18F662006FA39A /* AddFitnessDetailsView.swift in Sources */,
+				60B1F4102A18F662006FA39A /* UpdateFitnessDetailsView.swift in Sources */,
 				60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */,
 				6076A7602A1A4F0B002DC795 /* ExerciseModel.swift in Sources */,
 				6093D4D92A1938F000B1ADA1 /* UserModel.swift in Sources */,
@@ -672,7 +672,7 @@
 				602B19E82A165CA900F377C0 /* UserAccountModel.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,
 				60789E362A17E335004AEAAE /* UpdateHealthDetailsView.swift in Sources */,
-				60B1F4122A18F685006FA39A /* AddFitnessDetailsViewController.swift in Sources */,
+				60B1F4122A18F685006FA39A /* UpdateFitnessDetailsViewController.swift in Sources */,
 				605C14542A17433600DCCC8D /* WorkoutsView.swift in Sources */,
 				60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */,
 			);

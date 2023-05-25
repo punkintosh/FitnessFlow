@@ -24,10 +24,14 @@ struct UserModel {
     // Fitness
     let fitnessGoal: String
     let fitnessLevel: String
-    let weeklyGoal: String
+    let weeklyGoal: Array<String>
+    
+    // Changes
+    let created: String
+    let updated: String
     
     
-    init(firstName: String, lastName: String, email: String, password: String, height: Double, weight: Double, age: Int, gender: String, healthConditions: Array<String>, fitnessGoal: String, fitnessLevel: String, weeklyGoal: String) {
+    init(firstName: String, lastName: String, email: String, password: String, height: Double, weight: Double, age: Int, gender: String, healthConditions: Array<String>, fitnessGoal: String, fitnessLevel: String, weeklyGoal: Array<String>, created: String, updated: String) {
         
         // Account
         self.firstName = firstName
@@ -46,5 +50,9 @@ struct UserModel {
         self.fitnessGoal = fitnessGoal
         self.fitnessLevel = fitnessLevel
         self.weeklyGoal = weeklyGoal
+        
+        // Changes
+        self.created = created
+        self.updated = updated
     }
 }

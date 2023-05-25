@@ -96,7 +96,9 @@ class CreateAccountViewController: UIViewController {
             
             "fitnessGoal": userModel.fitnessGoal,
             "fitnessLevel": userModel.fitnessLevel,
-            "weeklyGoal": userModel.weeklyGoal
+            "weeklyGoal": userModel.weeklyGoal,
+            "created": userModel.created,
+            "updated": userModel.updated
         ] as [String : Any]
         
         UserService.shared.createUserDocument(userID: userID, data: userData) { result in

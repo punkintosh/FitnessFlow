@@ -1,5 +1,5 @@
 //
-//  FitnessDataViewController.swift
+//  UpdateFitnessDetailsViewController.swift
 //  FitnessFlow
 //
 //  Created by Punkintosh on 2023-05-20.
@@ -9,18 +9,16 @@ import UIKit
 import SnapKit
 import MBProgressHUD
 
-class FitnessDataViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    private let fitnessDataView: FitnessDataView
-    
-    private let userAccountModel: UserAccountModel
-    private let userHealthModel: UserHealthModel
-    
+class UpdateFitnessDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    private let updatefitnessDetailsView: UpdateFitnessDetailsView
+    let currentUserID = AuthService.currentUser?.uid
     var selectedDays: [String] = [] // Store the selected days
+    private let userFitnessModel: UserFitnessModel
     
-    init(userAccountModel: UserAccountModel, userHealthModel: UserHealthModel) {
-        self.userAccountModel = userAccountModel
-        self.userHealthModel = userHealthModel
-        self.fitnessDataView = FitnessDataView()
+    init(userFitnessModel: UserFitnessModel) {
+        self.userFitnessModel = userFitnessModel
+        print(userFitnessModel)
+        self.updatefitnessDetailsView = UpdateFitnessDetailsView()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,27 +32,39 @@ class FitnessDataViewController: UIViewController, UICollectionViewDelegate, UIC
         customizeNavigationBar()
         customizeNavigationBarBackButton()
         setupBindings()
+        updatefitnessDetailsView.configure(userFitnessModel: userFitnessModel)
         
-        fitnessDataView.weeklyGoalCollectionView.delegate = self
-        fitnessDataView.weeklyGoalCollectionView.dataSource = self
-        fitnessDataView.weeklyGoalCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        updatefitnessDetailsView.weeklyGoalCollectionView.delegate = self
+        updatefitnessDetailsView.weeklyGoalCollectionView.dataSource = self
+        updatefitnessDetailsView.weeklyGoalCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
+        selectDefaultDays()
+    }
+    
+    private func selectDefaultDays() {
+        for (index, day) in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].enumerated() {
+            if userFitnessModel.weeklyGoal.contains(day) {
+                let indexPath = IndexPath(item: index, section: 0)
+                updatefitnessDetailsView.weeklyGoalCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+            }
+        }
     }
     
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
-        view.addSubview(fitnessDataView)
+        view.addSubview(updatefitnessDetailsView)
         
         // Title
-        title = "Add Fitness Details"
+        title = "Update Fitness Details"
         
-        fitnessDataView.snp.makeConstraints { make in
+        updatefitnessDetailsView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
     private func setupBindings() {
-        fitnessDataView.continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        updatefitnessDetailsView.updateInfoButton.addTarget(self, action: #selector(updateInfoButtonTapped), for: .touchUpInside)
     }
     
     private func customizeNavigationBar() {
@@ -87,7 +97,7 @@ class FitnessDataViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .lightGray // Set the desired background color
+        cell.backgroundColor = .lightGray // Set the default background color
         
         let dayLabel = UILabel()
         dayLabel.text = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][indexPath.item] // Set the day label text
@@ -100,8 +110,16 @@ class FitnessDataViewController: UIViewController, UICollectionViewDelegate, UIC
             make.edges.equalToSuperview()
         }
         
+        // Check if the day is selected and update the cell's background color accordingly
+        let selectedDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][indexPath.item]
+        if userFitnessModel.weeklyGoal.contains(selectedDay) {
+            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+            cell.backgroundColor = .darkGray // Set the selected background color
+        }
+        
         return cell
     }
+
     
     // MARK: - UICollectionViewDelegate
     
@@ -122,44 +140,49 @@ class FitnessDataViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = .lightGray // Set the deselected background color
     }
-
     
-    @objc private func continueButtonTapped() {
-        let fitnessGoalIndex = fitnessDataView.fitnessGoalSegmentedControl.selectedSegmentIndex
-        let fitnessGoal = fitnessDataView.fitnessGoalSegmentedControl.titleForSegment(at: fitnessGoalIndex) ?? ""
+    @objc private func updateInfoButtonTapped() {
+        let fitnessGoalIndex = updatefitnessDetailsView.fitnessGoalSegmentedControl.selectedSegmentIndex
+        let fitnessGoal = updatefitnessDetailsView.fitnessGoalSegmentedControl.titleForSegment(at: fitnessGoalIndex) ?? ""
         
-        let fitnessLevelIndex = fitnessDataView.fitnessLevelSegmentedControl.selectedSegmentIndex
-        let fitnessLevel = fitnessDataView.fitnessLevelSegmentedControl.titleForSegment(at: fitnessLevelIndex) ?? ""
+        let fitnessLevelIndex = updatefitnessDetailsView.fitnessLevelSegmentedControl.selectedSegmentIndex
+        let fitnessLevel = updatefitnessDetailsView.fitnessLevelSegmentedControl.titleForSegment(at: fitnessLevelIndex) ?? ""
         
         let userFitnessModel = UserFitnessModel(fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: selectedDays, updated: DateTimeHelper().getCurrentDateTime)
         
-//        saveDataToFirestore(userFitnessModel: userFitnessModel)
+        updateUserDataToFirestore(userFitnessModel: userFitnessModel)
         print(userFitnessModel)
-        
-        // let formValidator = FormValidator()
-        // TODO: Validate button press later
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd:HH:mm:ss"
-//        let dateTimeNow = dateFormatter.string(from: Date())
-        
-//        let userFitnessModel = UserFitnessModel(fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal, updated: dateTimeNow)
-        
-        
-        // Navigate to CreateAccountViewController
-        let userModel = UserModel(firstName: userAccountModel.firstName, lastName: userAccountModel.lastName, email: userAccountModel.email, password: userAccountModel.password, height: userHealthModel.height, weight: userHealthModel.weight, age: userHealthModel.age, gender: userHealthModel.gender, healthConditions: userHealthModel.healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: selectedDays, created: DateTimeHelper().getCurrentDateTime, updated: DateTimeHelper().getCurrentDateTime)
-        
-            print("---------- Fitness Details ----------")
-            print("Fitness Goal: ", fitnessGoal)
-            print("Fitness Level: ", fitnessLevel)
-            print("Weekly Goal: ", selectedDays)
-        
-        let nextViewController = CreateAccountViewController(userModel: userModel)
-        navigationController?.pushViewController(nextViewController, animated: true)
-        
-
-
     }
     
+    // Update to user document
+    private func updateUserDataToFirestore(userFitnessModel: UserFitnessModel) {
+        
+        let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
+        progressHUD.label.text = "Saving..."
+        let userService = UserService.shared
+        
+        guard let userID = AuthService.currentUser?.uid else {
+            // Handle the case when the user ID is not available
+            return
+        }
+        
+        userService.updateUserFitnessData(userID: userID, fitnessData: userFitnessModel) { result in
+            DispatchQueue.main.async {
+                progressHUD.hide(animated: true)
+                
+                switch result {
+                case .success:
+                    // Update successful
+                    print("User health data updated successfully")
+                    // Perform any additional actions or show success message
+                    
+                case .failure(let error):
+                    // Update failed
+                    print("Failed to update user health data: \(error)")
+                    // Display an error message or handle the error gracefully
+                }
+            }
+        }
+        
+    }
 }
-
-

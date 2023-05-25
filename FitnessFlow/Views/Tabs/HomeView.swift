@@ -157,7 +157,7 @@ class HomeView: UIView {
         bmiLabel.text = "BMI Status: \(bmiStatus)"
         fitnessGoalLabel.text = "Fitness Goal: \(userModel.fitnessGoal)"
         fitnessLevelLabel.text = "Fitness Level: \(userModel.fitnessLevel)"
-        weeklyGoalLabel.text = "Weekly Goal: \(userModel.weeklyGoal)"
+        weeklyGoalLabel.text = "Weekly Goal: \(userModel.weeklyGoal.count)"
         
         workoutSummaryLabel.text = "Workout Summary"
         totalCaloriesBurnedLabel.text = "Total Calories Burned: 0"
