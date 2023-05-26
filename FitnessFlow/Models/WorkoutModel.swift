@@ -8,15 +8,21 @@
 import Foundation
 
 struct WorkoutModel {
-    let id: String
-    let title: String
+    let muscleGroup: String
     let description: String
-    let exercises: [ExerciseModel]
+    let beginner: Array<String>
+    let advanced: Array<String>
+    let intermediate: Array<String>
+    let images: Array<String>
+    let time: Array<Int>
     
-    init(id: String, title: String, description: String, exercises: [ExerciseModel]) {
-        self.id = id
-        self.title = title
+    init(muscleGroup: String, description: String, beginner: Array<String>, advanced: Array<String>, intermediate: Array<String>, images: Array<String>, time: Array<Int>) {
+        self.muscleGroup = muscleGroup
         self.description = description
-        self.exercises = exercises
+        self.beginner = beginner
+        self.advanced = advanced
+        self.intermediate = intermediate
+        self.images = images
+        self.time = time
     }
 }
