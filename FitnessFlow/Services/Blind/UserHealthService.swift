@@ -26,7 +26,7 @@ class UserHealthService {
             "updated": healthData.updated
         ]
         
-        db.collection("users").document(userID).collection("healthData").document(healthData.updated).setData(userHealthData) { error in
+        db.collection("users").document(userID).collection("Health Record").document(healthData.updated).setData(userHealthData) { error in
             if let error = error {
                 completion(.failure(error))
             } else {

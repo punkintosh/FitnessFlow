@@ -15,7 +15,7 @@ class UserFitnessService {
     private init() {}
     
     // Create User Fitness Document
-    func createUserHealthDocument(userID: String, fitnessData: UserFitnessModel, completion: @escaping (Result<Void, Error>) -> Void) {
+    func createUserFitnessDocument(userID: String, fitnessData: UserFitnessModel, completion: @escaping (Result<Void, Error>) -> Void) {
         
         let userHealthData: [String: Any] = [
             "fitnessGoal": fitnessData.fitnessGoal,
@@ -24,7 +24,7 @@ class UserFitnessService {
             "updated": fitnessData.updated
         ]
         
-        db.collection("users").document(userID).collection("fitnessData").document(fitnessData.updated).setData(userHealthData) { error in
+        db.collection("users").document(userID).collection("Fitness Record").document(fitnessData.updated).setData(userHealthData) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
