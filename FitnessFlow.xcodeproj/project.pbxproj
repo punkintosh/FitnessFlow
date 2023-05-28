@@ -389,9 +389,7 @@
 		6093D4E82A194F3900B1ADA1 /* Blind */ = {
 			isa = PBXGroup;
 			children = (
-				605C14402A172DE000DCCC8D /* UserAccountService.swift */,
-				603BD9E32A18CCF50005E123 /* UserHealthService.swift */,
-				60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */,
+				6076A7532A1A210B002DC795 /* FirebaseToken.swift */,
 			);
 			path = Blind;
 			sourceTree = "<group>";
@@ -482,8 +480,10 @@
 			children = (
 				6093D4E82A194F3900B1ADA1 /* Blind */,
 				607F0EDB2A1661CE0047DAB2 /* AuthService.swift */,
-				6076A7532A1A210B002DC795 /* FirebaseToken.swift */,
 				6093D4E92A194F8900B1ADA1 /* UserService.swift */,
+				605C14402A172DE000DCCC8D /* UserAccountService.swift */,
+				60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */,
+				603BD9E32A18CCF50005E123 /* UserHealthService.swift */,
 				609F20C82A239CF5001E3D37 /* UserScheduleService.swift */,
 				6062E3002A1FD21D0010CA33 /* WorkoutService.swift */,
 			);
