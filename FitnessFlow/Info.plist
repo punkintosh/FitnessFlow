@@ -4,8 +4,6 @@
 <dict>
 	<key></key>
 	<string></string>
-	<key>CFBundleIdentifier</key>
-	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Raleway-BlackItalic.ttf</string>
