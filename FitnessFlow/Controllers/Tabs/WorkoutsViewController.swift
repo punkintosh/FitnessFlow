@@ -79,11 +79,11 @@ class WorkoutsViewController: UIViewController, WorkoutLevelSelectionDelegate {
             case .success(let workouts):
                 for workout in workouts {
                     
-                    let cardBeginner = CardModel(id: workout.muscleGroup, title: "Beginner", caption: "\(workout.beginner.count) workouts", value: "\(workout.time[0]) mins", image: "")
+                    let cardBeginner = CardModel(id: workout.muscleGroup, title: "Beginner", caption: "\(workout.beginner.count) workouts", value: "\(workout.time[0]) mins", image: workout.images[0])
                     
-                    let cardIntermediate = CardModel(id: workout.muscleGroup, title: "Intermediate", caption: "\(workout.intermediate.count) workouts", value: "\(workout.time[1]) mins", image: "")
+                    let cardIntermediate = CardModel(id: workout.muscleGroup, title: "Intermediate", caption: "\(workout.intermediate.count) workouts", value: "\(workout.time[1]) mins", image: workout.images[1])
                     
-                    let cardAdvanced = CardModel(id: workout.muscleGroup, title: "Advanced", caption: "\(workout.advanced.count) workouts", value: "\(workout.time[2]) mins", image: "")
+                    let cardAdvanced = CardModel(id: workout.muscleGroup, title: "Advanced", caption: "\(workout.advanced.count) workouts", value: "\(workout.time[2]) mins", image: workout.images[2])
                     
                     if workout.muscleGroup == "Abs" {
                         self?.workoutsView.absWorkoutCards = [cardBeginner, cardIntermediate, cardAdvanced]

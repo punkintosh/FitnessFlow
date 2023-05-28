@@ -41,6 +41,8 @@ class AboutExViewController: UIViewController {
         aboutExView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        aboutExView.addToScheduleButton.addTarget(self, action: #selector(addToScheduleButtonTapped), for: .touchUpInside)
     }
     
     private func customizeNavigationBarBackButton() {
@@ -54,6 +56,13 @@ class AboutExViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: AppThemeData.colorTextDarkGray
         ]
         backButton.setTitleTextAttributes(attributes, for: .normal)
+    }
+    
+    @objc private func addToScheduleButtonTapped() {
+        print("startWorkoutButtonTapped!")
+        
+        let nextViewController = AddScheduleViewController(workoutLevelExcersiseModel: self.workoutLevelExcersiseModel, level: self.level, muscleGroup: self.muscleGroup)
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
 

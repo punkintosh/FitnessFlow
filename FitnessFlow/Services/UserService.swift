@@ -16,7 +16,7 @@ struct UserService {
     
     private init() {}
     
-    // Create user document
+    // Create single user (document)
     func createUserDocument(userID: String, data: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
         let userDocumentRef = db.collection(usersCollection).document(userID)
         userDocumentRef.setData(data, merge: true) { error in
@@ -28,8 +28,9 @@ struct UserService {
         }
     }
     
-    // Real-time listener for user document changes
-    func addUserDocumentListener(userID: String, completion: @escaping (Result<[String: Any], Error>) -> Void) -> ListenerRegistration {
+    // Fetch single user (document)
+    // e.g., users/uid/
+    func fetchUserDocument(userID: String, completion: @escaping (Result<[String: Any], Error>) -> Void) -> ListenerRegistration {
         let userDocumentRef = db.collection(usersCollection).document(userID)
         return userDocumentRef.addSnapshotListener { (documentSnapshot, error) in
             if let error = error {
@@ -45,7 +46,7 @@ struct UserService {
         }
     }
     
-    // Update user health data
+    // Update user health data (document)
     func updateUserHealthData(userID: String, healthData: UserHealthModel, completion: @escaping (Result<Void, Error>) -> Void) {
         let userHealthData: [String: Any] = [
             "height": healthData.height,
@@ -66,19 +67,8 @@ struct UserService {
             }
         }
     }
-
     
-//        let userHealthDocumentRef = db.collection(usersCollection).document(userID).collection("healthData").document()
-//
-//        userHealthDocumentRef.setData(userHealthData) { error in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                completion(.success(()))
-//            }
-//        }
-    
-    // Update user fitness data
+    // Update user fitness data (document)
     func updateUserFitnessData(userID: String, fitnessData: UserFitnessModel, completion: @escaping (Result<Void, Error>) -> Void) {
         let userFitnessData: [String: Any] = [
             "fitnessGoal": fitnessData.fitnessGoal,

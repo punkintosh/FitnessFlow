@@ -15,4 +15,11 @@ class DateTimeHelper {
         let dateTimeNow = dateFormatter.string(from: Date())
         return dateTimeNow
     }()
+    
+    func convertDateTimePicker(_ dateTime: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let formattedDateTime = dateFormatter.string(from: dateTime)
+        return formattedDateTime
+    }
 }

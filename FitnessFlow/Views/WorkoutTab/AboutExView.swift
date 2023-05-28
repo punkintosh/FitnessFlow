@@ -70,6 +70,8 @@ class AboutExView: UIView {
         }
     }()
     
+    let addToScheduleButton = ButtonWrapper.primaryButton(title: "Add To Schedule")
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -103,6 +105,7 @@ class AboutExView: UIView {
         contentView.addSubview(repLabel)
         contentView.addSubview(playerView)
         addSubview(activityIndicatorView)
+        contentView.addSubview(addToScheduleButton)
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -111,7 +114,7 @@ class AboutExView: UIView {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            make.bottom.equalTo(playerView.snp.bottom).offset(16)
+            make.bottom.equalTo(addToScheduleButton.snp.bottom).offset(16)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -138,6 +141,13 @@ class AboutExView: UIView {
             make.top.equalTo(repLabel.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(200) // Adjust the height as needed
+        }
+        
+        addToScheduleButton.snp.makeConstraints { make in
+            make.top.equalTo(playerView.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50)
         }
         
         activityIndicatorView.snp.makeConstraints { make in

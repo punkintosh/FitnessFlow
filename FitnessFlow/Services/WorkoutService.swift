@@ -142,7 +142,5 @@ struct WorkoutService {
             completion(.success(workout))
         }
     }
-
-    
 }
  

@@ -46,7 +46,7 @@ class AboutWorkoutViewController: UIViewController, WorkoutSelectionDelegate {
             switch result {
             case .success(let workouts):
                 self?.workoutCards = workouts.map { workout in
-                    return CardModel(id: workout.name, title: workout.name, caption: workout.reps, value: "", image: "")
+                    return CardModel(id: workout.name, title: workout.name, caption: workout.reps, value: "", image: workout.image)
                 }
                 self?.aboutWorkoutView.workoutCards = self?.workoutCards ?? []
                 
@@ -77,10 +77,6 @@ class AboutWorkoutViewController: UIViewController, WorkoutSelectionDelegate {
         aboutWorkoutView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        aboutWorkoutView.startWorkoutButton.addTarget(self, action: #selector(startWorkoutButtonTapped), for: .touchUpInside)
-        
-        aboutWorkoutView.addWorkoutButton.addTarget(self, action: #selector(addWorkoutButtonTapped), for: .touchUpInside)
     }
     
     private func customizeNavigationBarBackButton() {
@@ -121,13 +117,5 @@ class AboutWorkoutViewController: UIViewController, WorkoutSelectionDelegate {
         workoutCollectionListener = nil
         workoutDocumentListener?.remove()
         workoutDocumentListener = nil
-    }
-    
-    @objc private func startWorkoutButtonTapped() {
-        print("startWorkoutButtonTapped!")
-    }
-    
-    @objc private func addWorkoutButtonTapped() {
-        print("addWorkoutButtonTapped!")
     }
 }

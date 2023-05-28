@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
     
     
     private func startListeningForUserDataChanges() {
-        userDocumentListener = UserService.shared.addUserDocumentListener(userID: currentUserID!) { [weak self] result in
+        userDocumentListener = UserService.shared.fetchUserDocument(userID: currentUserID!) { [weak self] result in
             switch result {
             case .success(let userData):
                 guard let firstName = userData["firstName"] as? String,
