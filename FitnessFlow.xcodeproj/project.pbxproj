@@ -38,7 +38,7 @@
 		605C14602A17864600DCCC8D /* CLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C145F2A17864600DCCC8D /* CLabel.swift */; };
 		6062D7292A19BF11008B05A9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062D7282A19BF11008B05A9 /* CardModel.swift */; };
 		6062D72B2A19DC4B008B05A9 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062D72A2A19DC4B008B05A9 /* CardCell.swift */; };
-		6062D7312A19F097008B05A9 /* WorkoutCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062D7302A19F097008B05A9 /* WorkoutCardCell.swift */; };
+		6062D7312A19F097008B05A9 /* WorkoutLevelCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062D7302A19F097008B05A9 /* WorkoutLevelCardCell.swift */; };
 		6062D7342A1A017C008B05A9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6062D7332A1A017C008B05A9 /* SDWebImage */; };
 		6062E3012A1FD21D0010CA33 /* WorkoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062E3002A1FD21D0010CA33 /* WorkoutService.swift */; };
 		6076A7542A1A210B002DC795 /* FirebaseToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6076A7532A1A210B002DC795 /* FirebaseToken.swift */; };
@@ -65,6 +65,10 @@
 		6093D4E72A194A8E00B1ADA1 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E62A194A8E00B1ADA1 /* CreateAccountViewController.swift */; };
 		6093D4EA2A194F8900B1ADA1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4E92A194F8900B1ADA1 /* UserService.swift */; };
 		6093D4EC2A1963F100B1ADA1 /* SampleCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093D4EB2A1963F100B1ADA1 /* SampleCodes.swift */; };
+		609F20B62A22F4E2001E3D37 /* WorkoutLevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F20B52A22F4E2001E3D37 /* WorkoutLevelModel.swift */; };
+		609F20B82A23045A001E3D37 /* AboutWorkoutViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F20B72A23045A001E3D37 /* AboutWorkoutViewExtension.swift */; };
+		609F20BA2A23050D001E3D37 /* WorkoutCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F20B92A23050D001E3D37 /* WorkoutCardCell.swift */; };
+		609F20BD2A2330CE001E3D37 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 609F20BC2A2330CE001E3D37 /* YouTubeiOSPlayerHelper */; };
 		60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 60A466392A167D62003609B3 /* FirebaseAnalytics */; };
 		60A4663C2A167D62003609B3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663B2A167D62003609B3 /* FirebaseAuth */; };
 		60A4663E2A167D62003609B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663D2A167D62003609B3 /* FirebaseFirestore */; };
@@ -141,7 +145,7 @@
 		605C145F2A17864600DCCC8D /* CLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabel.swift; sourceTree = "<group>"; };
 		6062D7282A19BF11008B05A9 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		6062D72A2A19DC4B008B05A9 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
-		6062D7302A19F097008B05A9 /* WorkoutCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardCell.swift; sourceTree = "<group>"; };
+		6062D7302A19F097008B05A9 /* WorkoutLevelCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLevelCardCell.swift; sourceTree = "<group>"; };
 		6062E3002A1FD21D0010CA33 /* WorkoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutService.swift; sourceTree = "<group>"; };
 		6076A7532A1A210B002DC795 /* FirebaseToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseToken.swift; sourceTree = "<group>"; };
 		6076A7572A1A3602002DC795 /* AboutWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWorkoutViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,9 @@
 		6093D4E62A194A8E00B1ADA1 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		6093D4E92A194F8900B1ADA1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		6093D4EB2A1963F100B1ADA1 /* SampleCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCodes.swift; sourceTree = "<group>"; };
+		609F20B52A22F4E2001E3D37 /* WorkoutLevelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLevelModel.swift; sourceTree = "<group>"; };
+		609F20B72A23045A001E3D37 /* AboutWorkoutViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWorkoutViewExtension.swift; sourceTree = "<group>"; };
+		609F20B92A23050D001E3D37 /* WorkoutCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardCell.swift; sourceTree = "<group>"; };
 		60A4663F2A167DE9003609B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
 		60B193C72A15D74A0045FCAF /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
@@ -210,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6062D7342A1A017C008B05A9 /* SDWebImage in Frameworks */,
+				609F20BD2A2330CE001E3D37 /* YouTubeiOSPlayerHelper in Frameworks */,
 				607F0EDF2A1666D70047DAB2 /* MBProgressHUD in Frameworks */,
 				6049BFA12A14D28600C369AA /* SnapKit in Frameworks */,
 				60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */,
@@ -332,8 +340,9 @@
 		6062D72D2A19EFB9008B05A9 /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
-				6062D7302A19F097008B05A9 /* WorkoutCardCell.swift */,
+				6062D7302A19F097008B05A9 /* WorkoutLevelCardCell.swift */,
 				608DBDA02A20A8E000D08CB6 /* CollectionViewsWrapper.swift */,
+				609F20B92A23050D001E3D37 /* WorkoutCardCell.swift */,
 			);
 			path = Workouts;
 			sourceTree = "<group>";
@@ -343,6 +352,7 @@
 			children = (
 				6076A7592A1A3620002DC795 /* AboutWorkoutView.swift */,
 				6076A75D2A1A49F4002DC795 /* AboutExView.swift */,
+				609F20B72A23045A001E3D37 /* AboutWorkoutViewExtension.swift */,
 			);
 			path = WorkoutTab;
 			sourceTree = "<group>";
@@ -457,6 +467,7 @@
 				6062D7282A19BF11008B05A9 /* CardModel.swift */,
 				6076A75F2A1A4F0B002DC795 /* ExerciseModel.swift */,
 				6076A7632A1A7D07002DC795 /* WorkoutModel.swift */,
+				609F20B52A22F4E2001E3D37 /* WorkoutLevelModel.swift */,
 				6076A7612A1A7C5A002DC795 /* FitnessProgressModel.swift */,
 			);
 			path = Models;
@@ -537,6 +548,7 @@
 				60A4663B2A167D62003609B3 /* FirebaseAuth */,
 				60A4663D2A167D62003609B3 /* FirebaseFirestore */,
 				6062D7332A1A017C008B05A9 /* SDWebImage */,
+				609F20BC2A2330CE001E3D37 /* YouTubeiOSPlayerHelper */,
 			);
 			productName = FitnessFlow;
 			productReference = 6049BF852A14C00400C369AA /* FitnessFlow.app */;
@@ -571,6 +583,7 @@
 				607F0EDD2A1666D70047DAB2 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				60A466382A167D62003609B3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				6062D7322A1A017C008B05A9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				609F20BB2A2330CE001E3D37 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 			);
 			productRefGroup = 6049BF862A14C00400C369AA /* Products */;
 			projectDirPath = "";
@@ -632,7 +645,7 @@
 				605C14562A17434D00DCCC8D /* ProgressView.swift in Sources */,
 				605C143F2A17261A00DCCC8D /* CAlert.swift in Sources */,
 				6049BF8D2A14C00400C369AA /* TempHomeViewController.swift in Sources */,
-				6062D7312A19F097008B05A9 /* WorkoutCardCell.swift in Sources */,
+				6062D7312A19F097008B05A9 /* WorkoutLevelCardCell.swift in Sources */,
 				608DBDA12A20A8E000D08CB6 /* CollectionViewsWrapper.swift in Sources */,
 				605C14582A17436400DCCC8D /* NutritionView.swift in Sources */,
 				60B1F4142A18F6BB006FA39A /* UserFitnessService.swift in Sources */,
@@ -647,6 +660,7 @@
 				6076A75A2A1A3620002DC795 /* AboutWorkoutView.swift in Sources */,
 				607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */,
 				6093D4E32A19471400B1ADA1 /* FitnessDataViewController.swift in Sources */,
+				609F20BA2A23050D001E3D37 /* WorkoutCardCell.swift in Sources */,
 				60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */,
 				6076A7622A1A7C5A002DC795 /* FitnessProgressModel.swift in Sources */,
 				6062D72B2A19DC4B008B05A9 /* CardCell.swift in Sources */,
@@ -667,6 +681,7 @@
 				60FBB1B72A1CFD0500D6729C /* ButtonWrapper.swift in Sources */,
 				602B19E62A165C8900F377C0 /* AuthModel.swift in Sources */,
 				6093D4DF2A1946A600B1ADA1 /* HealthDataView.swift in Sources */,
+				609F20B82A23045A001E3D37 /* AboutWorkoutViewExtension.swift in Sources */,
 				60B8E5D22A14FA0D00547439 /* TempHomeView.swift in Sources */,
 				6076A75E2A1A49F4002DC795 /* AboutExView.swift in Sources */,
 				603BD9E02A188ED00005E123 /* UserFitnessModel.swift in Sources */,
@@ -684,6 +699,7 @@
 				602B19E82A165CA900F377C0 /* UserAccountModel.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,
 				60789E362A17E335004AEAAE /* UpdateHealthDetailsView.swift in Sources */,
+				609F20B62A22F4E2001E3D37 /* WorkoutLevelModel.swift in Sources */,
 				60B1F4122A18F685006FA39A /* UpdateFitnessDetailsViewController.swift in Sources */,
 				605C14542A17433600DCCC8D /* WorkoutsView.swift in Sources */,
 				60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */,
@@ -920,6 +936,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		609F20BB2A2330CE001E3D37 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		60A466382A167D62003609B3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -945,6 +969,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 607F0EDD2A1666D70047DAB2 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
 			productName = MBProgressHUD;
+		};
+		609F20BC2A2330CE001E3D37 /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 609F20BB2A2330CE001E3D37 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
 		};
 		60A466392A167D62003609B3 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

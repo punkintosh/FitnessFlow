@@ -8,8 +8,8 @@
 import UIKit
 
 
-protocol WorkoutSelectionDelegate: AnyObject {
-    func didSelectWorkout(_ workout: CardModel)
+protocol WorkoutLevelSelectionDelegate: AnyObject {
+    func didSelectWorkout(cardModel: CardModel)
 }
 
 extension WorkoutsView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -32,7 +32,7 @@ extension WorkoutsView: UICollectionViewDelegateFlowLayout, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutCardCell", for: indexPath) as! WorkoutCardCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkoutLevelCardCell", for: indexPath) as! WorkoutLevelCardCell
         
         if collectionView == collectionViewAbs {
             let card = absWorkoutCards[indexPath.item]
@@ -78,8 +78,8 @@ extension WorkoutsView: UICollectionViewDelegateFlowLayout, UICollectionViewData
             selectedCard = shoulderNBackWorkoutCards[indexPath.item]
         }
         
-        if let card = selectedCard {
-            selectionDelegate?.didSelectWorkout(card)
+        if let cardModel = selectedCard {
+            selectionDelegate?.didSelectWorkout(cardModel: cardModel)
         }
     }
 }

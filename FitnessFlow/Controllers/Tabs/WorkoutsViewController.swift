@@ -8,10 +8,10 @@
 import UIKit
 import FirebaseFirestore
 
-class WorkoutsViewController: UIViewController, WorkoutSelectionDelegate {
+class WorkoutsViewController: UIViewController, WorkoutLevelSelectionDelegate {
     private let workoutsView: WorkoutsView
     private var workoutModel: WorkoutModel?
-    private var workoutDocumentListener: ListenerRegistration?
+    private var workoutLevelCollectionListener: ListenerRegistration?
     
     init() {
         self.workoutModel = nil
@@ -29,7 +29,8 @@ class WorkoutsViewController: UIViewController, WorkoutSelectionDelegate {
         workoutsView.selectionDelegate = self
         setupUI()
         workoutDataPreloader()
-        startListeningForWorkoutDataChanges()
+        startListeningForWorkoutLevelDataChanges()
+        print("----- WorkoutsViewController -----")
     }
     
     // Workout Data Preloader
@@ -72,8 +73,8 @@ class WorkoutsViewController: UIViewController, WorkoutSelectionDelegate {
     }
     
     // Fetch Data from Firestore
-    private func startListeningForWorkoutDataChanges() {
-        workoutDocumentListener = WorkoutService.shared.fetchAllWorkouts { [weak self] result in
+    private func startListeningForWorkoutLevelDataChanges() {
+        workoutLevelCollectionListener = WorkoutService.shared.fetchAllWorkouts { [weak self] result in
             switch result {
             case .success(let workouts):
                 for workout in workouts {
@@ -110,8 +111,8 @@ class WorkoutsViewController: UIViewController, WorkoutSelectionDelegate {
     
     
     private func stopListeningForWorkoutDataChanges() {
-        workoutDocumentListener?.remove()
-        workoutDocumentListener = nil
+        workoutLevelCollectionListener?.remove()
+        workoutLevelCollectionListener = nil
     }
     
     private func setupUI() {
@@ -123,8 +124,9 @@ class WorkoutsViewController: UIViewController, WorkoutSelectionDelegate {
     }
     
     // Implement the delegate method
-    func didSelectWorkout(_ workout: CardModel) {
-        let aboutWorkoutViewController = AboutWorkoutViewController(workout: workout)
+    func didSelectWorkout(cardModel: CardModel) {
+        print(cardModel)
+        let aboutWorkoutViewController = AboutWorkoutViewController(cardModel: cardModel)
         // Present or push the `aboutWorkoutViewController` as needed
         navigationController?.pushViewController(aboutWorkoutViewController, animated: true)
     }

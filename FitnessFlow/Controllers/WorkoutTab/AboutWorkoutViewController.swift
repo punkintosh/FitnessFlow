@@ -7,13 +7,21 @@
 
 import UIKit
 import SnapKit
+import FirebaseFirestore
 
-class AboutWorkoutViewController: UIViewController {
+class AboutWorkoutViewController: UIViewController, WorkoutSelectionDelegate {
     private let aboutWorkoutView: AboutWorkoutView
-    private let workout: CardModel
+    private let cardModel: CardModel
+    private let muscleGroup: String?
+    private let level: String?
+    private var workoutCollectionListener: ListenerRegistration?
+    private var workoutDocumentListener: ListenerRegistration?
+    private var workoutCards: [CardModel] = []
 
-    init(workout: CardModel) {
-        self.workout = workout
+    init(cardModel: CardModel) {
+        self.cardModel = cardModel
+        self.muscleGroup = cardModel.id
+        self.level = cardModel.title
         self.aboutWorkoutView = AboutWorkoutView()
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,25 +32,37 @@ class AboutWorkoutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        aboutWorkoutView.selectionDelegate = self
         setupUI()
-        setupBindings()
-        aboutWorkoutView.configure(cardModel: workout)
+        aboutWorkoutView.configure(cardModel: cardModel)
         customizeNavigationBarBackButton()
+        startListeningForWorkoutDataChanges()
+        print("----- AboutWorkoutViewController -----")
     }
+    
+    // Fetch Data from Firestore
+    private func startListeningForWorkoutDataChanges() {
+            workoutCollectionListener = WorkoutService.shared.fetchAllWorkoutLevelExcersises(cardModel: cardModel, completion: { [weak self] result in
+                switch result {
+                case .success(let workouts):
+                    self?.workoutCards = workouts.map { workout in
+                        return CardModel(id: workout.name, title: workout.name, caption: workout.reps, value: "", image: "")
+                    }
+                    self?.aboutWorkoutView.workoutCards = self?.workoutCards ?? []
+                    self?.aboutWorkoutView.collectionView.reloadData()
+                case .failure(let error):
+                    print("Error fetching workouts: \(error)")
+                }
+            })
+        }
 
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
-        title = workout.title
+        title = cardModel.id + " - " + cardModel.title
         view.addSubview(aboutWorkoutView)
         aboutWorkoutView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
-    
-    private func setupBindings() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(stackViewPressed))
-        aboutWorkoutView.stackView.addGestureRecognizer(tapGesture)
-        aboutWorkoutView.stackView.isUserInteractionEnabled = true
     }
     
     private func customizeNavigationBarBackButton() {
@@ -58,8 +78,30 @@ class AboutWorkoutViewController: UIViewController {
         backButton.setTitleTextAttributes(attributes, for: .normal)
     }
     
-    @objc private func stackViewPressed() {
-        let nextViewController = AboutExViewController(exerciseModel: ExerciseModel(id: "", title: "Jumping Jacks", description: "Jumping jacks are a simple and effective exercise that provides a full-body workout. To perform jumping jacks for 20 seconds, start by standing with your feet together and arms by your sides. In one fluid motion, jump up while spreading your legs wider than shoulder-width and raising your arms overhead. As you land, bring your feet back together and lower your arms to the starting position. Repeat this movement for 20 seconds, maintaining a steady pace. Jumping jacks engage your cardiovascular system, improve coordination, and help tone muscles in your legs, arms, and core.", rep: "20s", video: "https://www.youtube.com/watch?v=hugRaDLJSi0"))
-        navigationController?.pushViewController(nextViewController, animated: true)
+    // Implement the delegate method
+    func didSelectWorkout(cardModel: CardModel) {
+        print(cardModel)
+        
+        print("workouts/" + muscleGroup! + "/" + level! + "/" + cardModel.id)
+        
+        // Fetch the corresponding workouts from the Firestore based on the selected card
+        workoutDocumentListener = WorkoutService.shared.fetchSingleWorkoutLevelExcersises(muscleGroup: muscleGroup!, level: level!, excersise: cardModel.id) {result in
+            switch result {
+            case .success(let workoutModel):
+                print(workoutModel) // Print the workoutModel for each workout
+                let nextViewController = AboutExViewController(workoutLevelExcersiseModel: WorkoutLevelExcersiseModel(name: workoutModel.name, description: workoutModel.description, reps: workoutModel.reps, image: workoutModel.image, video: workoutModel.video), level: self.level!, muscleGroup: self.muscleGroup!)
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+            case .failure(let error):
+                print("Error fetching workout: \(error)")
+            }
+        }
+    }
+    
+    
+    private func stopListeningForWorkoutDataChanges() {
+        workoutCollectionListener?.remove()
+        workoutCollectionListener = nil
+        workoutDocumentListener?.remove()
+        workoutDocumentListener = nil
     }
 }

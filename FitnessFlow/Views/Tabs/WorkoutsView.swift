@@ -54,7 +54,7 @@ class WorkoutsView: UIView {
     }()
     
     var absWorkoutCards: [CardModel] = []
-    var collectionViewAbs = CollectionViewsWrapper.cardCollection(registerClass: WorkoutCardCell.self, cellIdentifier: "WorkoutCardCell")
+    var collectionViewAbs = CollectionViewsWrapper.workoutLevelCardCollection(registerClass: WorkoutLevelCardCell.self, cellIdentifier: "WorkoutLevelCardCell")
     
     // MARK: Chest
     let chestWorkoutsLabel: UILabel = {
@@ -65,7 +65,7 @@ class WorkoutsView: UIView {
     }()
     
     var chestWorkoutCards: [CardModel] = []
-    var collectionViewChest = CollectionViewsWrapper.cardCollection(registerClass: WorkoutCardCell.self, cellIdentifier: "WorkoutCardCell")
+    var collectionViewChest = CollectionViewsWrapper.workoutLevelCardCollection(registerClass: WorkoutLevelCardCell.self, cellIdentifier: "WorkoutLevelCardCell")
     
     // MARK: Arm
     
@@ -77,7 +77,7 @@ class WorkoutsView: UIView {
     }()
     
     var armWorkoutCards: [CardModel] = []
-    var collectionViewArm = CollectionViewsWrapper.cardCollection(registerClass: WorkoutCardCell.self, cellIdentifier: "WorkoutCardCell")
+    var collectionViewArm = CollectionViewsWrapper.workoutLevelCardCollection(registerClass: WorkoutLevelCardCell.self, cellIdentifier: "WorkoutLevelCardCell")
     
     // MARK: Leg
     
@@ -89,7 +89,7 @@ class WorkoutsView: UIView {
     }()
     
     var legWorkoutCards: [CardModel] = []
-    var collectionViewLeg = CollectionViewsWrapper.cardCollection(registerClass: WorkoutCardCell.self, cellIdentifier: "WorkoutCardCell")
+    var collectionViewLeg = CollectionViewsWrapper.workoutLevelCardCollection(registerClass: WorkoutLevelCardCell.self, cellIdentifier: "WorkoutLevelCardCell")
     
     // MARK: Shoulder & Back Workouts
     
@@ -101,7 +101,7 @@ class WorkoutsView: UIView {
     }()
     
     var shoulderNBackWorkoutCards: [CardModel] = []
-    var collectionViewShoulderNBack = CollectionViewsWrapper.cardCollection(registerClass: WorkoutCardCell.self, cellIdentifier: "WorkoutCardCell")
+    var collectionViewShoulderNBack = CollectionViewsWrapper.workoutLevelCardCollection(registerClass: WorkoutLevelCardCell.self, cellIdentifier: "WorkoutLevelCardCell")
     
     
     let longLable = SampleCodes().longText
@@ -116,7 +116,7 @@ class WorkoutsView: UIView {
         setupCollectionViews()
     }
     
-    weak var selectionDelegate: WorkoutSelectionDelegate?
+    weak var selectionDelegate: WorkoutLevelSelectionDelegate?
     private func setupCollectionViews() {
         collectionViewAbs.delegate = self
         collectionViewAbs.dataSource = self
@@ -194,7 +194,7 @@ class WorkoutsView: UIView {
         
         collectionViewAbs.snp.makeConstraints { make in
             make.top.equalTo(absWorkoutsLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(120) // Set the desired height for the collection view
         }
         
@@ -205,7 +205,7 @@ class WorkoutsView: UIView {
         
         collectionViewChest.snp.makeConstraints { make in
             make.top.equalTo(chestWorkoutsLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(120) // Set the desired height for the collection view
         }
         
@@ -216,7 +216,7 @@ class WorkoutsView: UIView {
         
         collectionViewArm.snp.makeConstraints { make in
             make.top.equalTo(armWorkoutsLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(120) // Set the desired height for the collection view
         }
         
@@ -227,7 +227,7 @@ class WorkoutsView: UIView {
         
         collectionViewLeg.snp.makeConstraints { make in
             make.top.equalTo(legWorkoutsLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(120) // Set the desired height for the collection view
         }
         
@@ -238,7 +238,7 @@ class WorkoutsView: UIView {
         
         collectionViewShoulderNBack.snp.makeConstraints { make in
             make.top.equalTo(shoulderNBackWorkoutsLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(120) // Set the desired height for the collection view
         }
         

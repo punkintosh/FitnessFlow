@@ -1,15 +1,15 @@
 //
-//  WorkoutCardCell.swift
+//  WorkoutLevelCardCell.swift
 //  FitnessFlow
 //
-//  Created by Punkintosh on 2023-05-28.
+//  Created by Punkintosh on 2023-05-21.
 //
 
 import UIKit
 import SnapKit
 import SDWebImage
 
-class WorkoutCardCell: UICollectionViewCell {
+class WorkoutLevelCardCell: UICollectionViewCell {
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -21,7 +21,7 @@ class WorkoutCardCell: UICollectionViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.textColor = .black
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
@@ -29,9 +29,17 @@ class WorkoutCardCell: UICollectionViewCell {
     
     let captionLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.textColor = .gray
         label.font = .systemFont(ofSize: 14, weight: .regular)
+        return label
+    }()
+    
+    let valueLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
@@ -54,6 +62,7 @@ class WorkoutCardCell: UICollectionViewCell {
         addSubview(backgroundImageView)
         addSubview(titleLabel)
         addSubview(captionLabel)
+        addSubview(valueLabel)
         
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -68,22 +77,30 @@ class WorkoutCardCell: UICollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(8)
         }
         
         captionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(8)
+        }
+        
+        valueLabel.snp.makeConstraints { make in
+            make.top.equalTo(captionLabel.snp.bottom).offset(8)
+            make.leading.trailing.equalToSuperview().inset(8)
+            make.bottom.equalToSuperview().offset(-16)
         }
         
         titleLabel.textColor = .white
         captionLabel.textColor = .white
+        valueLabel.textColor = .white
     }
     
     
     func configure(card: CardModel) {
         titleLabel.text = card.title
         captionLabel.text = card.caption
+        valueLabel.text = card.value
         
         if let imageUrl = URL(string: card.image) {
             // The URL string is valid, proceed to load the image
@@ -97,5 +114,4 @@ class WorkoutCardCell: UICollectionViewCell {
     }
     
 }
-
 
