@@ -46,6 +46,7 @@ class UpdateFitnessDetailsViewController: UIViewController, UICollectionViewDele
             if userFitnessModel.weeklyGoal.contains(day) {
                 let indexPath = IndexPath(item: index, section: 0)
                 updatefitnessDetailsView.weeklyGoalCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                selectedDays.append(day)
             }
         }
     }
