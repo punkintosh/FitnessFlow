@@ -12,22 +12,19 @@ class SignUpView: UIView {
     
     let authHeader = CAuthHeader()
     
-    let firstNameLabel = CLabel.iOSSubhead()
-    let lastNameLabel = CLabel.iOSSubhead()
-    let emailLabel = CLabel.iOSSubhead()
-    let passwordLabel = CLabel.iOSSubhead()
-    let confirmPasswordLabel = CLabel.iOSSubhead()
+    let firstNameLabel = LabelWrapper.subheadline()
+    let lastNameLabel = LabelWrapper.subheadline()
+    let emailLabel = LabelWrapper.subheadline()
+    let passwordLabel = LabelWrapper.subheadline()
+    let confirmPasswordLabel = LabelWrapper.subheadline()
     
-    let firstNameTextField = CTextField(placeholder: "First Name")
-    let lastNameTextField = CTextField(placeholder: "Last Name")
-    let emailTextField = CTextField(placeholder: "Email")
-    let passwordTextField = CTextField(placeholder: "Password")
-    let confirmPasswordTextField = CTextField(placeholder: "Confirm Password")
+    let firstNameTextField = TextFieldWrapper.standardTextField(placeholder: "First Name")
+    let lastNameTextField = TextFieldWrapper.standardTextField(placeholder: "Last Name")
+    let emailTextField = TextFieldWrapper.standardTextField(placeholder: "Email")
+    let passwordTextField = TextFieldWrapper.passwordTextField(placeholder: "Password")
+    let confirmPasswordTextField = TextFieldWrapper.passwordTextField(placeholder: "Confirm Password")
     
-    let continueButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Setup Health Details")
-        return button
-    }()
+    let continueButton = ButtonWrapper.primaryButton(title: "Setup Health Details")
     
     
     init() {

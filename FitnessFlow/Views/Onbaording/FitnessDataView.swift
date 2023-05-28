@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 
 class FitnessDataView: UIView {
-    let fitnessGoal = CLabel.iOSSubhead()
-    let fitnessLevel = CLabel.iOSSubhead()
-    let weeklyGoalLabel = CLabel.iOSSubhead()
+    let fitnessGoal = LabelWrapper.subheadline()
+    let fitnessLevel = LabelWrapper.subheadline()
+    let weeklyGoalLabel = LabelWrapper.subheadline()
     
     let fitnessGoalSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Weight Loss", "Muscle Building", "Stay Fit"])
@@ -35,10 +35,7 @@ class FitnessDataView: UIView {
     }()
     
     
-    let continueButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Continue")
-        return button
-    }()
+    let continueButton = ButtonWrapper.primaryButton(title: "Continue")
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

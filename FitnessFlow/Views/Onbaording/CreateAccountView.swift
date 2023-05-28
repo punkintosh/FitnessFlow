@@ -17,13 +17,10 @@ class CreateAccountView: UIView {
         return imageView
     }()
     
-    let helloLabel = CLabel.iOSPageTitleUnscrolled()
-    let sloganLabel = CLabel.iOSPageTitleScrolledPrimaryColor()
+    let helloLabel = LabelWrapper.largeTitle()
+    let sloganLabel = LabelWrapper.headlinePrimaryColor()
     
-    let signUpButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Create My Account")
-        return button
-    }()
+    let signUpButton = ButtonWrapper.primaryButton(title: "Create My Account")
     
     init() {
         super.init(frame: .zero)

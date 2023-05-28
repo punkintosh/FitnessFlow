@@ -12,21 +12,14 @@ class LogInView: UIView {
     
     let authHeader = CAuthHeader()
     
-    let emailLabel = CLabel.iOSSubhead()
-    let passwordLabel = CLabel.iOSSubhead()
+    let emailLabel = LabelWrapper.subheadline()
+    let passwordLabel = LabelWrapper.subheadline()
     
-    let emailTextField = CTextField(placeholder: "Email")
-    let passwordTextField = CTextField(placeholder: "Password")
+    let emailTextField = TextFieldWrapper.standardTextField(placeholder: "Email")
+    let passwordTextField = TextFieldWrapper.passwordTextField(placeholder: "Password")
     
-    let logInButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Log In")
-        return button
-    }()
-    
-    let switchLoginButton: CTextButton = {
-        let button = CTextButton(text: "New User? Sign Up", color: AppThemeData.colorTextDarkGray)
-        return button
-    }()
+    let logInButton = ButtonWrapper.primaryButton(title: "Log In")
+    let switchLoginButton = ButtonWrapper.textButton(text: "New User? Sign Up", color: AppThemeData.colorTextDarkGray)
     
     
     init() {

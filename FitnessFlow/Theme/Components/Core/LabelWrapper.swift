@@ -53,6 +53,15 @@ public class LabelWrapper {
         return label
     }
     
+    public static func headlinePrimaryColor(label: UILabel? = nil) -> UILabel {
+        let label = label ?? UILabel()
+        label.textAlignment = .left
+        label.textColor = AppThemeData.colorTextPrimary
+//        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        return label
+    }
+    
     public static func subheadline(label: UILabel? = nil) -> UILabel {
         let label = label ?? UILabel()
         label.textAlignment = .left

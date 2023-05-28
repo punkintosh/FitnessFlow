@@ -17,9 +17,9 @@ struct UserScheduleService {
     private init() {}
     
     // Create single user schedule (document)
-    // e.g., users/uid/Schedules/2023-05-28/Abs/Jumping Jacks
+    // e.g., users/uid/Schedules/Workouts/2023-05-28/SlcAA7pHCXCno4joXXgi
     func createUserSchedule(userID: String, userScheduleModel: UserScheduleModel, completion: @escaping (Result<Void, Error>) -> Void) {
-        let userScheduleDocumentRef = db.collection(usersCollection).document(userID).collection("Schedules").document(userScheduleModel.date).collection(userScheduleModel.muscleGroup).document(userScheduleModel.exercise)
+        let userScheduleDocumentRef = db.collection(usersCollection).document(userID).collection("Schedules").document("Workouts").collection(userScheduleModel.date)
         let userScheduleData: [String: Any] = [
             "muscleGroup": userScheduleModel.muscleGroup,
             "level": userScheduleModel.level,
@@ -27,7 +27,7 @@ struct UserScheduleService {
             "reps": userScheduleModel.reps,
             "date": userScheduleModel.date
         ]
-        userScheduleDocumentRef.setData(userScheduleData, merge: true) { error in
+        userScheduleDocumentRef.addDocument(data: userScheduleData) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -36,34 +36,14 @@ struct UserScheduleService {
         }
     }
     
-    // Fetch schedules by muscleGroup (collection)
-    // e.g., users/uid/Schedules/2023-05-28/Abs
-    func fetchscheduleByMuscleGroup(userID: String, userScheduleModel: UserScheduleModel, completion: @escaping (Result<[UserScheduleModel], Error>) -> Void) {
-        let schedulesCollectionRef = db.collection(usersCollection).document(userID).collection("Schedules").document(userScheduleModel.date).collection(userScheduleModel.muscleGroup)
+    // Fetch all schedules (collections)
+    func fetchAllSchedules(userID: String, completion: @escaping (Result<[String], Error>) -> Void) {
+        let schedulesRef = db.collection(usersCollection).document(userID).collection("Schedules").document("Workouts")
         
-        schedulesCollectionRef.getDocuments { querySnapshot, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let querySnapshot = querySnapshot {
-                var userSchedules: [UserScheduleModel] = []
-                for document in querySnapshot.documents {
-                    let userScheduleData = document.data()
-                    let userScheduleModel = UserScheduleModel(
-                        muscleGroup: userScheduleData["muscleGroup"] as! String,
-                        level: userScheduleData["level"] as! String,
-                        exercise: userScheduleData["exercise"] as! String,
-                        reps: userScheduleData["reps"] as! String,
-                        date: userScheduleData["date"] as! String
-                    )
-                    userSchedules.append(userScheduleModel)
-                }
-                completion(.success(userSchedules))
-            }
-        }
+        print(schedulesRef.path)
+        // users/QdEIl48TklWYpqXNIjHhgXCWKm62/Schedules/Workouts
+        
     }
-    
-    // Fetch all schedules and document IDs (collection)
-    // e.g., users/uid/Schedules/
     
 }
 

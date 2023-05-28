@@ -28,12 +28,13 @@ public class ButtonWrapper {
         return button
     }
     
-    public static func textButton() -> UILabel {
+    public static func textButton(text: String, color: UIColor) -> UILabel {
         let label = UILabel()
-        label.textColor = .blue
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.text = text
+        label.textColor = color
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         label.isUserInteractionEnabled = true
-        // Additional configuration for text button
         return label
     }
 }

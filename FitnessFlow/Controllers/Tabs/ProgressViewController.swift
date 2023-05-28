@@ -40,24 +40,24 @@ class ProgressViewController: UIViewController {
 
     @objc private func getScheduleButtonTapped() {
         print("getScheduleButtonTapped!")
+
+        guard let userID = AuthService.currentUser?.uid else {
+            // Handle the case when the user ID is not available
+            return
+        }
         
-//        guard let userID = AuthService.currentUser?.uid else {
-//            // Handle the case when the user ID is not available
-//            return
-//        }
-        
-//        UserScheduleService.shared.fetchAllSchedules(userID: userID) { result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let scheduleIds):
-//                    print("User schedule IDs retrieved successfully:")
-//                    print(scheduleIds)
-//
-//                case .failure(let error):
-//                    print("Failed to get user schedule data: \(error)")
-//                }
-//            }
-//        }
+        // code here
+        UserScheduleService.shared.fetchAllSchedules(userID: userID) { result in
+            switch result {
+            case .success(let schedules):
+                // Handle the fetched schedules
+                print(schedules)
+            case .failure(let error):
+                // Handle the error
+                print("Error fetching schedules: \(error)")
+            }
+        }
+
     }
 
     
