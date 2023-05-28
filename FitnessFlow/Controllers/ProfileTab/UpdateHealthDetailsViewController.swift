@@ -129,14 +129,13 @@ class UpdateHealthDetailsViewController: UIViewController {
         
         let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
         progressHUD.label.text = "Saving..."
-        let userService = UserService.shared
         
         guard let userID = AuthService.currentUser?.uid else {
             // Handle the case when the user ID is not available
             return
         }
         
-        userService.updateUserHealthData(userID: userID, healthData: userHealthModel) { result in
+        UserHealthService.shared.updateUserHealthData(userID: userID, healthData: userHealthModel) { result in
             DispatchQueue.main.async {
                 progressHUD.hide(animated: true)
                 
@@ -146,14 +145,48 @@ class UpdateHealthDetailsViewController: UIViewController {
                     print("User health data updated successfully")
                     // Perform any additional actions or show success message
                     
+                    // Call storeHealthRecordInFirestore
+                    guard let userID = AuthService.currentUser?.uid else {
+                        // Handle the case when the user ID is not available
+                        return
+                    }
+                    
+                    self.storeHealthRecordInFirestore(userID: userID, userHealthModel: userHealthModel) { success in
+                        if success {
+                            // Health record stored successfully
+                            print("Health record stored in Firestore")
+                            AlertDialogWrapper().showErrorAlert(viewController: self, error: "Health Data Updated!", message: "User health data updated successfully")
+                        } else {
+                            // Failed to store health record
+                            print("Failed to store health record in Firestore")
+                            AlertDialogWrapper().showErrorAlert(viewController: self, error: "Health Data Cannot Update!", message: "Failed to store health record")
+                        }
+                    }
+                    
                 case .failure(let error):
                     // Update failed
                     print("Failed to update user health data: \(error)")
                     // Display an error message or handle the error gracefully
+                    AlertDialogWrapper().showErrorAlert(viewController: self, error: "Health Data Cannot Update!", message: "Failed to update user health data")
                 }
             }
         }
         
+    }
+    
+    private func storeHealthRecordInFirestore(userID: String, userHealthModel: UserHealthModel, completion: @escaping (Bool) -> Void) {
+        
+        UserHealthService.shared.createUserHealthDocument(userID: userID,  healthData: userHealthModel) { result in
+            switch result {
+            case .success:
+                print("User health data stored in Firestore")
+                completion(true)
+                
+            case .failure(let error):
+                print("Failed to store user health data in Firestore:", error)
+                completion(false)
+            }
+        }
     }
     
 }

@@ -119,7 +119,7 @@ class UpdateFitnessDetailsViewController: UIViewController, UICollectionViewDele
         
         return cell
     }
-
+    
     
     // MARK: - UICollectionViewDelegate
     
@@ -159,30 +159,63 @@ class UpdateFitnessDetailsViewController: UIViewController, UICollectionViewDele
         
         let progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
         progressHUD.label.text = "Saving..."
-        let userService = UserService.shared
         
         guard let userID = AuthService.currentUser?.uid else {
             // Handle the case when the user ID is not available
             return
         }
         
-        userService.updateUserFitnessData(userID: userID, fitnessData: userFitnessModel) { result in
+        UserFitnessService.shared.updateUserFitnessData(userID: userID, fitnessData: userFitnessModel) { result in
             DispatchQueue.main.async {
                 progressHUD.hide(animated: true)
                 
                 switch result {
                 case .success:
                     // Update successful
-                    print("User health data updated successfully")
+                    print("User fitness data updated successfully")
                     // Perform any additional actions or show success message
+                    
+                    // Call storeHealthRecordInFirestore
+                    guard let userID = AuthService.currentUser?.uid else {
+                        // Handle the case when the user ID is not available
+                        return
+                    }
+                    
+                    self.storeFitnessRecordInFirestore(userID: userID, userFitnessModel: userFitnessModel) { success in
+                        if success {
+                            // Health record stored successfully
+                            print("Health record stored in Firestore")
+                            AlertDialogWrapper().showErrorAlert(viewController: self, error: "Fitness Data Updated!", message: "User fitness data updated successfully")
+                        } else {
+                            // Failed to store health record
+                            print("Failed to store health record in Firestore")
+                            AlertDialogWrapper().showErrorAlert(viewController: self, error: "Fitness Data Cannot Update!", message: "Failed to update user fitness data")
+                        }
+                    }
                     
                 case .failure(let error):
                     // Update failed
-                    print("Failed to update user health data: \(error)")
+                    print("Failed to update user fitness data: \(error)")
                     // Display an error message or handle the error gracefully
+                    AlertDialogWrapper().showErrorAlert(viewController: self, error: "Fitness Data Cannot Update!", message: "Failed to update user fitness data")
                 }
             }
         }
         
+    }
+    
+    private func storeFitnessRecordInFirestore(userID: String, userFitnessModel: UserFitnessModel, completion: @escaping (Bool) -> Void) {
+        
+        UserFitnessService.shared.createUserFitnessDocument(userID: userID,  fitnessData: userFitnessModel) { result in
+            switch result {
+            case .success:
+                print("User fitness data stored in Firestore")
+                completion(true)
+                
+            case .failure(let error):
+                print("Failed to store user fitness data in Firestore:", error)
+                completion(false)
+            }
+        }
     }
 }
