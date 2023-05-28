@@ -42,19 +42,33 @@ class AboutWorkoutViewController: UIViewController, WorkoutSelectionDelegate {
     
     // Fetch Data from Firestore
     private func startListeningForWorkoutDataChanges() {
-            workoutCollectionListener = WorkoutService.shared.fetchAllWorkoutLevelExcersises(cardModel: cardModel, completion: { [weak self] result in
-                switch result {
-                case .success(let workouts):
-                    self?.workoutCards = workouts.map { workout in
-                        return CardModel(id: workout.name, title: workout.name, caption: workout.reps, value: "", image: "")
-                    }
-                    self?.aboutWorkoutView.workoutCards = self?.workoutCards ?? []
-                    self?.aboutWorkoutView.collectionView.reloadData()
-                case .failure(let error):
-                    print("Error fetching workouts: \(error)")
+        workoutCollectionListener = WorkoutService.shared.fetchAllWorkoutLevelExcersises(cardModel: cardModel, completion: { [weak self] result in
+            switch result {
+            case .success(let workouts):
+                self?.workoutCards = workouts.map { workout in
+                    return CardModel(id: workout.name, title: workout.name, caption: workout.reps, value: "", image: "")
                 }
-            })
-        }
+                self?.aboutWorkoutView.workoutCards = self?.workoutCards ?? []
+                
+                // Calculate the new collection view height based on the number of cards
+                let cardHeight: CGFloat = 80
+                let verticalSpacing: CGFloat = 16
+                let numberOfCards = CGFloat(self?.workoutCards.count ?? 0)
+                let collectionViewHeight = (cardHeight * numberOfCards) + (verticalSpacing * (numberOfCards - 1))
+                
+                // Update the collection view height constraint
+                self?.aboutWorkoutView.collectionView.snp.updateConstraints { make in
+                    make.height.equalTo(collectionViewHeight)
+                }
+                
+                // Reload the collection view
+                self?.aboutWorkoutView.collectionView.reloadData()
+                
+            case .failure(let error):
+                print("Error fetching workouts: \(error)")
+            }
+        })
+    }
 
     private func setupUI() {
         view.backgroundColor = AppThemeData.colorBackgroundLight
@@ -63,6 +77,10 @@ class AboutWorkoutViewController: UIViewController, WorkoutSelectionDelegate {
         aboutWorkoutView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        aboutWorkoutView.startWorkoutButton.addTarget(self, action: #selector(startWorkoutButtonTapped), for: .touchUpInside)
+        
+        aboutWorkoutView.addWorkoutButton.addTarget(self, action: #selector(addWorkoutButtonTapped), for: .touchUpInside)
     }
     
     private func customizeNavigationBarBackButton() {
@@ -103,5 +121,13 @@ class AboutWorkoutViewController: UIViewController, WorkoutSelectionDelegate {
         workoutCollectionListener = nil
         workoutDocumentListener?.remove()
         workoutDocumentListener = nil
+    }
+    
+    @objc private func startWorkoutButtonTapped() {
+        print("startWorkoutButtonTapped!")
+    }
+    
+    @objc private func addWorkoutButtonTapped() {
+        print("addWorkoutButtonTapped!")
     }
 }

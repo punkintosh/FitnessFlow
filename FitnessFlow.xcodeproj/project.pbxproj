@@ -351,8 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				6076A7592A1A3620002DC795 /* AboutWorkoutView.swift */,
-				6076A75D2A1A49F4002DC795 /* AboutExView.swift */,
 				609F20B72A23045A001E3D37 /* AboutWorkoutViewExtension.swift */,
+				6076A75D2A1A49F4002DC795 /* AboutExView.swift */,
 			);
 			path = WorkoutTab;
 			sourceTree = "<group>";

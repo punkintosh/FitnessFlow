@@ -37,6 +37,11 @@ class AboutWorkoutView: UIView {
     
     var workoutCards: [CardModel] = []
     var collectionView = CollectionViewsWrapper.workoutCardCollection(registerClass: WorkoutCardCell.self, cellIdentifier: "WorkoutCardCell")
+    var collectionViewHeight = 20
+    
+    
+    let startWorkoutButton = ButtonWrapper.primaryButton(title: "Start Workout")
+    let addWorkoutButton = ButtonWrapper.secondaryButton(title: "Add my schedule")
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -68,6 +73,8 @@ class AboutWorkoutView: UIView {
         contentView.addSubview(titleLabel)
         contentView.addSubview(aboutLabel)
         contentView.addSubview(collectionView)
+        contentView.addSubview(startWorkoutButton)
+        contentView.addSubview(addWorkoutButton)
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -76,7 +83,7 @@ class AboutWorkoutView: UIView {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            make.bottom.equalTo(collectionView.snp.bottom).offset(16)
+            make.bottom.equalTo(addWorkoutButton.snp.bottom).offset(16)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -92,7 +99,29 @@ class AboutWorkoutView: UIView {
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(aboutLabel.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.height.equalTo(1000) // Set the desired height for the collection view
+            make.height.equalTo(collectionViewHeight)
+        }
+        
+        startWorkoutButton.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
+        addWorkoutButton.snp.makeConstraints { make in
+            make.top.equalTo(startWorkoutButton.snp.bottom).offset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50)
         }
     }
+    
+//    func collectionViewHeight() -> CGFloat {
+//           let cardHeight: CGFloat = 80
+//           let verticalSpacing: CGFloat = 16
+//           let numberOfCards = CGFloat(workoutCards.count)
+//           let collectionViewHeight = (cardHeight * numberOfCards) + (verticalSpacing * (numberOfCards - 1))
+//           return collectionViewHeight
+//       }
 }

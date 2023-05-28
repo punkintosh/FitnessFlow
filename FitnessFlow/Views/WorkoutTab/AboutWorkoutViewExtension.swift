@@ -34,8 +34,8 @@ extension AboutWorkoutView: UICollectionViewDelegateFlowLayout, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Adjust the card size according to your needs
         let cardWidth = collectionView.frame.width
-        let cardHeight = collectionView.frame.height / 10
-        return CGSize(width: cardWidth, height: cardHeight)
+        // let cardHeight = collectionView.frame.height / 10
+        return CGSize(width: cardWidth, height: 80)
     }
     
     // MARK: - Card Select
