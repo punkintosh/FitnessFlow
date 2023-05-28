@@ -9,9 +9,8 @@ import UIKit
 import SnapKit
 
 class CAuthHeader: UIView {
-    private let labelTitle = CLabel.iOSPageTitleUnscrolled()
-    
-    private let labelCaption = CLabel.iOSPageTitleScrolledPrimaryColor()
+    private let labelTitle = LabelWrapper.largeTitle()
+    private let labelCaption = LabelWrapper.headlinePrimaryColor()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()

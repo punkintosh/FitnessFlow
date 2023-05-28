@@ -48,10 +48,7 @@ class ProfileView: UIView {
         return label
     }()
 
-    let editButtonAccount: CTextButton = {
-        let button = CTextButton(text: "Edit", color: AppThemeData.colorTextPrimary)
-        return button
-    }()
+    let editButtonAccount = ButtonWrapper.textButton(text: "Edit", color: AppThemeData.colorTextPrimary)
     
     // Titles
     let nameTitleLabel: UILabel = {
@@ -124,10 +121,7 @@ class ProfileView: UIView {
         return label
     }()
 
-    let editButtonHealth: CTextButton = {
-        let button = CTextButton(text: "Edit", color: AppThemeData.colorTextPrimary)
-        return button
-    }()
+    let editButtonHealth = ButtonWrapper.textButton(text: "Edit", color: AppThemeData.colorTextPrimary)
     
     // Titles
     let heightTitleLabel: UILabel = {
@@ -214,10 +208,7 @@ class ProfileView: UIView {
         return label
     }()
 
-    let editButtonFitness: CTextButton = {
-        let button = CTextButton(text: "Edit", color: AppThemeData.colorTextPrimary)
-        return button
-    }()
+    let editButtonFitness = ButtonWrapper.textButton(text: "Edit", color: AppThemeData.colorTextPrimary)
     
     // Titles
     let fitnessGoalTitleLabel: UILabel = {
@@ -266,10 +257,7 @@ class ProfileView: UIView {
     }()
     
     // Sign Out
-    let signOutButton: CRoundedButton = {
-        let button = CRoundedButton(title: "Sign Out")
-        return button
-    }()
+    let signOutButton = ButtonWrapper.primaryButton(title: "Sign Out")
     
     init() {
         super.init(frame: .zero)

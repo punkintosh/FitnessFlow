@@ -19,7 +19,6 @@
 		6049BFA12A14D28600C369AA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6049BFA02A14D28600C369AA /* SnapKit */; };
 		6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6049BFA22A14D34600C369AA /* AppThemeData.swift */; };
 		604EE7402A154BD800D2598D /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604EE73F2A154BD800D2598D /* FormValidator.swift */; };
-		605C143F2A17261A00DCCC8D /* CAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C143E2A17261A00DCCC8D /* CAlert.swift */; };
 		605C14412A172DE000DCCC8D /* UserAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14402A172DE000DCCC8D /* UserAccountService.swift */; };
 		605C14462A1741B700DCCC8D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14452A1741B700DCCC8D /* HomeViewController.swift */; };
 		605C14482A17421F00DCCC8D /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14472A17421F00DCCC8D /* WorkoutsViewController.swift */; };
@@ -34,7 +33,6 @@
 		605C145A2A17437E00DCCC8D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C14592A17437E00DCCC8D /* ProfileView.swift */; };
 		605C145C2A17645900DCCC8D /* UserHealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C145B2A17645900DCCC8D /* UserHealthModel.swift */; };
 		605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C145D2A17689D00DCCC8D /* CTabHeader.swift */; };
-		605C14602A17864600DCCC8D /* CLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605C145F2A17864600DCCC8D /* CLabel.swift */; };
 		6062D7292A19BF11008B05A9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062D7282A19BF11008B05A9 /* CardModel.swift */; };
 		6062D72B2A19DC4B008B05A9 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062D72A2A19DC4B008B05A9 /* CardCell.swift */; };
 		6062D7312A19F097008B05A9 /* WorkoutLevelCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062D7302A19F097008B05A9 /* WorkoutLevelCardCell.swift */; };
@@ -96,15 +94,12 @@
 		60B193E92A15D74B0045FCAF /* Raleway-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60B193D72A15D74B0045FCAF /* Raleway-BlackItalic.ttf */; };
 		60B193EC2A15F0120045FCAF /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EB2A15F0120045FCAF /* LogInView.swift */; };
 		60B193EE2A15F0250045FCAF /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193ED2A15F0250045FCAF /* LogInViewController.swift */; };
-		60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B193EF2A15F0EA0045FCAF /* CTextField.swift */; };
 		60B1F4102A18F662006FA39A /* UpdateFitnessDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F40F2A18F662006FA39A /* UpdateFitnessDetailsView.swift */; };
 		60B1F4122A18F685006FA39A /* UpdateFitnessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F4112A18F685006FA39A /* UpdateFitnessDetailsViewController.swift */; };
 		60B1F4142A18F6BB006FA39A /* UserFitnessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */; };
 		60B8E5D22A14FA0D00547439 /* TempHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D12A14FA0D00547439 /* TempHomeView.swift */; };
 		60B8E5D72A1510A000547439 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D62A1510A000547439 /* SignUpView.swift */; };
 		60B8E5D92A1510DB00547439 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5D82A1510DB00547439 /* SignUpViewController.swift */; };
-		60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DA2A1528A300547439 /* CTextButton.swift */; };
-		60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DC2A15293400547439 /* CRoundedButton.swift */; };
 		60B8E5DF2A1535E200547439 /* CAuthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8E5DE2A1535E200547439 /* CAuthHeader.swift */; };
 		60FBB1B52A1CF96700D6729C /* LabelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FBB1B42A1CF96700D6729C /* LabelWrapper.swift */; };
 		60FBB1B72A1CFD0500D6729C /* ButtonWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FBB1B62A1CFD0500D6729C /* ButtonWrapper.swift */; };
@@ -128,7 +123,6 @@
 		6049BF9E2A14CDDC00C369AA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6049BFA22A14D34600C369AA /* AppThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeData.swift; sourceTree = "<group>"; };
 		604EE73F2A154BD800D2598D /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
-		605C143E2A17261A00DCCC8D /* CAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAlert.swift; sourceTree = "<group>"; };
 		605C14402A172DE000DCCC8D /* UserAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountService.swift; sourceTree = "<group>"; };
 		605C14422A17374300DCCC8D /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		605C14452A1741B700DCCC8D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +138,6 @@
 		605C14592A17437E00DCCC8D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		605C145B2A17645900DCCC8D /* UserHealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHealthModel.swift; sourceTree = "<group>"; };
 		605C145D2A17689D00DCCC8D /* CTabHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTabHeader.swift; sourceTree = "<group>"; };
-		605C145F2A17864600DCCC8D /* CLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLabel.swift; sourceTree = "<group>"; };
 		6062D7282A19BF11008B05A9 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		6062D72A2A19DC4B008B05A9 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		6062D7302A19F097008B05A9 /* WorkoutLevelCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLevelCardCell.swift; sourceTree = "<group>"; };
@@ -200,15 +193,12 @@
 		60B193D72A15D74B0045FCAF /* Raleway-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-BlackItalic.ttf"; sourceTree = "<group>"; };
 		60B193EB2A15F0120045FCAF /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		60B193ED2A15F0250045FCAF /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		60B193EF2A15F0EA0045FCAF /* CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextField.swift; sourceTree = "<group>"; };
 		60B1F40F2A18F662006FA39A /* UpdateFitnessDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFitnessDetailsView.swift; sourceTree = "<group>"; };
 		60B1F4112A18F685006FA39A /* UpdateFitnessDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFitnessDetailsViewController.swift; sourceTree = "<group>"; };
 		60B1F4132A18F6BB006FA39A /* UserFitnessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFitnessService.swift; sourceTree = "<group>"; };
 		60B8E5D12A14FA0D00547439 /* TempHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempHomeView.swift; sourceTree = "<group>"; };
 		60B8E5D62A1510A000547439 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		60B8E5D82A1510DB00547439 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		60B8E5DA2A1528A300547439 /* CTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextButton.swift; sourceTree = "<group>"; };
-		60B8E5DC2A15293400547439 /* CRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRoundedButton.swift; sourceTree = "<group>"; };
 		60B8E5DE2A1535E200547439 /* CAuthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAuthHeader.swift; sourceTree = "<group>"; };
 		60FBB1B42A1CF96700D6729C /* LabelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWrapper.swift; sourceTree = "<group>"; };
 		60FBB1B62A1CFD0500D6729C /* ButtonWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWrapper.swift; sourceTree = "<group>"; };
@@ -329,11 +319,6 @@
 		6062D72C2A19DCF1008B05A9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				60B8E5DA2A1528A300547439 /* CTextButton.swift */,
-				60B8E5DC2A15293400547439 /* CRoundedButton.swift */,
-				605C145F2A17864600DCCC8D /* CLabel.swift */,
-				60B193EF2A15F0EA0045FCAF /* CTextField.swift */,
-				605C143E2A17261A00DCCC8D /* CAlert.swift */,
 				60B8E5DE2A1535E200547439 /* CAuthHeader.swift */,
 				605C145D2A17689D00DCCC8D /* CTabHeader.swift */,
 				60FBB1B42A1CF96700D6729C /* LabelWrapper.swift */,
@@ -645,7 +630,6 @@
 				603BD9E42A18CCF50005E123 /* UserHealthService.swift in Sources */,
 				605C144A2A17423500DCCC8D /* ProgressViewController.swift in Sources */,
 				609F20C92A239CF5001E3D37 /* UserScheduleService.swift in Sources */,
-				60B193F02A15F0EA0045FCAF /* CTextField.swift in Sources */,
 				6076A7542A1A210B002DC795 /* FirebaseToken.swift in Sources */,
 				6076A75C2A1A49E6002DC795 /* AboutExViewController.swift in Sources */,
 				605C14412A172DE000DCCC8D /* UserAccountService.swift in Sources */,
@@ -653,7 +637,6 @@
 				605C144C2A17424B00DCCC8D /* NutritionViewController.swift in Sources */,
 				604EE7402A154BD800D2598D /* FormValidator.swift in Sources */,
 				605C14562A17434D00DCCC8D /* ProgressView.swift in Sources */,
-				605C143F2A17261A00DCCC8D /* CAlert.swift in Sources */,
 				6049BF8D2A14C00400C369AA /* TempHomeViewController.swift in Sources */,
 				6062D7312A19F097008B05A9 /* WorkoutLevelCardCell.swift in Sources */,
 				608DBDA12A20A8E000D08CB6 /* CollectionViewsWrapper.swift in Sources */,
@@ -661,7 +644,6 @@
 				609F20C12A237413001E3D37 /* AddScheduleViewController.swift in Sources */,
 				60B1F4142A18F6BB006FA39A /* UserFitnessService.swift in Sources */,
 				605C14462A1741B700DCCC8D /* HomeViewController.swift in Sources */,
-				60B8E5DB2A1528A300547439 /* CTextButton.swift in Sources */,
 				60789E382A17E354004AEAAE /* UpdateHealthDetailsViewController.swift in Sources */,
 				60FBB1B52A1CF96700D6729C /* LabelWrapper.swift in Sources */,
 				6049BFA32A14D34600C369AA /* AppThemeData.swift in Sources */,
@@ -672,7 +654,6 @@
 				607F0EDC2A1661CE0047DAB2 /* AuthService.swift in Sources */,
 				6093D4E32A19471400B1ADA1 /* FitnessDataViewController.swift in Sources */,
 				609F20BA2A23050D001E3D37 /* WorkoutCardCell.swift in Sources */,
-				60B8E5DD2A15293400547439 /* CRoundedButton.swift in Sources */,
 				6062D72B2A19DC4B008B05A9 /* CardCell.swift in Sources */,
 				6062D7292A19BF11008B05A9 /* CardModel.swift in Sources */,
 				6049BF892A14C00400C369AA /* AppDelegate.swift in Sources */,
@@ -706,7 +687,6 @@
 				605C14502A17427300DCCC8D /* MainTabBarController.swift in Sources */,
 				6049BF8B2A14C00400C369AA /* SceneDelegate.swift in Sources */,
 				60FBB1B92A1CFD6600D6729C /* TextFieldWrapper.swift in Sources */,
-				605C14602A17864600DCCC8D /* CLabel.swift in Sources */,
 				605C144E2A17425E00DCCC8D /* ProfileViewController.swift in Sources */,
 				60FBB1BD2A1D2E4D00D6729C /* GreetingHelper.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,
