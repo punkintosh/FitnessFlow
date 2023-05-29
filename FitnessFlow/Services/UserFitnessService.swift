@@ -53,4 +53,36 @@ class UserFitnessService {
         }
     }
     
+    // Fetch all fitness data (collection) with real-time updates
+    func fetchAllFitnessData(userID: String, completion: @escaping (Result<[UserFitnessModel], Error>) -> Void) -> ListenerRegistration {
+        let collectionRef = db.collection(usersCollection).document(userID).collection("Fitness Record")
+        
+        let listener = collectionRef.addSnapshotListener { snapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data available"])))
+                return
+            }
+            
+            var fitnessData: [UserFitnessModel] = []
+            
+            for document in snapshot.documents {
+                let fitnessGoal = document.data()["fitnessGoal"] as? String ?? ""
+                let fitnessLevel = document.data()["fitnessLevel"] as? String ?? ""
+                let weeklyGoal = document.data()["weeklyGoal"] as? [String] ?? []
+                
+                let userFitness = UserFitnessModel(fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal, updated: document.documentID)
+                fitnessData.append(userFitness)
+            }
+            
+            completion(.success(fitnessData))
+        }
+        
+        return listener
+    }
+    
 }

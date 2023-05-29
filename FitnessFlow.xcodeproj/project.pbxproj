@@ -76,6 +76,8 @@
 		609F7F722A24427D00F48961 /* OpenAPIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F7F702A24427D00F48961 /* OpenAPIKeys.swift */; };
 		609F7F732A24427D00F48961 /* FirebaseToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F7F712A24427D00F48961 /* FirebaseToken.swift */; };
 		609F7F752A24433300F48961 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F7F742A24433300F48961 /* NotificationManager.swift */; };
+		609F7F772A244CDF00F48961 /* FootTrackerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F7F762A244CDF00F48961 /* FootTrackerHelper.swift */; };
+		609F7F792A24580600F48961 /* ProgressViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609F7F782A24580600F48961 /* ProgressViewExtension.swift */; };
 		60A4663A2A167D62003609B3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 60A466392A167D62003609B3 /* FirebaseAnalytics */; };
 		60A4663C2A167D62003609B3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663B2A167D62003609B3 /* FirebaseAuth */; };
 		60A4663E2A167D62003609B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 60A4663D2A167D62003609B3 /* FirebaseFirestore */; };
@@ -183,6 +185,8 @@
 		609F7F702A24427D00F48961 /* OpenAPIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAPIKeys.swift; sourceTree = "<group>"; };
 		609F7F712A24427D00F48961 /* FirebaseToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseToken.swift; sourceTree = "<group>"; };
 		609F7F742A24433300F48961 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		609F7F762A244CDF00F48961 /* FootTrackerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootTrackerHelper.swift; sourceTree = "<group>"; };
+		609F7F782A24580600F48961 /* ProgressViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewExtension.swift; sourceTree = "<group>"; };
 		60A4663F2A167DE9003609B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		60B193C62A15D7490045FCAF /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
 		60B193C72A15D74A0045FCAF /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
@@ -316,6 +320,7 @@
 				605C14552A17434D00DCCC8D /* ProgressView.swift */,
 				605C14572A17436400DCCC8D /* AssistantView.swift */,
 				605C14592A17437E00DCCC8D /* ProfileView.swift */,
+				609F7F782A24580600F48961 /* ProgressViewExtension.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -502,6 +507,7 @@
 				60FBB1BC2A1D2E4D00D6729C /* GreetingHelper.swift */,
 				607B16422A1E667300A271FB /* DateTimeHelper.swift */,
 				609F7F742A24433300F48961 /* NotificationManager.swift */,
+				609F7F762A244CDF00F48961 /* FootTrackerHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -662,6 +668,7 @@
 			files = (
 				605C14522A17431B00DCCC8D /* HomeView.swift in Sources */,
 				6076A7642A1A7D07002DC795 /* WorkoutModel.swift in Sources */,
+				609F7F772A244CDF00F48961 /* FootTrackerHelper.swift in Sources */,
 				603BD9E42A18CCF50005E123 /* UserHealthService.swift in Sources */,
 				605C144A2A17423500DCCC8D /* ProgressViewController.swift in Sources */,
 				609F20C92A239CF5001E3D37 /* UserScheduleService.swift in Sources */,
@@ -729,6 +736,7 @@
 				605C144E2A17425E00DCCC8D /* ProfileViewController.swift in Sources */,
 				60FBB1BD2A1D2E4D00D6729C /* GreetingHelper.swift in Sources */,
 				605C145E2A17689D00DCCC8D /* CTabHeader.swift in Sources */,
+				609F7F792A24580600F48961 /* ProgressViewExtension.swift in Sources */,
 				60789E362A17E335004AEAAE /* UpdateHealthDetailsView.swift in Sources */,
 				609F20B62A22F4E2001E3D37 /* WorkoutLevelModel.swift in Sources */,
 				60B1F4122A18F685006FA39A /* UpdateFitnessDetailsViewController.swift in Sources */,

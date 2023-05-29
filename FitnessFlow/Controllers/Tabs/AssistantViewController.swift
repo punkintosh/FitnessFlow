@@ -16,6 +16,7 @@ class AssistantViewController: UIViewController {
     private var userModel: UserModel?
     private let currentUserID = AuthService.currentUser?.uid
     private var userDocumentListener: ListenerRegistration?
+    private let footTrackerHelper = FootTrackerHelper()
 
     init() {
         self.assistantView = AssistantView()
@@ -76,6 +77,8 @@ class AssistantViewController: UIViewController {
         }
         
         assistantView.getScheduleButton.addTarget(self, action: #selector(getScheduleButtonTapped), for: .touchUpInside)
+        
+        assistantView.getFootTrackerButton.addTarget(self, action: #selector(getFootTrackerButtonTapped), for: .touchUpInside)
     }
 
     @objc private func getScheduleButtonTapped() {
@@ -85,5 +88,11 @@ class AssistantViewController: UIViewController {
         self.navigationController?.pushViewController(nextViewController, animated: true)
 
     }
-}
 
+    @objc private func getFootTrackerButtonTapped() {
+        print("getFootTrackerButtonTapped!")
+        
+        // Start tracking foot walking
+        footTrackerHelper.startFootWalkingTracking()
+    }
+}

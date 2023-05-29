@@ -42,7 +42,16 @@ class AssistantView: UIView {
         return label
     }()
     
+    let footTrackerTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        return label
+    }()
+    
     let getScheduleButton = ButtonWrapper.primaryButton(title: "Get Recommendations")
+    
+    let getFootTrackerButton = ButtonWrapper.primaryButton(title: "Start Tracking")
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -58,6 +67,7 @@ class AssistantView: UIView {
         tabHeaderTitle.text = "Assistant"
         tabHeaderCaption.text = "Guidelines provider"
         currentProgressLabel.text = "Get Recommendations"
+        footTrackerTitleLabel.text = "Foot Tracker"
     }
 
     private func setupUI() {
@@ -68,6 +78,8 @@ class AssistantView: UIView {
         contentView.addSubview(tabHeaderCaption)
         contentView.addSubview(currentProgressLabel)
         contentView.addSubview(getScheduleButton)
+        contentView.addSubview(footTrackerTitleLabel)
+        contentView.addSubview(getFootTrackerButton)
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -76,7 +88,7 @@ class AssistantView: UIView {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            make.bottom.equalTo(getScheduleButton.snp.bottom).offset(16)
+            make.bottom.equalTo(getFootTrackerButton.snp.bottom).offset(16)
         }
         
         tabHeaderTitle.snp.makeConstraints { make in
@@ -96,6 +108,18 @@ class AssistantView: UIView {
 
         getScheduleButton.snp.makeConstraints { make in
             make.top.equalTo(currentProgressLabel.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
+        footTrackerTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(getScheduleButton.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview().inset(16)
+        }
+        
+        getFootTrackerButton.snp.makeConstraints { make in
+            make.top.equalTo(footTrackerTitleLabel.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview().inset(16)
             make.centerX.equalToSuperview()
             make.height.equalTo(50)

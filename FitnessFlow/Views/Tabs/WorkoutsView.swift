@@ -103,9 +103,6 @@ class WorkoutsView: UIView {
     var shoulderNBackWorkoutCards: [CardModel] = []
     var collectionViewShoulderNBack = CollectionViewsWrapper.workoutLevelCardCollection(registerClass: WorkoutLevelCardCell.self, cellIdentifier: "WorkoutLevelCardCell")
     
-    
-    let longLable = SampleCodes().longText
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -160,7 +157,6 @@ class WorkoutsView: UIView {
         contentView.addSubview(collectionViewLeg)
         contentView.addSubview(shoulderNBackWorkoutsLabel)
         contentView.addSubview(collectionViewShoulderNBack)
-        contentView.addSubview(longLable)
         
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -169,7 +165,7 @@ class WorkoutsView: UIView {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
-            make.bottom.equalTo(longLable.snp.bottom).offset(16)
+            make.bottom.equalTo(collectionViewShoulderNBack.snp.bottom).offset(16)
         }
         
         tabHeaderTitle.snp.makeConstraints { make in
@@ -240,11 +236,6 @@ class WorkoutsView: UIView {
             make.top.equalTo(shoulderNBackWorkoutsLabel.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(120) // Set the desired height for the collection view
-        }
-        
-        longLable.snp.makeConstraints { make in
-            make.top.equalTo(collectionViewShoulderNBack.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(16)
         }
     }
     

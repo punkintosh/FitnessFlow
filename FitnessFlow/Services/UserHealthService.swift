@@ -57,4 +57,39 @@ class UserHealthService {
             }
         }
     }
+    
+    // Fetch all health data (collection) with real-time updates
+    func fetchAllHealthData(userID: String, completion: @escaping (Result<[UserHealthModel], Error>) -> Void) -> ListenerRegistration {
+        let collectionRef = db.collection(usersCollection).document(userID).collection("Health Record")
+        
+        let listener = collectionRef.addSnapshotListener { snapshot, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data available"])))
+                return
+            }
+            
+            var healthsData: [UserHealthModel] = []
+            
+            for document in snapshot.documents {
+                let height = document.data()["height"] as? Double ?? 0.0
+                let weight = document.data()["weight"] as? Double ?? 0.0
+                let age = document.data()["age"] as? Int ?? 0
+                let gender = document.data()["gender"] as? String ?? ""
+                let healthConditions = document.data()["healthConditions"] as? Array<String> ?? [""]
+                let updated = document.data()["updated"] as? String ?? ""
+                
+                let userHealth = UserHealthModel(height: height, weight: weight, age: age, gender: gender, healthConditions: healthConditions, updated: updated)
+                healthsData.append(userHealth)
+            }
+            
+            completion(.success(healthsData))
+        }
+        
+        return listener
+    }
 }
