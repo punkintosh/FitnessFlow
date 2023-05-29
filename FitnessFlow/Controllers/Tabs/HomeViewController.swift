@@ -28,6 +28,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         startListeningForUserDataChanges()
+        
+        // Notification
+        let notificationManager = NotificationManager()
+        notificationManager.requestNotificationPermission { (granted) in
+            if granted {
+                notificationManager.showNotification()
+            } else {
+                print("Notification permission not granted.")
+            }
+        }
     }
     
     private func setupUI() {
