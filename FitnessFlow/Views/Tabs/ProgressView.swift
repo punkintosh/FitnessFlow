@@ -139,7 +139,7 @@ class ProgressView: UIView {
         }
 
         fitnessRecordLabel.snp.makeConstraints { make in
-            make.top.equalTo(getScheduleButton.snp.bottom).offset(24)
+            make.top.equalTo(getScheduleButton.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
@@ -150,7 +150,7 @@ class ProgressView: UIView {
         }
 
         healthRecordLabel.snp.makeConstraints { make in
-            make.top.equalTo(collectionViewFitnessRecord.snp.bottom).offset(24)
+            make.top.equalTo(collectionViewFitnessRecord.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         
