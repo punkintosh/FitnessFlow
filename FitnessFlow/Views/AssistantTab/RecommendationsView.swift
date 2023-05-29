@@ -64,6 +64,7 @@ class RecommendationsView: UIView {
         questionTitleLabel.text = "Your request question"
         questionDataLabel.text = createQuestion
         answerTitleLabel.text = "FitnessFlow Doc Bot"
+        answerDataLabel.text = "Typing ..."
     }
     
     private func setupUI() {

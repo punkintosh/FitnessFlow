@@ -25,6 +25,7 @@ final class OpenAICallerService {
             switch result{
             case .success(let model):
                 let output = model.choices?.first?.text ?? ""
+                print(output)
                 completion(.success(output ))
             case .failure(let error):
                 completion(.failure(error))
