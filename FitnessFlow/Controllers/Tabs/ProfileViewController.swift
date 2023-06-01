@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
     private let profileView: ProfileView
+    private var userModel: UserModel?
+    private let currentUserID = AuthService.currentUser?.uid
+    private var userDocumentListener: ListenerRegistration?
     
     init() {
+        self.userModel = nil
         self.profileView = ProfileView()
         super.init(nibName: nil, bundle: nil)
     }
@@ -23,7 +28,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupBindings()
-        profileView.configure()
+        startListeningForUserDataChanges()
     }
 
     
@@ -36,14 +41,51 @@ class ProfileViewController: UIViewController {
         profileView.signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
     }
     
+    
+    private func startListeningForUserDataChanges() {
+        userDocumentListener = UserService.shared.fetchUserDocument(userID: currentUserID!) { [weak self] result in
+            switch result {
+            case .success(let userData):
+                guard let firstName = userData["firstName"] as? String,
+                      let lastName = userData["lastName"] as? String,
+                      let email = userData["email"] as? String,
+                      let password = userData["password"] as? String,
+                      let height = userData["height"] as? Double,
+                      let weight = userData["weight"] as? Double,
+                      let age = userData["age"] as? Int,
+                      let gender = userData["gender"] as? String,
+                      let healthConditions = userData["healthConditions"] as? Array<String>,
+                      let fitnessGoal = userData["fitnessGoal"] as? String,
+                      let fitnessLevel = userData["fitnessLevel"] as? String,
+                      let created = userData["created"] as? String,
+                      let updated = userData["updated"] as? String,
+                      let weeklyGoal = userData["weeklyGoal"] as? Array<String> else {
+                    // Handle missing data or incorrect types
+                    print("Invalid user data")
+                    return
+                }
+                let userModel = UserModel(firstName: firstName, lastName: lastName, email: email, password: password, height: height, weight: weight, age: age, gender: gender, healthConditions: healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal, created: created, updated: updated)
+                self?.userModel = userModel
+                self?.profileView.configure(userModel: userModel)
+            case .failure(let error):
+                print("Failed to fetch user data: \(error)")
+            }
+        }
+    }
+    
+    private func stopListeningForUserDataChanges() {
+        userDocumentListener?.remove()
+        userDocumentListener = nil
+    }
+    
     private func setupBindings() {
         // Account
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(editAccountDetails))
         profileView.editButtonAccount.addGestureRecognizer(tapGesture)
-        // Health
+//        // Health
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(editHealthDetails))
         profileView.editButtonHealth.addGestureRecognizer(tapGesture2)
-        // Fitness
+//        // Fitness
         let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(editFitnessDetails))
         profileView.editButtonFitness.addGestureRecognizer(tapGesture3)
     }
@@ -55,13 +97,13 @@ class ProfileViewController: UIViewController {
     
     // Health
     @objc private func editHealthDetails() {
-        let nextViewController = AddHealthDetailsViewController()
+        let nextViewController = UpdateHealthDetailsViewController(userHealthModel: UserHealthModel(height: userModel!.height, weight: userModel!.weight, age: userModel!.age, gender: userModel!.gender, healthConditions: userModel!.healthConditions, updated: userModel!.updated))
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     
     // Fitness
     @objc private func editFitnessDetails() {
-        let nextViewController = AddFitnessDetailsViewController()
+        let nextViewController = UpdateFitnessDetailsViewController(userFitnessModel: UserFitnessModel(fitnessGoal: userModel!.fitnessGoal, fitnessLevel: userModel!.fitnessLevel, weeklyGoal: userModel!.weeklyGoal, updated: userModel!.updated))
         navigationController?.pushViewController(nextViewController, animated: true)
     }
     

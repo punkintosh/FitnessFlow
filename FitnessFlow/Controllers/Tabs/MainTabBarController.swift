@@ -15,10 +15,11 @@ class MainTabBarController: UITabBarController {
         let homeVC = HomeViewController()
         let workoutsVC = WorkoutsViewController()
         let progressVC = ProgressViewController()
+        let assistantVC = AssistantViewController()
         let profileVC = ProfileViewController()
         
         // Set the view controllers for each tab
-        self.setViewControllers([homeVC, workoutsVC, progressVC, profileVC], animated: true)
+        self.setViewControllers([homeVC, workoutsVC, progressVC, assistantVC, profileVC], animated: true)
         
         // Resize images
         func resizeImage(named name: String, to size: CGSize) -> UIImage? {
@@ -34,11 +35,13 @@ class MainTabBarController: UITabBarController {
         let homeImageSize = CGSize(width: 24, height: 24)
         let workoutsImageSize = CGSize(width: 24, height: 24)
         let progressImageSize = CGSize(width: 24, height: 24)
+        let assistantImageSize = CGSize(width: 24, height: 24)
         let profileImageSize = CGSize(width: 24, height: 24)
 
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: resizeImage(named: "home_u", to: homeImageSize), selectedImage: resizeImage(named: "home_s", to: homeImageSize))
         workoutsVC.tabBarItem = UITabBarItem(title: "Workouts", image: resizeImage(named: "workouts_u", to: workoutsImageSize), selectedImage: resizeImage(named: "workouts_s", to: workoutsImageSize))
         progressVC.tabBarItem = UITabBarItem(title: "Progress", image: resizeImage(named: "progress_u", to: progressImageSize), selectedImage: resizeImage(named: "progress_s", to: progressImageSize))
+        assistantVC.tabBarItem = UITabBarItem(title: "Assistant", image: resizeImage(named: "assistant_u", to: assistantImageSize), selectedImage: resizeImage(named: "assistant_s", to: assistantImageSize))
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: resizeImage(named: "profile_u", to: profileImageSize), selectedImage: resizeImage(named: "profile_s", to: profileImageSize))
         
         // Customize the appearance of the tab bar

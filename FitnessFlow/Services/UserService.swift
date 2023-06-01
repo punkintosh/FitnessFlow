@@ -16,7 +16,7 @@ struct UserService {
     
     private init() {}
     
-    // Create User Document
+    // Create single user (document)
     func createUserDocument(userID: String, data: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
         let userDocumentRef = db.collection(usersCollection).document(userID)
         userDocumentRef.setData(data, merge: true) { error in
@@ -24,6 +24,24 @@ struct UserService {
                 completion(.failure(error))
             } else {
                 completion(.success(()))
+            }
+        }
+    }
+    
+    // Fetch single user (document)
+    // e.g., users/uid/
+    func fetchUserDocument(userID: String, completion: @escaping (Result<[String: Any], Error>) -> Void) -> ListenerRegistration {
+        let userDocumentRef = db.collection(usersCollection).document(userID)
+        return userDocumentRef.addSnapshotListener { (documentSnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let documentData = documentSnapshot?.data() {
+                completion(.success(documentData))
+            } else {
+                let noDataError = NSError(domain: "FitnessFlow.FirestoreService", code: 0, userInfo: [
+                    NSLocalizedDescriptionKey: "No user data found"
+                ])
+                completion(.failure(noDataError))
             }
         }
     }

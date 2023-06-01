@@ -64,9 +64,9 @@ class LogInViewController: UIViewController {
                         progressHUD.hide(animated: true)
                         print("Sign in error:", error)
                         if error.localizedDescription == "The password is invalid or the user does not have a password." {
-                            CAlert.showAlert(on: self!, title: "Error", message: "Login failed. The password is invalid or the user does not have a password.")
+                            AlertDialogWrapper().showErrorAlert(viewController: self!, error: "Error", message: "Login failed. The password is invalid or the user does not have a password.")
                         }
-                        CAlert.showAlert(on: self!, title: "Error", message: "Login failed. Please try again.")
+                        AlertDialogWrapper().showErrorAlert(viewController: self!, error: "Error", message: "Login failed. Please try again.")
                     }
                 }
             }

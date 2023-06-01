@@ -9,9 +9,8 @@ import UIKit
 import SnapKit
 
 class CTabHeader: UIView {
-    private let labelTitle = CLabel.iOSPageTitleUnscrolled()
-    
-    private let labelCaption = CLabel.iOSSubhead()
+    private let labelTitle = LabelWrapper.largeTitle()
+    private let labelCaption = LabelWrapper.subheadline()
     
     init() {
         super.init(frame: .zero)

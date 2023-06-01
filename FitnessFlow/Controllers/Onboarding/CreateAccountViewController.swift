@@ -96,17 +96,55 @@ class CreateAccountViewController: UIViewController {
             
             "fitnessGoal": userModel.fitnessGoal,
             "fitnessLevel": userModel.fitnessLevel,
-            "weeklyGoal": userModel.weeklyGoal
+            "weeklyGoal": userModel.weeklyGoal,
+            "created": userModel.created,
+            "updated": userModel.updated
         ] as [String : Any]
         
         UserService.shared.createUserDocument(userID: userID, data: userData) { result in
             switch result {
             case .success:
                 print("User data stored in Firestore")
+                self.storeHealthRecordInFirestore(userID: userID, userModel: userModel, completion: completion)
+                self.storeFitnessRecordInFirestore(userID: userID, userModel: userModel, completion: completion)
                 completion(true)
                 
             case .failure(let error):
                 print("Failed to store user data in Firestore:", error)
+                completion(false)
+            }
+        }
+    }
+    
+    private func storeHealthRecordInFirestore(userID: String, userModel: UserModel, completion: @escaping (Bool) -> Void) {
+        
+        let userHealthModel = UserHealthModel(height: userModel.height, weight: userModel.weight, age: userModel.age, gender: userModel.gender, healthConditions: userModel.healthConditions, updated: userModel.updated)
+        
+        UserHealthService.shared.createUserHealthDocument(userID: userID,  healthData: userHealthModel) { result in
+            switch result {
+            case .success:
+                print("User health data stored in Firestore")
+                completion(true)
+                
+            case .failure(let error):
+                print("Failed to store user health data in Firestore:", error)
+                completion(false)
+            }
+        }
+    }
+    
+    private func storeFitnessRecordInFirestore(userID: String, userModel: UserModel, completion: @escaping (Bool) -> Void) {
+        
+        let userFitnessModel = UserFitnessModel(fitnessGoal: userModel.fitnessGoal, fitnessLevel: userModel.fitnessLevel, weeklyGoal: userModel.weeklyGoal, updated: userModel.updated)
+        
+        UserFitnessService.shared.createUserFitnessDocument(userID: userID,  fitnessData: userFitnessModel) { result in
+            switch result {
+            case .success:
+                print("User fitness data stored in Firestore")
+                completion(true)
+                
+            case .failure(let error):
+                print("Failed to store user fitness data in Firestore:", error)
                 completion(false)
             }
         }

@@ -9,11 +9,13 @@ import UIKit
 import SnapKit
 import MBProgressHUD
 
-class FitnessDataViewController: UIViewController {
+class FitnessDataViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     private let fitnessDataView: FitnessDataView
     
     private let userAccountModel: UserAccountModel
     private let userHealthModel: UserHealthModel
+    
+    var selectedDays: [String] = [] // Store the selected days
     
     init(userAccountModel: UserAccountModel, userHealthModel: UserHealthModel) {
         self.userAccountModel = userAccountModel
@@ -32,6 +34,10 @@ class FitnessDataViewController: UIViewController {
         customizeNavigationBar()
         customizeNavigationBarBackButton()
         setupBindings()
+        
+        fitnessDataView.weeklyGoalCollectionView.delegate = self
+        fitnessDataView.weeklyGoalCollectionView.dataSource = self
+        fitnessDataView.weeklyGoalCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
     
     private func setupUI() {
@@ -72,6 +78,50 @@ class FitnessDataViewController: UIViewController {
         ]
         backButton.setTitleTextAttributes(attributes, for: .normal)
     }
+    
+    // MARK: - UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7 // Number of days in a week
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        cell.backgroundColor = .lightGray // Set the desired background color
+        
+        let dayLabel = UILabel()
+        dayLabel.text = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][indexPath.item] // Set the day label text
+        dayLabel.textAlignment = .center
+        dayLabel.textColor = .white // Set the desired text color
+        dayLabel.font = UIFont.systemFont(ofSize: 16) // Set the desired font
+        
+        cell.contentView.addSubview(dayLabel)
+        dayLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][indexPath.item]
+        selectedDays.append(selectedDay)
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = .darkGray // Set the selected background color
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let deselectedDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][indexPath.item]
+        if let index = selectedDays.firstIndex(of: deselectedDay) {
+            selectedDays.remove(at: index)
+        }
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = .lightGray // Set the deselected background color
+    }
 
     
     @objc private func continueButtonTapped() {
@@ -81,8 +131,10 @@ class FitnessDataViewController: UIViewController {
         let fitnessLevelIndex = fitnessDataView.fitnessLevelSegmentedControl.selectedSegmentIndex
         let fitnessLevel = fitnessDataView.fitnessLevelSegmentedControl.titleForSegment(at: fitnessLevelIndex) ?? ""
         
-        let weeklyGoalIndex = fitnessDataView.weeklyGoalSegmentedControl.selectedSegmentIndex
-        let weeklyGoal = fitnessDataView.weeklyGoalSegmentedControl.titleForSegment(at: weeklyGoalIndex) ?? ""
+        let userFitnessModel = UserFitnessModel(fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: selectedDays, updated: DateTimeHelper().getCurrentDateTime)
+        
+//        saveDataToFirestore(userFitnessModel: userFitnessModel)
+        print(userFitnessModel)
         
         // let formValidator = FormValidator()
         // TODO: Validate button press later
@@ -94,12 +146,12 @@ class FitnessDataViewController: UIViewController {
         
         
         // Navigate to CreateAccountViewController
-        let userModel = UserModel(firstName: userAccountModel.firstName, lastName: userAccountModel.lastName, email: userAccountModel.email, password: userAccountModel.password, height: userHealthModel.height, weight: userHealthModel.weight, age: userHealthModel.age, gender: userHealthModel.gender, healthConditions: userHealthModel.healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: weeklyGoal)
+        let userModel = UserModel(firstName: userAccountModel.firstName, lastName: userAccountModel.lastName, email: userAccountModel.email, password: userAccountModel.password, height: userHealthModel.height, weight: userHealthModel.weight, age: userHealthModel.age, gender: userHealthModel.gender, healthConditions: userHealthModel.healthConditions, fitnessGoal: fitnessGoal, fitnessLevel: fitnessLevel, weeklyGoal: selectedDays, created: DateTimeHelper().getCurrentDateTime, updated: DateTimeHelper().getCurrentDateTime)
         
             print("---------- Fitness Details ----------")
             print("Fitness Goal: ", fitnessGoal)
             print("Fitness Level: ", fitnessLevel)
-            print("Weekly Goal: ", weeklyGoal)
+            print("Weekly Goal: ", selectedDays)
         
         let nextViewController = CreateAccountViewController(userModel: userModel)
         navigationController?.pushViewController(nextViewController, animated: true)
